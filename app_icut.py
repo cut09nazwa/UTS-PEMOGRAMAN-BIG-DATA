@@ -180,84 +180,70 @@ st.markdown("""
 # NAVIGATION BAR
 # ==========================
 st.markdown("""
-    <style>
-    .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 60px;
-        background-color: white;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        position: sticky;
-        top: 0;
-        z-index: 10;
-    }
+<style>
+/* === NAVBAR STYLE === */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
 
-    .navbar-left h2 {
-        color: #0f172a;
-        font-weight: 800;
-        margin: 0;
-    }
+/* Kiri: Logo / Judul */
+.navbar-left h2 {
+    color: #0f172a;
+    font-weight: 800;
+    font-size: 24px;
+    margin: 0;
+}
 
-    .navbar-right a {
-        margin-left: 25px;
-        color: #334155;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s;
-    }
+/* Kanan: Link navigasi */
+.navbar-right a {
+    margin-left: 25px;
+    color: #334155;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.3s;
+}
 
-    .navbar-right a:hover {
-        color: #0098ff;
-    }
+.navbar-right a:hover {
+    color: #0098ff;
+}
 
-    .btn-nav {
-        background-color: #0098ff;
-        color: white !important;
-        padding: 8px 18px;
-        border-radius: 8px;
-    }
+/* Tombol khusus */
+.btn-nav {
+    background-color: #0098ff;
+    color: white !important;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.3s;
+}
 
-    .btn-nav:hover {
-        background-color: #007acc;
-    }
+.btn-nav:hover {
+    background-color: #007acc;
+    transform: translateY(-2px);
+}
+</style>
 
-    /* === Spasi antara navbar dan hero === */
-    .hero-section {
-        margin-top: 80px; /* Jarak dari navbar ke konten utama */
-    }
-
-    /* Jarak antar elemen di kolom kiri */
-    .label-small {
-        color: #0098ff;
-        font-weight: 600;
-        margin-bottom: 10px;
-    }
-
-    h1 span {
-        display: inline-block;
-        color: #0f172a;
-    }
-
-    p {
-        color: #334155;
-        font-size: 17px;
-        line-height: 1.6;
-        margin-top: 15px;
-        margin-bottom: 30px;
-    }
-    </style>
-
-    <div class="navbar">
-        <div class="navbar-left">
-            <h2>AI Flower Vision</h2>
-        </div>
-        <div class="navbar-right">
-            <a href="#fitur">Fitur</a>
-            <a href="#carakerja">Cara Kerja</a>
-            <a class="btn-nav" href="#mulai">Mulai Sekarang</a>
-        </div>
+<div class="navbar">
+    <div class="navbar-left">
+        <h2>AI Flower Vision</h2>
     </div>
+    <div class="navbar-right">
+        <a href="#fitur">Fitur</a>
+        <a href="#carakerja">Cara Kerja</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#kontak">Kontak</a>
+        <a class="btn-nav" href="#mulai">Mulai Sekarang</a>
+    </div>
+</div>
 """, unsafe_allow_html=True)
 
 # ==========================
@@ -276,6 +262,25 @@ with col1:
         mendeteksi objek, dan memberikan informasi detail tentang setiap bunga yang Anda temukan.
         </p>
     """, unsafe_allow_html=True)
+
+st.markdown("""
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-value">500+</div>
+                <div>Spesies Bunga</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">98%</div>
+                <div>Akurasi AI</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">1200+</div>
+                <div>Pengguna Aktif</div>
+            </div>
+        </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("<button class='cta-button'>🌺 Mulai Petualangan AI</button>", unsafe_allow_html=True)
 
 with col2:
     from PIL import Image
@@ -410,3 +415,4 @@ with col2:
         """,
         unsafe_allow_html=True,
     )
+
