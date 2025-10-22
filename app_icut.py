@@ -286,38 +286,3 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-
-# Tata letak 2 kolom — kode Python berada di luar string
-col1, col2 = st.columns(2)
-
-# ===== Kolom 1 =====
-with col1:
-    st.markdown(
-        """
-        <div style='background-color:#E9FBF0; border-radius:15px; padding:25px; text-align:center;
-                    box-shadow:0 4px 10px rgba(0,0,0,0.05); transition:0.3s;'>
-            <div style='font-size:40px; color:#00A86B;'>🌼</div>
-            <h4 style='color:#0f172a; margin-bottom:8px;'>Kenali Jenis Bunga</h4>
-            <p style='color:#334155; font-size:15px; line-height:1.5;'>
-                Upload foto bunga dan AI akan memberitahu jenis dan nama bunga tersebut.
-            </p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-# ===== Kolom 2 =====
-with col2:
-    st.markdown(
-        """
-        <div style='background-color:#EAF3FF; border-radius:15px; padding:25px; text-align:center;
-                    box-shadow:0 4px 10px rgba(0,0,0,0.05); transition:0.3s;'>
-            <div style='font-size:40px; color:#2563eb;'>🔍</div>
-            <h4 style='color:#0f172a; margin-bottom:8px;'>Deteksi Bagian Bunga</h4>
-            <p style='color:#334155; font-size:15px; line-height:1.5;'>
-                AI dapat mengenali bagian-bagian bunga seperti kelopak, putik, dan daun.
-            </p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
