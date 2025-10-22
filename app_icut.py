@@ -204,7 +204,6 @@ col1, col2 = st.columns([1.2, 1])
 
 with col1:
     st.markdown("<div class='highlight'>Teknologi AI Terdepan untuk Klasifikasi Bunga</div>", unsafe_allow_html=True)
-    st.markdown("<h3 style='color:#00a86b;'>Teknologi AI untuk Klasifikasi Bunga</h3>", unsafe_allow_html=True)
     st.markdown("<h1>Kenali <span style='color:#00a86b;'>Setiap Bunga</span> dengan AI</h1>", unsafe_allow_html=True)
     st.markdown("""
         <p>
