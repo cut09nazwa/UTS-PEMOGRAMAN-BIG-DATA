@@ -152,7 +152,6 @@ st.markdown("""
 st.markdown("""
 <div class="navbar">
     <div class="navbar-left">
-        <div class="navbar-logo">🌷</div>
         <div class="navbar-title">AI Flower Vision</div>
     </div>
     <div class="navbar-right">
@@ -169,8 +168,6 @@ st.markdown("""
 st.markdown("""
 <div class="hero">
     <div class="highlight">Teknologi AI Terdepan untuk Klasifikasi Bunga</div>
-    <h1>Kenali Keindahan Bunga dengan <br> Sentuhan Kecerdasan Buatan</h1>
-</div>
 """, unsafe_allow_html=True)
 # ==========================
 # HERO SECTION
