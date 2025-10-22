@@ -29,146 +29,109 @@ st.set_page_config(
 )
 
 # ==========================
-# CSS STYLING PROFESIONAL + NAVBAR + BACKGROUND
+# CSS STYLING (MIRIP CONTOH GAMBAR)
 # ==========================
 st.markdown("""
     <style>
-        /* ===== BODY & BACKGROUND ===== */
+        /* FONT */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
         body {
-            background: linear-gradient(135deg, #eafaf1 0%, #ffffff 100%);
-            font-family: "Poppins", sans-serif;
+            background-color: #f6fffb;
+            font-family: 'Inter', sans-serif;
         }
         [data-testid="stAppViewContainer"] {
-            background: linear-gradient(135deg, #dfffe9 0%, #ffffff 100%);
+            background: #f6fffb;
         }
 
-        /* ===== NAVBAR ===== */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #ffffff;
-            padding: 18px 50px;
-            box-shadow: 0px 2px 8px rgba(0,0,0,0.08);
-            border-radius: 0 0 16px 16px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .navbar-left h2 {
-            margin: 0;
-            font-size: 22px;
-            font-family: 'Pacifico', cursive;
-            color: #009f6b;
-            letter-spacing: 0.5px;
-        }
-        .navbar-right a {
-            margin-left: 28px;
-            text-decoration: none;
-            color: #222;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-        .navbar-right a:hover {
-            color: #00a86b;
-        }
-        .btn-nav {
-            background-color: #00a86b;
-            color: white !important;
-            padding: 10px 22px;
-            border-radius: 10px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: 0.3s;
-            margin-left: 25px;
-        }
-        .btn-nav:hover {
-            background-color: #009660;
-            transform: translateY(-1px);
-        }
-
-        /* ===== HERO SECTION ===== */
+        /* HERO SECTION */
         .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 90px 70px 70px 70px;
-            background: linear-gradient(135deg, #f5fff9 0%, #ffffff 100%);
-            border-radius: 25px;
-            box-shadow: 0px 6px 15px rgba(0,0,0,0.05);
-            margin-top: 40px;
+            padding: 80px 80px 60px 80px;
+            background: linear-gradient(180deg, #f6fffb 0%, #ffffff 100%);
+            border-radius: 20px;
         }
+
+        /* LABEL ATAS */
         .label-small {
             display: inline-block;
             background-color: #c9f7df;
             color: #007a4a;
             font-size: 15px;
-            font-weight: 500;
+            font-weight: 600;
             padding: 8px 16px;
             border-radius: 25px;
-            margin-bottom: 14px;
+            margin-bottom: 22px;
         }
-        .hero-text {
-            max-width: 55%;
-        }
-        .hero-text h1 {
-            font-size: 58px;
+
+        /* JUDUL UTAMA */
+        .hero h1 {
+            font-size: 56px;
             font-weight: 800;
             line-height: 1.2;
-            color: #1a1a1a;
+            color: #0f172a; /* hitam elegan */
+            margin-bottom: 20px;
         }
-        .hero-text h1 span:nth-child(1) { color: #00a86b; }
-        .hero-text h1 span:nth-child(2) { color: #00855a; }
-        .hero-text h1 span:nth-child(3) { color: #006644; }
+        .hero h1 span {
+            color: #009f6b; /* hijau toska */
+        }
 
-        .hero-text p {
+        /* PARAGRAF */
+        .hero p {
             font-size: 18px;
-            color: #444;
-            margin-top: 18px;
+            color: #334155;
             line-height: 1.6;
+            margin-bottom: 45px;
         }
 
+        /* STATISTIK */
         .stats {
             display: flex;
             gap: 60px;
-            margin-top: 25px;
+            margin-bottom: 45px;
         }
         .stat-box {
             text-align: left;
         }
         .stat-value {
-            font-size: 32px;
-            font-weight: bold;
-            color: #00a86b;
+            font-size: 28px;
+            font-weight: 700;
+            color: #009f6b;
+        }
+        .stat-label {
+            color: #334155;
+            font-size: 15px;
         }
 
-        /* ===== CTA BUTTON ===== */
-        .cta-button {
-            background-color: #00a86b;
-            color: white;
-            padding: 14px 30px;
-            font-size: 19px;
-            border: none;
-            border-radius: 14px;
-            margin-top: 40px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 168, 107, 0.3);
-            transition: 0.3s ease;
+        /* TOMBOL */
+        .btn-primary {
+            background-color: #009f6b;
+            color: white !important;
+            padding: 12px 26px;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-right: 14px;
+            transition: 0.3s;
         }
-        .cta-button:hover {
-            background-color: #008e5b;
-            transform: translateY(-3px);
+        .btn-primary:hover {
+            background-color: #008658;
         }
-
-        /* ===== GAMBAR KANAN ===== */
-        .hero-img img {
-            width: 460px;
-            border-radius: 20px;
-            box-shadow: 0px 8px 14px rgba(0,0,0,0.1);
+        .btn-outline {
+            border: 2px solid #009f6b;
+            color: #009f6b !important;
+            background-color: transparent;
+            padding: 12px 26px;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .btn-outline:hover {
+            background-color: #e6fff2;
         }
     </style>
-
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 """, unsafe_allow_html=True)
 
 # ==========================
@@ -182,7 +145,6 @@ st.markdown("""
         <div class="navbar-right">
             <a href="#fitur">Fitur</a>
             <a href="#carakerja">Cara Kerja</a>
-            <a href="#tentang">Tentang</a>
             <a class="btn-nav" href="#mulai">Mulai Sekarang</a>
         </div>
     </div>
