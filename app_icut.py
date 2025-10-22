@@ -69,6 +69,34 @@ st.markdown("""
             color: #00a86b;
         }
 
+        .navbar-left {
+            flex: 1;
+        }
+
+        .navbar-title {
+            font-family: 'Pacifico', cursive;
+            font-size: 28px;
+            font-weight: 600;
+            color: #009970;
+            letter-spacing: 0.5px;
+        }
+
+        .navbar-button {
+            background-color: #009970;
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 14px;
+            font-weight: 600;
+            margin-left: 20px;
+            box-shadow: 0px 3px 8px rgba(0, 153, 112, 0.25);
+            transition: 0.3s ease;
+        }
+
+        .navbar-button:hover {
+            background-color: #007e5d;
+            transform: translateY(-2px);
+        }
+
         /* ===== HERO SECTION ===== */
         .hero {
             display: flex;
@@ -80,8 +108,15 @@ st.markdown("""
             box-shadow: 0px 4px 12px rgba(0,0,0,0.05);
         }
 
-        .hero-text {
-            max-width: 55%;
+        .highlight {
+            background-color: #c6f5e3;
+            color: #006b47;
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 10px;
         }
 
         .hero-text h1 {
@@ -117,7 +152,6 @@ st.markdown("""
             color: #00a86b;
         }
 
-        /* ===== CTA BUTTON ===== */
         .cta-button {
             background-color: #00a86b;
             color: white;
@@ -136,61 +170,12 @@ st.markdown("""
             transform: translateY(-2px);
         }
 
-        /* ===== GAMBAR KANAN ===== */
         .hero-img img {
             width: 420px;
             border-radius: 20px;
             box-shadow: 0px 6px 12px rgba(0,0,0,0.1);
         }
 
-        /* ===== CARD INFO TAMBAHAN ===== */
-        .info-box {
-            background-color: #f7fff9;
-            border-left: 6px solid #00a86b;
-            padding: 20px;
-            border-radius: 12px;
-            margin-top: 30px;
-        }
-
-        /* ===== TAMBAHAN NAVBAR & HERO ===== */
-        .navbar-left {
-            flex: 1;
-        }
-
-        .navbar-title {
-            font-family: 'Pacifico', cursive;
-            font-size: 28px;
-            font-weight: 600;
-            color: #009970;
-            letter-spacing: 0.5px;
-        }
-
-        .navbar-button {
-            background-color: #009970;
-            color: white !important;
-            padding: 10px 20px;
-            border-radius: 14px;
-            font-weight: 600;
-            margin-left: 20px;
-            box-shadow: 0px 3px 8px rgba(0, 153, 112, 0.25);
-            transition: 0.3s ease;
-        }
-
-        .navbar-button:hover {
-            background-color: #007e5d;
-            transform: translateY(-2px);
-        }
-
-        .highlight {
-            background-color: #c6f5e3;
-            color: #006b47;
-            display: inline-block;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
     </style>
 
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
@@ -215,15 +200,10 @@ st.markdown("""
 # ==========================
 # HERO SECTION
 # ==========================
-st.markdown("""
-<div class="hero">
-    <div class="highlight">Teknologi AI Terdepan untuk Klasifikasi Bunga</div>
-</div>
-""", unsafe_allow_html=True)
-
 col1, col2 = st.columns([1.2, 1])
 
 with col1:
+    st.markdown("<div class='highlight'>Teknologi AI Terdepan untuk Klasifikasi Bunga</div>", unsafe_allow_html=True)
     st.markdown("<h3 style='color:#00a86b;'>Teknologi AI untuk Klasifikasi Bunga</h3>", unsafe_allow_html=True)
     st.markdown("<h1>Kenali <span style='color:#00a86b;'>Setiap Bunga</span> dengan AI</h1>", unsafe_allow_html=True)
     st.markdown("""
@@ -255,7 +235,7 @@ with col1:
     """, unsafe_allow_html=True)
 
 with col2:
-    image = Image.open("sample_images/1cc501a2ea_jpg.rf.dc455624ba691a864edbf790e48543dd.jpg")  # ganti sesuai path gambar kamu
+    image = Image.open("sample_images/1cc501a2ea_jpg.rf.dc455624ba691a864edbf790e48543dd.jpg")
     st.image(image, use_container_width=True, caption="AI mendeteksi bunga di gambar ini 🌷")
     
 # =======================
