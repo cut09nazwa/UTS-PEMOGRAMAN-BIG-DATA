@@ -20,77 +20,52 @@ yolo_model, classifier = load_models()
 # ==========================
 # UI
 # ==========================
-# CSS STYLING PROFESIONAL + NAVBAR + BACKGROUND
+# KONFIGURASI DASBOR
+# ==========================
+st.set_page_config(
+    page_title="AI Flower Vision",
+    page_icon="🌸",
+    layout="wide",
+)
+
+# ==========================
+# CSS STYLING TAMPAK PROFESIONAL + BACKGROUND WARNA
 # ==========================
 st.markdown("""
     <style>
-        /* ===== LAYOUT FULL WIDTH ===== */
-        [data-testid="stAppViewContainer"] > .main {
-            max-width: 85%;
-            padding-left: 60px;
-            padding-right: 60px;
-            margin: 0 auto;
-        }
-
-        .block-container {
-            max-width: 1200px;
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-            margin: 0 auto;
-        }
-        
         /* ===== BODY & BACKGROUND ===== */
         body {
             background: linear-gradient(135deg, #eafaf1 0%, #ffffff 100%);
             font-family: "Poppins", sans-serif;
         }
+
+        /* Streamlit container background */
         [data-testid="stAppViewContainer"] {
-            background: linear-gradient(135deg, #dfffe9 0%, #ffffff 100%);
+            background: linear-gradient(120deg, #f0fff4, #ffffff);
         }
 
         /* ===== NAVBAR ===== */
         .navbar {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
             background-color: #ffffff;
-            padding: 18px 50px;
-            box-shadow: 0px 2px 8px rgba(0,0,0,0.08);
-            border-radius: 0 0 16px 16px;
+            padding: 14px 40px;
+            box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+            border-bottom: 3px solid #00a86b10;
             position: sticky;
             top: 0;
             z-index: 100;
         }
-        .navbar-left h2 {
-            margin: 0;
-            font-size: 22px;
-            font-family: 'Pacifico', cursive;
-            color: #009f6b;
-            letter-spacing: 0.5px;
-        }
-        .navbar-right a {
-            margin-left: 28px;
+        .navbar a {
+            margin-left: 25px;
             text-decoration: none;
             color: #222;
             font-weight: 500;
             transition: 0.3s;
         }
-        .navbar-right a:hover {
+        .navbar a:hover {
             color: #00a86b;
-        }
-        .btn-nav {
-            background-color: #00a86b;
-            color: white !important;
-            padding: 10px 22px;
-            border-radius: 10px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: 0.3s;
-            margin-left: 25px;
-        }
-        .btn-nav:hover {
-            background-color: #009660;
-            transform: translateY(-1px);
         }
 
         /* ===== HERO SECTION ===== */
@@ -98,52 +73,38 @@ st.markdown("""
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 90px 70px 70px 70px;
-            background: linear-gradient(135deg, #f5fff9 0%, #ffffff 100%);
-            border-radius: 25px;
-            box-shadow: 0px 6px 15px rgba(0,0,0,0.05);
-            margin-top: 40px;
-        }
-        .label-small {
-            display: inline-block;
-            background-color: #c9f7df;
-            color: #007a4a;
-            font-size: 15px;
-            font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 25px;
-            margin-bottom: 14px;
+            padding: 80px 60px;
+            background: linear-gradient(135deg, #ecfff4 0%, #ffffff 100%);
+            border-radius: 20px;
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.05);
         }
         .hero-text {
             max-width: 55%;
         }
         .hero-text h1 {
-            font-size: 58px;
+            font-size: 48px;
             font-weight: 800;
-            line-height: 1.2;
             color: #1a1a1a;
         }
-        .hero-text h1 span:nth-child(1) { color: #00a86b; }
-        .hero-text h1 span:nth-child(2) { color: #00855a; }
-        .hero-text h1 span:nth-child(3) { color: #006644; }
-
+        .hero-text span {
+            color: #00a86b;
+        }
         .hero-text p {
             font-size: 18px;
             color: #444;
-            margin-top: 18px;
+            margin-top: 10px;
             line-height: 1.6;
         }
-
         .stats {
             display: flex;
-            gap: 60px;
-            margin-top: 25px;
+            gap: 50px;
+            margin-top: 20px;
         }
         .stat-box {
             text-align: left;
         }
         .stat-value {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: bold;
             color: #00a86b;
         }
@@ -152,110 +113,56 @@ st.markdown("""
         .cta-button {
             background-color: #00a86b;
             color: white;
-            padding: 14px 30px;
-            font-size: 19px;
+            padding: 12px 28px;
+            font-size: 18px;
             border: none;
-            border-radius: 14px;
-            margin-top: 40px;
+            border-radius: 12px;
+            margin-top: 35px;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 168, 107, 0.3);
+            box-shadow: 0 3px 10px rgba(0, 168, 107, 0.3);
             transition: 0.3s ease;
         }
         .cta-button:hover {
             background-color: #008e5b;
-            transform: translateY(-3px);
+            transform: translateY(-2px);
         }
 
         /* ===== GAMBAR KANAN ===== */
         .hero-img img {
-            width: 460px;
+            width: 420px;
             border-radius: 20px;
-            box-shadow: 0px 8px 14px rgba(0,0,0,0.1);
+            box-shadow: 0px 6px 12px rgba(0,0,0,0.1);
+        }
+
+        /* ===== CARD INFO TAMBAHAN ===== */
+        .info-box {
+            background-color: #f7fff9;
+            border-left: 6px solid #00a86b;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
         }
     </style>
-
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 """, unsafe_allow_html=True)
+
 # ==========================
-# NAVIGATION BAR
+# NAVBAR
 # ==========================
 st.markdown("""
-<style>
-/* === NAVBAR STYLE === */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 60px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-
-/* Kiri: Logo / Judul */
-.navbar-left h2 {
-    color: #0f172a;
-    font-weight: 800;
-    font-size: 24px;
-    margin: 0;
-}
-
-/* Kanan: Link navigasi */
-.navbar-right a {
-    margin-left: 25px;
-    color: #334155;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 16px;
-    transition: color 0.3s;
-}
-
-.navbar-right a:hover {
-    color: #0098ff;
-}
-
-/* Tombol khusus */
-.btn-nav {
-    background-color: #0098ff;
-    color: white !important;
-    padding: 8px 18px;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.btn-nav:hover {
-    background-color: #007acc;
-    transform: translateY(-2px);
-}
-</style>
-
-<div class="navbar">
-    <div class="navbar-left">
-        <h2>AI Flower Vision</h2>
-    </div>
-    <div class="navbar-right">
+    <div class="navbar">
         <a href="#fitur">Fitur</a>
         <a href="#carakerja">Cara Kerja</a>
-        <a href="#tentang">Tentang</a>
-        <a href="#kontak">Kontak</a>
-        <a class="btn-nav" href="#mulai">Mulai Sekarang</a>
     </div>
-</div>
 """, unsafe_allow_html=True)
 
 # ==========================
 # HERO SECTION
 # ==========================
-st.markdown("<div class='hero-section'>", unsafe_allow_html=True)
-
 col1, col2 = st.columns([1.2, 1])
 
 with col1:
-    st.markdown("<div class='label-small'>Teknologi AI Terdepan untuk Klasifikasi Bunga</div>", unsafe_allow_html=True)
-    st.markdown("<h1><span>Kenali</span> <span>Setiap</span> <span>Bunga</span> dengan AI</h1>", unsafe_allow_html=True)
+    st.markdown("<h3 style='color:#00a86b;'>Teknologi AI untuk Klasifikasi Bunga</h3>", unsafe_allow_html=True)
+    st.markdown("<h1>Kenali <span style='color:#00a86b;'>Setiap Bunga</span> dengan AI</h1>", unsafe_allow_html=True)
     st.markdown("""
         <p>
         Platform revolusioner yang menggunakan kecerdasan buatan untuk mengidentifikasi spesies bunga, 
@@ -263,7 +170,7 @@ with col1:
         </p>
     """, unsafe_allow_html=True)
 
-st.markdown("""
+    st.markdown("""
         <div class="stats">
             <div class="stat-box">
                 <div class="stat-value">500+</div>
@@ -280,14 +187,13 @@ st.markdown("""
         </div>
     """, unsafe_allow_html=True)
 
-st.markdown("<button class='cta-button'>🌺 Mulai Petualangan AI</button>", unsafe_allow_html=True)
+    st.markdown("""
+        <button class="cta-button">🌺 Mulai Petualangan AI</button>
+    """, unsafe_allow_html=True)
 
 with col2:
-    from PIL import Image
-    image = Image.open("sample_images/1cc501a2ea_jpg.rf.dc455624ba691a864edbf790e48543dd.jpg")
+    image = Image.open("sample_images/1cc501a2ea_jpg.rf.dc455624ba691a864edbf790e48543dd.jpg")  # ganti sesuai path gambar kamu
     st.image(image, use_container_width=True, caption="AI mendeteksi bunga di gambar ini 🌷")
-
-st.markdown("</div>", unsafe_allow_html=True)
 
 # =======================
 # BAGIAN FITUR UNGGULAN
