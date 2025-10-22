@@ -182,7 +182,6 @@ st.markdown("""
         <div class="navbar-right">
             <a href="#fitur">Fitur</a>
             <a href="#carakerja">Cara Kerja</a>
-            <a href="#tentang">Tentang</a>
             <a class="btn-nav" href="#mulai">Mulai Sekarang</a>
         </div>
     </div>
