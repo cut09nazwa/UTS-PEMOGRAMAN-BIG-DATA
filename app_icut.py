@@ -219,43 +219,76 @@ import streamlit as st
 
 import streamlit as st
 
-# === FITUR UNGGULAN ===
+import streamlit as st
+
+# =======================
+# BAGIAN FITUR UNGGULAN
+# =======================
+
 st.markdown("""
 <style>
-.feature-box {
+/* Judul utama */
+.section-title {
+    text-align: center;
+    color: #0f172a;
+    font-size: 46px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #334155;
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+/* Kontainer fitur */
+.features-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+/* Setiap kartu fitur */
+.feature-card {
     width: 400px;
     padding: 35px;
     border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
     transition: all 0.3s ease;
 }
-.feature-box:hover {
+
+/* Efek hover */
+.feature-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 16px 30px rgba(0,0,0,0.25);
 }
-.feature-text {
-    font-size: 16px;
-    line-height: 1.5;
-}
+
+/* Judul dan teks di dalam kartu */
 .feature-title {
     font-size: 22px;
     font-weight: 700;
     margin-bottom: 10px;
 }
+.feature-text {
+    font-size: 16px;
+    line-height: 1.5;
+}
 </style>
 
-<h1 style='text-align:center; color:#0f172a; font-size:46px; font-weight:800;'>
-    Fitur Unggulan
-</h1>
-<p style='text-align:center; color:#334155; font-size:18px; max-width:700px; margin:0 auto 50px;'>
+<h1 class='section-title'>Fitur Unggulan</h1>
+<p class='section-subtitle'>
     Teknologi AI terdepan yang memungkinkan Anda mengeksplorasi dunia bunga
     dengan cara yang belum pernah ada sebelumnya.
 </p>
 
-<div style='display:flex; justify-content:center; gap:60px; flex-wrap:wrap; margin-top:20px;'>
+<div class='features-container'>
 
-    <!-- FITUR 1 -->
-    <div class='feature-box' style='background: linear-gradient(135deg, #0098ff, #00c6a7); color:white;'>
+    <!-- Kartu 1 -->
+    <div class='feature-card' style='background: linear-gradient(135deg, #0098ff, #00c6a7); color: white;'>
         <h3 class='feature-title'>🔍 Deteksi Objek Canggih</h3>
         <p class='feature-text'>
             Identifikasi berbagai bagian bunga seperti kelopak, putik, daun, dan batang 
@@ -263,8 +296,8 @@ st.markdown("""
         </p>
     </div>
 
-    <!-- FITUR 2 -->
-    <div class='feature-box' style='background:white; border:2px solid #00a86b; color:#0f172a;'>
+    <!-- Kartu 2 -->
+    <div class='feature-card' style='background: white; border: 2px solid #00a86b; color: #0f172a;'>
         <h3 class='feature-title'>🌼 Klasifikasi Spesies Bunga</h3>
         <p class='feature-text' style='color:#334155;'>
             Membedakan lebih dari 500 spesies bunga menggunakan model AI dengan 
