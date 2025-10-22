@@ -225,68 +225,69 @@ import streamlit as st
 # BAGIAN FITUR UNGGULAN
 # =======================
 
-st.markdown("""
-<style>
-/* Judul utama */
-.section-title {
-    text-align: center;
-    color: #0f172a;
-    font-size: 46px;
-    font-weight: 800;
-    margin-bottom: 10px;
-}
+# Masukkan CSS + judul/subjudul
+st.markdown(
+    """
+    <style>
+    /* Judul utama */
+    .section-title {
+        text-align: center;
+        color: #0f172a;
+        font-size: 46px;
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
 
-.section-subtitle {
-    text-align: center;
-    color: #334155;
-    font-size: 18px;
-    max-width: 700px;
-    margin: 0 auto 50px;
-}
+    .section-subtitle {
+        text-align: center;
+        color: #334155;
+        font-size: 18px;
+        max-width: 700px;
+        margin: 0 auto 50px;
+    }
 
-/* Kontainer fitur */
-.features-container {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    flex-wrap: wrap;
-}
+    /* Kontainer fitur (opsional jika mau pakai CSS) */
+    .features-container {
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        flex-wrap: wrap;
+    }
 
-/* Setiap kartu fitur */
-.feature-card {
-    width: 400px;
-    padding: 35px;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-    transition: all 0.3s ease;
-}
+    .feature-card {
+        width: 400px;
+        padding: 35px;
+        border-radius: 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        transition: all 0.3s ease;
+    }
 
-/* Efek hover */
-.feature-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 30px rgba(0,0,0,0.25);
-}
+    .feature-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 16px 30px rgba(0,0,0,0.25);
+    }
 
-/* Judul dan teks di dalam kartu */
-.feature-title {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-.feature-text {
-    font-size: 16px;
-    line-height: 1.5;
-}
-</style>
+    .feature-title {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    .feature-text {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    </style>
 
-<h1 class='section-title'>Fitur Unggulan</h1>
-<p class='section-subtitle'>
-    Teknologi AI terdepan yang memungkinkan Anda mengeksplorasi dunia bunga
-    dengan cara yang belum pernah ada sebelumnya.
-</p>
+    <h1 class='section-title'>Fitur Unggulan</h1>
+    <p class='section-subtitle'>
+        Teknologi AI terdepan yang memungkinkan Anda mengeksplorasi dunia bunga
+        dengan cara yang belum pernah ada sebelumnya.
+    </p>
+    """,
+    unsafe_allow_html=True,
+)
 
-<div class='features-container'>
-# Tata letak 2 kolom
+# Tata letak 2 kolom — kode Python berada di luar string
 col1, col2 = st.columns(2)
 
 # ===== Kolom 1 =====
@@ -302,7 +303,7 @@ with col1:
             </p>
         </div>
         """,
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
     )
 
 # ===== Kolom 2 =====
@@ -318,5 +319,5 @@ with col2:
             </p>
         </div>
         """,
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
     )
