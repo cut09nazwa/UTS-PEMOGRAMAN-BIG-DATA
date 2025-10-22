@@ -217,47 +217,56 @@ with col2:
 
 import streamlit as st
 
-# ===============================
-# FITUR UNGGULAN SECTION
-# ===============================
+import streamlit as st
 
+# === FITUR UNGGULAN ===
 st.markdown("""
-<!-- BAGIAN JUDUL -->
+<style>
+.feature-box {
+    width: 400px;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+.feature-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 30px rgba(0,0,0,0.25);
+}
+.feature-text {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.feature-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+</style>
+
 <h1 style='text-align:center; color:#0f172a; font-size:46px; font-weight:800;'>
     Fitur Unggulan
 </h1>
-
-<p style='text-align:center; color:#334155; font-size:18px; max-width:700px; margin:auto; line-height:1.6;'>
+<p style='text-align:center; color:#334155; font-size:18px; max-width:700px; margin:0 auto 50px;'>
     Teknologi AI terdepan yang memungkinkan Anda mengeksplorasi dunia bunga
     dengan cara yang belum pernah ada sebelumnya.
 </p>
 
-<!-- KONTEN FITUR -->
-<div style='display:flex; justify-content:center; gap:60px; flex-wrap:wrap; margin-top:60px;'>
+<div style='display:flex; justify-content:center; gap:60px; flex-wrap:wrap; margin-top:20px;'>
 
     <!-- FITUR 1 -->
-    <div style='background: linear-gradient(135deg, #0098ff, #00c6a7);
-                color:white; width:400px; padding:35px;
-                border-radius:20px; box-shadow:0 10px 20px rgba(0,0,0,0.15);
-                transition:transform 0.3s, box-shadow 0.3s;'>
-        <h3 style='font-size:22px; font-weight:700; margin-bottom:10px;'>
-            🔍 Deteksi Objek Canggih
-        </h3>
-        <p style='font-size:16px; line-height:1.5;'>
+    <div class='feature-box' style='background: linear-gradient(135deg, #0098ff, #00c6a7); color:white;'>
+        <h3 class='feature-title'>🔍 Deteksi Objek Canggih</h3>
+        <p class='feature-text'>
             Identifikasi berbagai bagian bunga seperti kelopak, putik, daun, dan batang 
             dengan presisi tinggi menggunakan teknologi computer vision.
         </p>
     </div>
 
     <!-- FITUR 2 -->
-    <div style='background: white; width:400px; padding:35px;
-                border-radius:20px; border:2px solid #00a86b;
-                box-shadow:0 4px 10px rgba(0,0,0,0.05);
-                transition:transform 0.3s, box-shadow 0.3s;'>
-        <h3 style='font-size:22px; color:#0f172a; font-weight:700; margin-bottom:10px;'>
-            🌼 Klasifikasi Spesies Bunga
-        </h3>
-        <p style='font-size:16px; color:#334155; line-height:1.5;'>
+    <div class='feature-box' style='background:white; border:2px solid #00a86b; color:#0f172a;'>
+        <h3 class='feature-title'>🌼 Klasifikasi Spesies Bunga</h3>
+        <p class='feature-text' style='color:#334155;'>
             Membedakan lebih dari 500 spesies bunga menggunakan model AI dengan 
             tingkat akurasi hingga 98%.
         </p>
