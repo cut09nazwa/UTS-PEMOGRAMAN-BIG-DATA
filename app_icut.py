@@ -24,6 +24,20 @@ yolo_model, classifier = load_models()
 # ==========================
 st.markdown("""
     <style>
+        /* ===== LAYOUT FULL WIDTH ===== */
+        [data-testid="stAppViewContainer"] > .main {
+            max-width: 95%;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
+        .block-container {
+            max-width: 1400px;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            margin: 0 auto;
+        }
+        
         /* ===== BODY & BACKGROUND ===== */
         body {
             background: linear-gradient(135deg, #eafaf1 0%, #ffffff 100%);
