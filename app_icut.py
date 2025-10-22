@@ -280,7 +280,7 @@ st.markdown("""
         </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("<button class='cta-button'>🌺 Mulai Petualangan AI</button>", unsafe_allow_html=True)
+st.markdown("<button class='cta-button'>🌺 Mulai Petualangan AI</button>", unsafe_allow_html=True)
 
 with col2:
     from PIL import Image
