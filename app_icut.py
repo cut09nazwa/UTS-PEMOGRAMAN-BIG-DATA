@@ -177,9 +177,77 @@ st.markdown("""
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 """, unsafe_allow_html=True)
 # ==========================
-# NAVBAR
+# NAVIGATION BAR
 # ==========================
 st.markdown("""
+    <style>
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 60px;
+        background-color: white;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    .navbar-left h2 {
+        color: #0f172a;
+        font-weight: 800;
+        margin: 0;
+    }
+
+    .navbar-right a {
+        margin-left: 25px;
+        color: #334155;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+    .navbar-right a:hover {
+        color: #0098ff;
+    }
+
+    .btn-nav {
+        background-color: #0098ff;
+        color: white !important;
+        padding: 8px 18px;
+        border-radius: 8px;
+    }
+
+    .btn-nav:hover {
+        background-color: #007acc;
+    }
+
+    /* === Spasi antara navbar dan hero === */
+    .hero-section {
+        margin-top: 80px; /* Jarak dari navbar ke konten utama */
+    }
+
+    /* Jarak antar elemen di kolom kiri */
+    .label-small {
+        color: #0098ff;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    h1 span {
+        display: inline-block;
+        color: #0f172a;
+    }
+
+    p {
+        color: #334155;
+        font-size: 17px;
+        line-height: 1.6;
+        margin-top: 15px;
+        margin-bottom: 30px;
+    }
+    </style>
+
     <div class="navbar">
         <div class="navbar-left">
             <h2>AI Flower Vision</h2>
@@ -195,6 +263,8 @@ st.markdown("""
 # ==========================
 # HERO SECTION
 # ==========================
+st.markdown("<div class='hero-section'>", unsafe_allow_html=True)
+
 col1, col2 = st.columns([1.2, 1])
 
 with col1:
@@ -207,28 +277,12 @@ with col1:
         </p>
     """, unsafe_allow_html=True)
 
-    st.markdown("""
-        <div class="stats">
-            <div class="stat-box">
-                <div class="stat-value">500+</div>
-                <div>Spesies Bunga</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-value">98%</div>
-                <div>Akurasi AI</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-value">1200+</div>
-                <div>Pengguna Aktif</div>
-            </div>
-        </div>
-    """, unsafe_allow_html=True)
-
-    st.markdown("<button class='cta-button'>🌺 Mulai Petualangan AI</button>", unsafe_allow_html=True)
-
 with col2:
+    from PIL import Image
     image = Image.open("sample_images/1cc501a2ea_jpg.rf.dc455624ba691a864edbf790e48543dd.jpg")
     st.image(image, use_container_width=True, caption="AI mendeteksi bunga di gambar ini 🌷")
+
+st.markdown("</div>", unsafe_allow_html=True)
 
 # =======================
 # BAGIAN FITUR UNGGULAN
