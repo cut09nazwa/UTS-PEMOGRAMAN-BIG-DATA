@@ -99,7 +99,7 @@ with col_img:
     st.image(image, use_container_width=True, caption="Contoh Gambar Bunga")
 
 with col_info:
-    st.success("🌹 Mawar Merah terdeteksi (95% akurasi)")
+    st.success("🌻 Bunga Matahari terdeteksi (95% akurasi)")
     st.info("🔍 Deteksi Objek: 4 bunga ditemukan di gambar ini.")
     st.write("""
     AI Flower Vision dapat mengenali berbagai jenis bunga dengan tingkat akurasi tinggi.  
