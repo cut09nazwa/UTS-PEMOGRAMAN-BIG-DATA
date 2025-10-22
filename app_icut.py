@@ -180,38 +180,3 @@ with col1:
 with col2:
     image = Image.open("sample_images/1cc501a2ea_jpg.rf.dc455624ba691a864edbf790e48543dd.jpg")  # ganti dengan gambar kamu
     st.image(image, use_container_width=True, caption="AI mendeteksi bunga di gambar ini 🌷")
-
-# ==========================
-# BAGIAN INFORMASI TAMBAHAN
-# ==========================
-st.markdown('<div class="info-box">', unsafe_allow_html=True)
-st.markdown("🌻 **Bunga Matahari terdeteksi (95% akurasi)**")
-st.markdown("🔍 Deteksi Objek: 4 bunga ditemukan di gambar ini.")
-st.markdown("""
-AI Flower Vision mampu mengenali berbagai jenis bunga dengan tingkat akurasi tinggi.
-Cukup unggah gambar dan sistem akan memprosesnya untuk mendeteksi dan mengklasifikasi bunga.
-""")
-st.markdown('</div>', unsafe_allow_html=True)
-
-# ==========================
-# BAGIAN FITUR
-# ==========================
-st.markdown('<div id="fitur"></div>', unsafe_allow_html=True)
-st.subheader("✨ Fitur Utama")
-st.write("""
-- **Klasifikasi Gambar** – Mengenali jenis bunga dari foto tunggal.
-- **Deteksi Objek** – Menandai bunga-bunga yang muncul pada satu gambar.
-- **Tampilan Modern** – Desain interaktif dan responsif.
-""")
-
-# ==========================
-# BAGIAN CARA KERJA
-# ==========================
-st.markdown('<div id="carakerja"></div>', unsafe_allow_html=True)
-st.subheader("⚙️ Cara Kerja Sistem")
-st.write("""
-1. Pengguna mengunggah gambar bunga melalui form upload.  
-2. Sistem akan memilih mode: **Klasifikasi** atau **Deteksi Objek**.  
-3. AI memproses gambar dan menampilkan hasil deteksi dengan tingkat akurasi.  
-4. Pengguna dapat membaca deskripsi bunga yang teridentifikasi.  
-""")
