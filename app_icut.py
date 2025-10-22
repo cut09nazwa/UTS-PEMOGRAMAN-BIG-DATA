@@ -20,6 +20,23 @@ yolo_model, classifier = load_models()
 # ==========================
 # UI
 # ==========================
+# ===== FULL WIDTH FIX (tambahkan di sini dulu) =====
+st.markdown("""
+    <style>
+        .block-container {
+            padding: 0rem 0rem 0rem 0rem !important;
+            margin: 0 auto;
+            max-width: 100% !important;
+        }
+        [data-testid="stHeader"] {
+            background: transparent;
+        }
+        [data-testid="stToolbar"] {
+            display: none;
+        }
+    </style>
+""", unsafe_allow_html=True)
+# ==========================
 # CSS STYLING PROFESIONAL + NAVBAR + BACKGROUND
 # ==========================
 st.markdown("""
