@@ -20,7 +20,7 @@ yolo_model, classifier = load_models()
 # ==========================
 # UI
 # ==========================
-# CONFIGURASI DASHBOARD
+# KONFIGURASI DASHBOARD
 # ==========================
 st.set_page_config(
     page_title="AI Flower Vision",
@@ -29,16 +29,21 @@ st.set_page_config(
 )
 
 # ==========================
-# CSS STYLING
+# CSS STYLING TAMPAK PROFESIONAL
 # ==========================
 st.markdown("""
     <style>
+        body {
+            background-color: #f3fef6;
+        }
+
+        /* Navbar */
         .navbar {
             display: flex;
             justify-content: flex-end;
             align-items: center;
             background-color: #ffffff;
-            padding: 12px 30px;
+            padding: 14px 40px;
             box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
@@ -47,17 +52,90 @@ st.markdown("""
         .navbar a {
             margin-left: 25px;
             text-decoration: none;
-            color: #333;
+            color: #222;
             font-weight: 500;
         }
         .navbar a:hover {
             color: #00a86b;
         }
-        .section {
-            padding-top: 80px;
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 60px;
+            background: linear-gradient(135deg, #ecfff4 0%, #ffffff 100%);
+            border-radius: 20px;
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.05);
+        }
+        .hero-text {
+            max-width: 55%;
+        }
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #1a1a1a;
+        }
+        .hero-text span {
+            color: #00a86b;
+        }
+        .hero-text p {
+            font-size: 18px;
+            color: #444;
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+        .stats {
+            display: flex;
+            gap: 50px;
+            margin-top: 20px;
+        }
+        .stat-box {
+            text-align: left;
+        }
+        .stat-value {
+            font-size: 28px;
+            font-weight: bold;
+            color: #00a86b;
+        }
+        .cta-button {
+            background-color: #00a86b;
+            color: white;
+            padding: 12px 24px;
+            font-size: 18px;
+            border: none;
+            border-radius: 12px;
+            margin-top: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #008e5b;
+        }
+
+        /* Gambar kanan */
+        .hero-img img {
+            width: 420px;
+            border-radius: 20px;
+            box-shadow: 0px 6px 12px rgba(0,0,0,0.1);
+        }
+
+        /* Card Info */
+        .info-box {
+            background-color: #f7fff9;
+            border-left: 6px solid #00a86b;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
         }
     </style>
+""", unsafe_allow_html=True)
 
+# ==========================
+# NAVBAR
+# ==========================
+st.markdown("""
     <div class="navbar">
         <a href="#fitur">Fitur</a>
         <a href="#carakerja">Cara Kerja</a>
@@ -65,66 +143,75 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ==========================
-# HALAMAN PEMBUKA
+# HERO SECTION (Teks kiri - Gambar kanan)
 # ==========================
-st.markdown("### 🌿 Teknologi AI Terdepan untuk Klasifikasi Bunga")
-st.markdown("<h1>Kenali <span style='color:#00a86b'>Setiap Bunga</span> dengan AI</h1>", unsafe_allow_html=True)
+col1, col2 = st.columns([1.2, 1])
 
-st.write("""
-Platform revolusioner yang menggunakan kecerdasan buatan untuk mengidentifikasi spesies bunga, 
-mendeteksi objek, dan memberikan informasi detail tentang setiap bunga yang Anda temukan.
-""")
-
-col1, col2, col3 = st.columns(3)
 with col1:
-    st.metric("🌷 Spesies Bunga", "500+")
+    st.markdown("<h3 style='color:#00a86b;'>Teknologi AI untuk Klasifikasi Bunga</h3>", unsafe_allow_html=True)
+    st.markdown("<h1>Kenali <span style='color:#00a86b;'>Setiap Bunga</span> dengan AI</h1>", unsafe_allow_html=True)
+    st.markdown("""
+        <p>
+        Platform revolusioner yang menggunakan kecerdasan buatan untuk mengidentifikasi spesies bunga, 
+        mendeteksi objek, dan memberikan informasi detail tentang setiap bunga yang Anda temukan.
+        </p>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-value">500+</div>
+                <div>Spesies Bunga</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">98%</div>
+                <div>Akurasi AI</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">1200+</div>
+                <div>Pengguna Aktif</div>
+            </div>
+        </div>
+    """, unsafe_allow_html=True)
+
+    if st.button("🌺 Mulai Petualangan AI", key="cta"):
+        st.session_state['show_upload'] = True
+
 with col2:
-    st.metric("🤖 Akurasi AI", "98%")
-with col3:
-    st.metric("👩‍💻 Pengguna Aktif", "1200+")
-
-# Tombol aksi
-st.write("")
-st.button("🌺 Mulai Petualangan AI")
+    image = Image.open("sample_images/1cc501a2ea_jpg.rf.dc455624ba691a864edbf790e48543dd.jpg")  # ganti dengan gambar kamu
+    st.image(image, use_container_width=True, caption="AI mendeteksi bunga di gambar ini 🌷")
 
 # ==========================
-# GAMBAR CONTOH
+# BAGIAN INFORMASI TAMBAHAN
 # ==========================
-st.write("---")
-col_img, col_info = st.columns([2, 1])
-
-with col_img:
-    # Ganti dengan path gambar kamu di folder project
-    image = Image.open("sample_images/1cc501a2ea_jpg.rf.dc455624ba691a864edbf790e48543dd.jpg")
-    st.image(image, use_container_width=True, caption="Contoh Gambar Bunga")
-
-with col_info:
-    st.success("🌻 Bunga Matahari terdeteksi (95% akurasi)")
-    st.info("🔍 Deteksi Objek: 4 bunga ditemukan di gambar ini.")
-    st.write("""
-    AI Flower Vision dapat mengenali berbagai jenis bunga dengan tingkat akurasi tinggi.  
-    Coba unggah foto bunga favoritmu dan lihat hasil klasifikasinya!
-    """)
+st.markdown('<div class="info-box">', unsafe_allow_html=True)
+st.markdown("🌻 **Bunga Matahari terdeteksi (95% akurasi)**")
+st.markdown("🔍 Deteksi Objek: 4 bunga ditemukan di gambar ini.")
+st.markdown("""
+AI Flower Vision mampu mengenali berbagai jenis bunga dengan tingkat akurasi tinggi.
+Cukup unggah gambar dan sistem akan memprosesnya untuk mendeteksi dan mengklasifikasi bunga.
+""")
+st.markdown('</div>', unsafe_allow_html=True)
 
 # ==========================
-# FITUR SECTION
+# BAGIAN FITUR
 # ==========================
-st.write('<div id="fitur" class="section"></div>', unsafe_allow_html=True)
+st.markdown('<div id="fitur"></div>', unsafe_allow_html=True)
 st.subheader("✨ Fitur Utama")
 st.write("""
-- **Klasifikasi Gambar**: Mengenali spesies bunga hanya dari satu foto.  
-- **Deteksi Objek**: Menandai dan menghitung jumlah bunga yang muncul pada gambar.  
-- **Akurasi Tinggi**: Didukung oleh model deep learning modern.  
+- **Klasifikasi Gambar** – Mengenali jenis bunga dari foto tunggal.
+- **Deteksi Objek** – Menandai bunga-bunga yang muncul pada satu gambar.
+- **Tampilan Modern** – Desain interaktif dan responsif.
 """)
 
 # ==========================
-# CARA KERJA SECTION
+# BAGIAN CARA KERJA
 # ==========================
-st.write('<div id="carakerja" class="section"></div>', unsafe_allow_html=True)
+st.markdown('<div id="carakerja"></div>', unsafe_allow_html=True)
 st.subheader("⚙️ Cara Kerja Sistem")
 st.write("""
 1. Pengguna mengunggah gambar bunga melalui form upload.  
-2. Sistem memilih mode analisis: **Klasifikasi** atau **Deteksi Objek**.  
-3. Model AI memproses gambar dan menampilkan hasil dengan tingkat akurasi.  
-4. Pengguna menerima informasi tentang jenis bunga beserta deskripsinya.  
+2. Sistem akan memilih mode: **Klasifikasi** atau **Deteksi Objek**.  
+3. AI memproses gambar dan menampilkan hasil deteksi dengan tingkat akurasi.  
+4. Pengguna dapat membaca deskripsi bunga yang teridentifikasi.  
 """)
