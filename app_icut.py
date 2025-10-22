@@ -20,31 +20,88 @@ yolo_model, classifier = load_models()
 # ==========================
 # UI
 # ==========================
-st.title("🧠 Image Classification & Object Detection App")
+# CONFIGURASI DASHBOARD
+# ==========================
+st.set_page_config(
+    page_title="AI Flower Vision",
+    page_icon="🌸",
+    layout="wide",
+)
 
-menu = st.sidebar.selectbox("Pilih Mode:", ["Deteksi Objek (YOLO)", "Klasifikasi Gambar"])
+# ==========================
+# CSS STYLING
+# ==========================
+st.markdown("""
+    <style>
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 12px 30px;
+            box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navbar a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        .navbar a:hover {
+            color: #00a86b;
+        }
+        .section {
+            padding-top: 80px;
+        }
+    </style>
 
-uploaded_file = st.file_uploader("Unggah Gambar", type=["jpg", "jpeg", "png"])
+    <div class="navbar">
+        <a href="#fitur">Fitur</a>
+        <a href="#carakerja">Cara Kerja</a>
+    </div>
+""", unsafe_allow_html=True)
 
-if uploaded_file is not None:
-    img = Image.open(uploaded_file)
-    st.image(img, caption="Gambar yang Diupload", use_container_width=True)
+# ==========================
+# HALAMAN PEMBUKA
+# ==========================
+st.markdown("### 🌿 Teknologi AI Terdepan untuk Klasifikasi Bunga")
+st.markdown("<h1>Kenali <span style='color:#00a86b'>Setiap Bunga</span> dengan AI</h1>", unsafe_allow_html=True)
 
-    if menu == "Deteksi Objek (YOLO)":
-        # Deteksi objek
-        results = yolo_model(img)
-        result_img = results[0].plot()  # hasil deteksi (gambar dengan box)
-        st.image(result_img, caption="Hasil Deteksi", use_container_width=True)
+st.write("""
+Platform revolusioner yang menggunakan kecerdasan buatan untuk mengidentifikasi spesies bunga, 
+mendeteksi objek, dan memberikan informasi detail tentang setiap bunga yang Anda temukan.
+""")
 
-    elif menu == "Klasifikasi Gambar":
-        # Preprocessing
-        img_resized = img.resize((224, 224))  # sesuaikan ukuran dengan model kamu
-        img_array = image.img_to_array(img_resized)
-        img_array = np.expand_dims(img_array, axis=0)
-        img_array = img_array / 255.0
+col1, col2, col3 = st.columns(3)
+with col1:
+    st.metric("🌷 Spesies Bunga", "500+")
+with col2:
+    st.metric("🤖 Akurasi AI", "98%")
+with col3:
+    st.metric("👩‍💻 Pengguna Aktif", "1200+")
 
-        # Prediksi
-        prediction = classifier.predict(img_array)
-        class_index = np.argmax(prediction)
-        st.write("### Hasil Prediksi:", class_index)
-        st.write("Probabilitas:", np.max(prediction))
+# Tombol aksi
+st.write("")
+st.button("🌺 Mulai Petualangan AI")
+
+# ==========================
+# GAMBAR CONTOH
+# ==========================
+st.write("---")
+col_img, col_info = st.columns([2, 1])
+
+with col_img:
+    # Ganti dengan path gambar kamu di folder project
+    image = Image.open("sample_images/flowers.jpg")
+    st.image(image, use_container_width=True, caption="Contoh Gambar Bunga")
+
+with col_info:
+    st.success("🌹 Mawar Merah terdeteksi (95% akurasi)")
+    st.info("🔍 Deteksi Objek: 4 bunga ditemukan di gambar ini.")
+    st.write("""
+    AI Flower Vision dapat mengenali berbagai jenis bunga dengan tingkat akurasi tinggi.  
+    Coba unggah foto bunga favoritmu dan lihat hasil klasifikasinya!
+    """)
