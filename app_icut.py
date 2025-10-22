@@ -214,3 +214,52 @@ with col1:
 with col2:
     image = Image.open("sample_images/1cc501a2ea_jpg.rf.dc455624ba691a864edbf790e48543dd.jpg")
     st.image(image, use_container_width=True, caption="AI mendeteksi bunga di gambar ini 🌷")
+
+# ==========================
+# FITUR UNGGULAN SECTION
+# ==========================
+st.markdown("""
+<div id="fitur" style="padding:80px 80px; background-color:#f6fffb; border-radius:20px;">
+
+    <!-- JUDUL UTAMA -->
+    <h1 style='text-align:center; color:#0f172a; font-size:46px; font-weight:800;'>
+        Fitur Unggulan
+    </h1>
+    <p style='text-align:center; color:#334155; font-size:18px; max-width:700px; margin:auto; line-height:1.6;'>
+        Teknologi AI terdepan yang memungkinkan Anda mengeksplorasi dunia bunga
+        dengan cara yang belum pernah ada sebelumnya.
+    </p>
+
+    <div style='display:flex; justify-content:center; gap:60px; flex-wrap:wrap; margin-top:60px;'>
+
+        <!-- KOTAK FITUR 1 -->
+        <div style='background: linear-gradient(135deg, #0098ff, #00c6a7);
+                    color:white; width:400px; padding:35px;
+                    border-radius:20px; box-shadow:0 10px 20px rgba(0,0,0,0.15);
+                    transition:0.3s;'>
+            <h3 style='font-size:22px; font-weight:700; margin-bottom:10px;'>
+                🔍 Deteksi Objek Canggih
+            </h3>
+            <p style='font-size:16px; line-height:1.5;'>
+                Identifikasi berbagai bagian bunga seperti kelopak, putik, daun, dan batang 
+                dengan presisi tinggi menggunakan teknologi computer vision.
+            </p>
+        </div>
+
+        <!-- KOTAK FITUR 2 -->
+        <div style='background: white; width:400px; padding:35px;
+                    border-radius:20px; border:2px solid #00a86b;
+                    box-shadow:0 4px 10px rgba(0,0,0,0.05);
+                    transition:0.3s;'>
+            <h3 style='font-size:22px; color:#0f172a; font-weight:700; margin-bottom:10px;'>
+                🌼 Klasifikasi Spesies Bunga
+            </h3>
+            <p style='font-size:16px; color:#334155; line-height:1.5;'>
+                Membedakan lebih dari 500 spesies bunga menggunakan model AI dengan 
+                tingkat akurasi hingga 98%.
+            </p>
+        </div>
+
+    </div>
+</div>
+""", unsafe_allow_html=True)
