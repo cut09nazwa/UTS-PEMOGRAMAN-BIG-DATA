@@ -105,3 +105,26 @@ with col_info:
     AI Flower Vision dapat mengenali berbagai jenis bunga dengan tingkat akurasi tinggi.  
     Coba unggah foto bunga favoritmu dan lihat hasil klasifikasinya!
     """)
+
+# ==========================
+# FITUR SECTION
+# ==========================
+st.write('<div id="fitur" class="section"></div>', unsafe_allow_html=True)
+st.subheader("✨ Fitur Utama")
+st.write("""
+- **Klasifikasi Gambar**: Mengenali spesies bunga hanya dari satu foto.  
+- **Deteksi Objek**: Menandai dan menghitung jumlah bunga yang muncul pada gambar.  
+- **Akurasi Tinggi**: Didukung oleh model deep learning modern.  
+""")
+
+# ==========================
+# CARA KERJA SECTION
+# ==========================
+st.write('<div id="carakerja" class="section"></div>', unsafe_allow_html=True)
+st.subheader("⚙️ Cara Kerja Sistem")
+st.write("""
+1. Pengguna mengunggah gambar bunga melalui form upload.  
+2. Sistem memilih mode analisis: **Klasifikasi** atau **Deteksi Objek**.  
+3. Model AI memproses gambar dan menampilkan hasil dengan tingkat akurasi.  
+4. Pengguna menerima informasi tentang jenis bunga beserta deskripsinya.  
+""")
