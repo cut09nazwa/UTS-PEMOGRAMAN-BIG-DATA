@@ -29,7 +29,6 @@ st.set_page_config(
 )
 
 # ==========================
-# ==========================
 # CSS STYLING TAMPAK PROFESIONAL + BACKGROUND WARNA
 # ==========================
 st.markdown("""
@@ -40,7 +39,6 @@ st.markdown("""
             font-family: "Poppins", sans-serif;
         }
 
-        /* Streamlit container background */
         [data-testid="stAppViewContainer"] {
             background: linear-gradient(120deg, #f0fff4, #ffffff);
         }
@@ -48,7 +46,7 @@ st.markdown("""
         /* ===== NAVBAR ===== */
         .navbar {
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
             align-items: center;
             background-color: #ffffff;
             padding: 14px 40px;
@@ -58,6 +56,7 @@ st.markdown("""
             top: 0;
             z-index: 100;
         }
+
         .navbar a {
             margin-left: 25px;
             text-decoration: none;
@@ -65,6 +64,7 @@ st.markdown("""
             font-weight: 500;
             transition: 0.3s;
         }
+
         .navbar a:hover {
             color: #00a86b;
         }
@@ -79,31 +79,38 @@ st.markdown("""
             border-radius: 20px;
             box-shadow: 0px 4px 12px rgba(0,0,0,0.05);
         }
+
         .hero-text {
             max-width: 55%;
         }
+
         .hero-text h1 {
             font-size: 48px;
             font-weight: 800;
             color: #1a1a1a;
         }
+
         .hero-text span {
             color: #00a86b;
         }
+
         .hero-text p {
             font-size: 18px;
             color: #444;
             margin-top: 10px;
             line-height: 1.6;
         }
+
         .stats {
             display: flex;
             gap: 50px;
             margin-top: 20px;
         }
+
         .stat-box {
             text-align: left;
         }
+
         .stat-value {
             font-size: 28px;
             font-weight: bold;
@@ -123,6 +130,7 @@ st.markdown("""
             box-shadow: 0 3px 10px rgba(0, 168, 107, 0.3);
             transition: 0.3s ease;
         }
+
         .cta-button:hover {
             background-color: #008e5b;
             transform: translateY(-2px);
@@ -143,7 +151,49 @@ st.markdown("""
             border-radius: 12px;
             margin-top: 30px;
         }
+
+        /* ===== TAMBAHAN NAVBAR & HERO ===== */
+        .navbar-left {
+            flex: 1;
+        }
+
+        .navbar-title {
+            font-family: 'Pacifico', cursive;
+            font-size: 28px;
+            font-weight: 600;
+            color: #009970;
+            letter-spacing: 0.5px;
+        }
+
+        .navbar-button {
+            background-color: #009970;
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 14px;
+            font-weight: 600;
+            margin-left: 20px;
+            box-shadow: 0px 3px 8px rgba(0, 153, 112, 0.25);
+            transition: 0.3s ease;
+        }
+
+        .navbar-button:hover {
+            background-color: #007e5d;
+            transform: translateY(-2px);
+        }
+
+        .highlight {
+            background-color: #c6f5e3;
+            color: #006b47;
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
     </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 """, unsafe_allow_html=True)
 
 # ==========================
@@ -157,21 +207,20 @@ st.markdown("""
     <div class="navbar-right">
         <a href="#fitur">Fitur</a>
         <a href="#carakerja">Cara Kerja</a>
-        <a href="#tentang">Tentang</a>
         <a href="#mulai" class="navbar-button">🌱 Mulai Sekarang</a>
     </div>
 </div>
 """, unsafe_allow_html=True)
+
 # ==========================
 # HERO SECTION
 # ==========================
 st.markdown("""
 <div class="hero">
     <div class="highlight">Teknologi AI Terdepan untuk Klasifikasi Bunga</div>
+</div>
 """, unsafe_allow_html=True)
-# ==========================
-# HERO SECTION
-# ==========================
+
 col1, col2 = st.columns([1.2, 1])
 
 with col1:
@@ -208,7 +257,7 @@ with col1:
 with col2:
     image = Image.open("sample_images/1cc501a2ea_jpg.rf.dc455624ba691a864edbf790e48543dd.jpg")  # ganti sesuai path gambar kamu
     st.image(image, use_container_width=True, caption="AI mendeteksi bunga di gambar ini 🌷")
-
+    
 # =======================
 # BAGIAN FITUR UNGGULAN
 # =======================
