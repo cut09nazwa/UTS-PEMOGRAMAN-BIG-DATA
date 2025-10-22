@@ -26,15 +26,16 @@ st.markdown("""
     <style>
         /* ===== LAYOUT FULL WIDTH ===== */
         [data-testid="stAppViewContainer"] > .main {
-            max-width: 95%;
-            padding-left: 50px;
-            padding-right: 50px;
+            max-width: 85%;
+            padding-left: 60px;
+            padding-right: 60px;
+            margin: 0 auto;
         }
 
         .block-container {
-            max-width: 1400px;
-            padding-top: 1rem;
-            padding-bottom: 1rem;
+            max-width: 1200px;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
             margin: 0 auto;
         }
         
@@ -229,21 +230,14 @@ with col2:
     image = Image.open("sample_images/1cc501a2ea_jpg.rf.dc455624ba691a864edbf790e48543dd.jpg")
     st.image(image, use_container_width=True, caption="AI mendeteksi bunga di gambar ini 🌷")
 
-import streamlit as st
-
-import streamlit as st
-
-import streamlit as st
-
 # =======================
 # BAGIAN FITUR UNGGULAN
 # =======================
 
-# Masukkan CSS + judul/subjudul
 st.markdown(
     """
     <style>
-    /* Judul utama */
+    /* ======== JUDUL DAN SUBJUDUL ======== */
     .section-title {
         text-align: center;
         color: #0f172a;
@@ -257,50 +251,72 @@ st.markdown(
         color: #334155;
         font-size: 18px;
         max-width: 700px;
-        margin: 0 auto 50px;
+        margin: 0 auto 60px;
+        line-height: 1.6;
     }
 
-    /* Kontainer fitur (opsional jika mau pakai CSS) */
+    /* ======== PEMBATAS LEBAR SECTION ======== */
+    .fitur-wrapper {
+        max-width: 1100px;        /* batasi lebar total section */
+        margin: 0 auto;           /* agar tetap di tengah */
+        padding: 0 40px 80px;     /* jarak kiri-kanan dan bawah */
+    }
+
+    /* ======== KONTENER FITUR ======== */
     .features-container {
         display: flex;
         justify-content: center;
-        gap: 60px;
+        align-items: flex-start;
         flex-wrap: wrap;
+        gap: 50px;
     }
 
+    /* ======== CARD FITUR ======== */
     .feature-card {
-        width: 400px;
+        flex: 1 1 45%;
+        max-width: 480px;
         padding: 35px;
         border-radius: 20px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
         transition: all 0.3s ease;
+        background-color: #ffffff;
+        text-align: center;
     }
 
     .feature-card:hover {
         transform: translateY(-8px);
-        box-shadow: 0 16px 30px rgba(0,0,0,0.25);
+        box-shadow: 0 16px 30px rgba(0,0,0,0.15);
+    }
+
+    .feature-icon {
+        font-size: 40px;
+        margin-bottom: 10px;
     }
 
     .feature-title {
         font-size: 22px;
         font-weight: 700;
         margin-bottom: 10px;
+        color: #0f172a;
     }
+
     .feature-text {
-        font-size: 16px;
-        line-height: 1.5;
+        font-size: 15px;
+        color: #334155;
+        line-height: 1.6;
     }
     </style>
 
-    <h1 class='section-title'>Fitur Unggulan</h1>
-    <p class='section-subtitle'>
-        Teknologi AI terdepan yang memungkinkan Anda mengeksplorasi dunia bunga
-        dengan cara yang belum pernah ada sebelumnya.
-    </p>
+    <div class="fitur-wrapper">
+        <h1 class='section-title'>Fitur Unggulan</h1>
+        <p class='section-subtitle'>
+            Teknologi AI terdepan yang memungkinkan Anda mengeksplorasi dunia bunga
+            dengan cara yang belum pernah ada sebelumnya.
+        </p>
+    </div>
     """,
     unsafe_allow_html=True,
 )
-
 
 # Tata letak 2 kolom — kode Python berada di luar string
 col1, col2 = st.columns(2)
