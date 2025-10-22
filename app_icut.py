@@ -286,24 +286,37 @@ st.markdown("""
 </p>
 
 <div class='features-container'>
+# Tata letak 2 kolom
+col1, col2 = st.columns(2)
 
-    <!-- Kartu 1 -->
-    <div class='feature-card' style='background: linear-gradient(135deg, #0098ff, #00c6a7); color: white;'>
-        <h3 class='feature-title'>🔍 Deteksi Objek Canggih</h3>
-        <p class='feature-text'>
-            Identifikasi berbagai bagian bunga seperti kelopak, putik, daun, dan batang 
-            dengan presisi tinggi menggunakan teknologi computer vision.
-        </p>
-    </div>
+# ===== Kolom 1 =====
+with col1:
+    st.markdown(
+        """
+        <div style='background-color:#E9FBF0; border-radius:15px; padding:25px; text-align:center;
+                    box-shadow:0 4px 10px rgba(0,0,0,0.05); transition:0.3s;'>
+            <div style='font-size:40px; color:#00A86B;'>🌼</div>
+            <h4 style='color:#0f172a; margin-bottom:8px;'>Kenali Jenis Bunga</h4>
+            <p style='color:#334155; font-size:15px; line-height:1.5;'>
+                Upload foto bunga dan AI akan memberitahu jenis dan nama bunga tersebut.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
-    <!-- Kartu 2 -->
-    <div class='feature-card' style='background: white; border: 2px solid #00a86b; color: #0f172a;'>
-        <h3 class='feature-title'>🌼 Klasifikasi Spesies Bunga</h3>
-        <p class='feature-text' style='color:#334155;'>
-            Membedakan lebih dari 500 spesies bunga menggunakan model AI dengan 
-            tingkat akurasi hingga 98%.
-        </p>
-    </div>
-
-</div>
-""", unsafe_allow_html=True)
+# ===== Kolom 2 =====
+with col2:
+    st.markdown(
+        """
+        <div style='background-color:#EAF3FF; border-radius:15px; padding:25px; text-align:center;
+                    box-shadow:0 4px 10px rgba(0,0,0,0.05); transition:0.3s;'>
+            <div style='font-size:40px; color:#2563eb;'>🔍</div>
+            <h4 style='color:#0f172a; margin-bottom:8px;'>Deteksi Bagian Bunga</h4>
+            <p style='color:#334155; font-size:15px; line-height:1.5;'>
+                AI dapat mengenali bagian-bagian bunga seperti kelopak, putik, dan daun.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
