@@ -29,7 +29,7 @@ st.set_page_config(
 )
 
 # ==========================
-# CSS STYLING TAMPAK PROFESIONAL + BACKGROUND WARNA
+# CSS STYLING PROFESIONAL + NAVBAR + BACKGROUND
 # ==========================
 st.markdown("""
     <style>
@@ -38,34 +38,58 @@ st.markdown("""
             background: linear-gradient(135deg, #eafaf1 0%, #ffffff 100%);
             font-family: "Poppins", sans-serif;
         }
-
-        /* Streamlit container background */
         [data-testid="stAppViewContainer"] {
-            background: linear-gradient(120deg, #f0fff4, #ffffff);
+            background: linear-gradient(135deg, #e6fff1 0%, #ffffff 100%);
         }
 
         /* ===== NAVBAR ===== */
         .navbar {
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
             align-items: center;
             background-color: #ffffff;
             padding: 14px 40px;
             box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
-            border-bottom: 3px solid #00a86b10;
             position: sticky;
             top: 0;
             z-index: 100;
         }
-        .navbar a {
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .navbar-left img {
+            width: 38px;
+            height: 38px;
+        }
+        .navbar-left h2 {
+            margin: 0;
+            font-size: 20px;
+            color: #00a86b;
+            font-weight: 700;
+        }
+        .navbar-right a {
             margin-left: 25px;
             text-decoration: none;
             color: #222;
             font-weight: 500;
             transition: 0.3s;
         }
-        .navbar a:hover {
+        .navbar-right a:hover {
             color: #00a86b;
+        }
+        .btn-nav {
+            background-color: #00a86b;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .btn-nav:hover {
+            background-color: #009660;
         }
 
         /* ===== HERO SECTION ===== */
@@ -77,6 +101,16 @@ st.markdown("""
             background: linear-gradient(135deg, #ecfff4 0%, #ffffff 100%);
             border-radius: 20px;
             box-shadow: 0px 4px 12px rgba(0,0,0,0.05);
+        }
+        .label-small {
+            display: inline-block;
+            background-color: #c9f7df;
+            color: #007a4a;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 10px;
         }
         .hero-text {
             max-width: 55%;
@@ -133,15 +167,6 @@ st.markdown("""
             border-radius: 20px;
             box-shadow: 0px 6px 12px rgba(0,0,0,0.1);
         }
-
-        /* ===== CARD INFO TAMBAHAN ===== */
-        .info-box {
-            background-color: #f7fff9;
-            border-left: 6px solid #00a86b;
-            padding: 20px;
-            border-radius: 12px;
-            margin-top: 30px;
-        }
     </style>
 """, unsafe_allow_html=True)
 
@@ -150,8 +175,16 @@ st.markdown("""
 # ==========================
 st.markdown("""
     <div class="navbar">
-        <a href="#fitur">Fitur</a>
-        <a href="#carakerja">Cara Kerja</a>
+        <div class="navbar-left">
+            <img src="https://cdn-icons-png.flaticon.com/512/765/765564.png" alt="Logo">
+            <h2>AI Flower Vision</h2>
+        </div>
+        <div class="navbar-right">
+            <a href="#fitur">Fitur</a>
+            <a href="#carakerja">Cara Kerja</a>
+            <a href="#tentang">Tentang</a>
+            <a class="btn-nav" href="#mulai">Mulai Sekarang</a>
+        </div>
     </div>
 """, unsafe_allow_html=True)
 
@@ -161,8 +194,8 @@ st.markdown("""
 col1, col2 = st.columns([1.2, 1])
 
 with col1:
-    st.markdown("<h3 style='color:#00a86b;'>Teknologi AI untuk Klasifikasi Bunga</h3>", unsafe_allow_html=True)
-    st.markdown("<h1>Kenali <span style='color:#00a86b;'>Setiap Bunga</span> dengan AI</h1>", unsafe_allow_html=True)
+    st.markdown("<div class='label-small'>Teknologi AI Terdepan untuk Klasifikasi Bunga</div>", unsafe_allow_html=True)
+    st.markdown("<h1>Kenali <span>Setiap Bunga</span> dengan AI</h1>", unsafe_allow_html=True)
     st.markdown("""
         <p>
         Platform revolusioner yang menggunakan kecerdasan buatan untuk mengidentifikasi spesies bunga, 
@@ -187,10 +220,8 @@ with col1:
         </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("""
-        <button class="cta-button">🌺 Mulai Petualangan AI</button>
-    """, unsafe_allow_html=True)
+    st.markdown("<button class='cta-button'>🌺 Mulai Petualangan AI</button>", unsafe_allow_html=True)
 
 with col2:
-    image = Image.open("sample_images/1cc501a2ea_jpg.rf.dc455624ba691a864edbf790e48543dd.jpg")  # ganti sesuai path gambar kamu
+    image = Image.open("sample_images/1cc501a2ea_jpg.rf.dc455624ba691a864edbf790e48543dd.jpg")
     st.image(image, use_container_width=True, caption="AI mendeteksi bunga di gambar ini 🌷")
