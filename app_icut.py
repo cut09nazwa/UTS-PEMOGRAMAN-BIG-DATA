@@ -19,6 +19,9 @@ yolo_model, classifier = load_models()
 
 # ==========================
 # UI
+import streamlit as st
+from PIL import Image
+
 # ==========================
 # CSS STYLING PROFESIONAL + NAVBAR + BACKGROUND
 # ==========================
@@ -111,7 +114,6 @@ st.markdown("""
         .hero-text h1 span:nth-child(1) { color: #00a86b; }
         .hero-text h1 span:nth-child(2) { color: #00855a; }
         .hero-text h1 span:nth-child(3) { color: #006644; }
-
         .hero-text p {
             font-size: 18px;
             color: #444;
@@ -135,6 +137,7 @@ st.markdown("""
 
         /* ===== CTA BUTTON ===== */
         .cta-button {
+            display: inline-block;
             background-color: #00a86b;
             color: white;
             padding: 14px 30px;
@@ -143,6 +146,7 @@ st.markdown("""
             border-radius: 14px;
             margin-top: 40px;
             cursor: pointer;
+            text-decoration: none;
             box-shadow: 0 4px 12px rgba(0, 168, 107, 0.3);
             transition: 0.3s ease;
         }
@@ -151,16 +155,33 @@ st.markdown("""
             transform: translateY(-3px);
         }
 
-        /* ===== GAMBAR KANAN ===== */
         .hero-img img {
             width: 460px;
             border-radius: 20px;
             box-shadow: 0px 8px 14px rgba(0,0,0,0.1);
         }
+
+        /* ===== SECTION TITLE ===== */
+        .section-title {
+            text-align: center;
+            color: #0f172a;
+            font-size: 46px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #334155;
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
     </style>
 
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 """, unsafe_allow_html=True)
+
 # ==========================
 # NAVBAR
 # ==========================
@@ -186,12 +207,9 @@ with col1:
     st.markdown("<div class='label-small'>Teknologi AI Terdepan untuk Klasifikasi Bunga</div>", unsafe_allow_html=True)
     st.markdown("<h1><span>Kenali</span> <span>Setiap</span> <span>Bunga</span> dengan AI</h1>", unsafe_allow_html=True)
     st.markdown("""
-        <p>
-        Platform revolusioner yang menggunakan kecerdasan buatan untuk mengidentifikasi spesies bunga, 
-        mendeteksi objek, dan memberikan informasi detail tentang setiap bunga yang Anda temukan.
-        </p>
+        <p>Platform revolusioner yang menggunakan kecerdasan buatan untuk mengidentifikasi spesies bunga,
+        mendeteksi objek, dan memberikan informasi detail tentang setiap bunga yang Anda temukan.</p>
     """, unsafe_allow_html=True)
-
     st.markdown("""
         <div class="stats">
             <div class="stat-box">
@@ -208,92 +226,27 @@ with col1:
             </div>
         </div>
     """, unsafe_allow_html=True)
-
-    st.markdown("<button class='cta-button'>🌺 Mulai Petualangan AI</button>", unsafe_allow_html=True)
+    st.markdown("<a href='#fitur' class='cta-button'>🌺 Mulai Petualangan AI</a>", unsafe_allow_html=True)
 
 with col2:
     image = Image.open("sample_images/1cc501a2ea_jpg.rf.dc455624ba691a864edbf790e48543dd.jpg")
     st.image(image, use_container_width=True, caption="AI mendeteksi bunga di gambar ini 🌷")
 
-import streamlit as st
-
-import streamlit as st
-
-import streamlit as st
-
-# =======================
-# BAGIAN FITUR UNGGULAN
-# =======================
-
-# Masukkan CSS + judul/subjudul
-st.markdown(
-    """
-    <style>
-    /* Judul utama */
-    .section-title {
-        text-align: center;
-        color: #0f172a;
-        font-size: 46px;
-        font-weight: 800;
-        margin-bottom: 10px;
-    }
-
-    .section-subtitle {
-        text-align: center;
-        color: #334155;
-        font-size: 18px;
-        max-width: 700px;
-        margin: 0 auto 50px;
-    }
-
-    /* Kontainer fitur (opsional jika mau pakai CSS) */
-    .features-container {
-        display: flex;
-        justify-content: center;
-        gap: 60px;
-        flex-wrap: wrap;
-    }
-
-    .feature-card {
-        width: 400px;
-        padding: 35px;
-        border-radius: 20px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-        transition: all 0.3s ease;
-    }
-
-    .feature-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 16px 30px rgba(0,0,0,0.25);
-    }
-
-    .feature-title {
-        font-size: 22px;
-        font-weight: 700;
-        margin-bottom: 10px;
-    }
-    .feature-text {
-        font-size: 16px;
-        line-height: 1.5;
-    }
-    </style>
-
+# ==========================
+# FITUR UNGGULAN
+# ==========================
+st.markdown('<div id="fitur"></div>', unsafe_allow_html=True)
+st.markdown("""
     <h1 class='section-title'>Fitur Unggulan</h1>
     <p class='section-subtitle'>
         Teknologi AI terdepan yang memungkinkan Anda mengeksplorasi dunia bunga
         dengan cara yang belum pernah ada sebelumnya.
     </p>
-    """,
-    unsafe_allow_html=True,
-)
+""", unsafe_allow_html=True)
 
-# Tata letak 2 kolom — kode Python berada di luar string
 col1, col2 = st.columns(2)
-
-# ===== Kolom 1 =====
 with col1:
-    st.markdown(
-        """
+    st.markdown("""
         <div style='background-color:#E9FBF0; border-radius:15px; padding:25px; text-align:center;
                     box-shadow:0 4px 10px rgba(0,0,0,0.05); transition:0.3s;'>
             <div style='font-size:40px; color:#00A86B;'>🌼</div>
@@ -302,14 +255,10 @@ with col1:
                 Upload foto bunga dan AI akan memberitahu jenis dan nama bunga tersebut.
             </p>
         </div>
-        """,
-        unsafe_allow_html=True,
-    )
+    """, unsafe_allow_html=True)
 
-# ===== Kolom 2 =====
 with col2:
-    st.markdown(
-        """
+    st.markdown("""
         <div style='background-color:#EAF3FF; border-radius:15px; padding:25px; text-align:center;
                     box-shadow:0 4px 10px rgba(0,0,0,0.05); transition:0.3s;'>
             <div style='font-size:40px; color:#2563eb;'>🔍</div>
@@ -318,6 +267,4 @@ with col2:
                 AI dapat mengenali bagian-bagian bunga seperti kelopak, putik, dan daun.
             </p>
         </div>
-        """,
-        unsafe_allow_html=True,
-    )
+    """, unsafe_allow_html=True)
