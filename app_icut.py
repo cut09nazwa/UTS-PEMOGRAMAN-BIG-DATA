@@ -20,7 +20,7 @@ yolo_model, classifier = load_models()
 # ==========================
 # UI
 # ==========================
-# KONFIGURASI DASHBOARD
+# KONFIGURASI DASBOR
 # ==========================
 st.set_page_config(
     page_title="AI Flower Vision",
@@ -29,15 +29,22 @@ st.set_page_config(
 )
 
 # ==========================
-# CSS STYLING TAMPAK PROFESIONAL
+# CSS STYLING TAMPAK PROFESIONAL + BACKGROUND WARNA
 # ==========================
 st.markdown("""
     <style>
+        /* ===== BODY & BACKGROUND ===== */
         body {
-            background-color: #f3fef6;
+            background: linear-gradient(135deg, #eafaf1 0%, #ffffff 100%);
+            font-family: "Poppins", sans-serif;
         }
 
-        /* Navbar */
+        /* Streamlit container background */
+        [data-testid="stAppViewContainer"] {
+            background: linear-gradient(120deg, #f0fff4, #ffffff);
+        }
+
+        /* ===== NAVBAR ===== */
         .navbar {
             display: flex;
             justify-content: flex-end;
@@ -45,6 +52,7 @@ st.markdown("""
             background-color: #ffffff;
             padding: 14px 40px;
             box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+            border-bottom: 3px solid #00a86b10;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -54,12 +62,13 @@ st.markdown("""
             text-decoration: none;
             color: #222;
             font-weight: 500;
+            transition: 0.3s;
         }
         .navbar a:hover {
             color: #00a86b;
         }
 
-        /* Hero Section */
+        /* ===== HERO SECTION ===== */
         .hero {
             display: flex;
             align-items: center;
@@ -99,29 +108,33 @@ st.markdown("""
             font-weight: bold;
             color: #00a86b;
         }
+
+        /* ===== CTA BUTTON ===== */
         .cta-button {
             background-color: #00a86b;
             color: white;
-            padding: 12px 24px;
+            padding: 12px 28px;
             font-size: 18px;
             border: none;
             border-radius: 12px;
-            margin-top: 30px;
+            margin-top: 35px;
             cursor: pointer;
-            transition: 0.3s;
+            box-shadow: 0 3px 10px rgba(0, 168, 107, 0.3);
+            transition: 0.3s ease;
         }
         .cta-button:hover {
             background-color: #008e5b;
+            transform: translateY(-2px);
         }
 
-        /* Gambar kanan */
+        /* ===== GAMBAR KANAN ===== */
         .hero-img img {
             width: 420px;
             border-radius: 20px;
             box-shadow: 0px 6px 12px rgba(0,0,0,0.1);
         }
 
-        /* Card Info */
+        /* ===== CARD INFO TAMBAHAN ===== */
         .info-box {
             background-color: #f7fff9;
             border-left: 6px solid #00a86b;
@@ -143,7 +156,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ==========================
-# HERO SECTION (Teks kiri - Gambar kanan)
+# HERO SECTION
 # ==========================
 col1, col2 = st.columns([1.2, 1])
 
@@ -174,9 +187,10 @@ with col1:
         </div>
     """, unsafe_allow_html=True)
 
-    if st.button("🌺 Mulai Petualangan AI", key="cta"):
-        st.session_state['show_upload'] = True
+    st.markdown("""
+        <button class="cta-button">🌺 Mulai Petualangan AI</button>
+    """, unsafe_allow_html=True)
 
 with col2:
-    image = Image.open("sample_images/1cc501a2ea_jpg.rf.dc455624ba691a864edbf790e48543dd.jpg")  # ganti dengan gambar kamu
+    image = Image.open("sample_images/1cc501a2ea_jpg.rf.dc455624ba691a864edbf790e48543dd.jpg")  # ganti sesuai path gambar kamu
     st.image(image, use_container_width=True, caption="AI mendeteksi bunga di gambar ini 🌷")
