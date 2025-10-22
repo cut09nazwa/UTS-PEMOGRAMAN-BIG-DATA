@@ -237,9 +237,21 @@ with col2:
 st.markdown(
     """
     <style>
-    /* ======== JUDUL DAN SUBJUDUL ======== */
+    /* ======== WRAPPER UTAMA ======== */
+    .fitur-wrapper {
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;              /* agar konten di tengah halaman */
+        padding: 60px 40px 80px;
+        text-align: center;          /* pastikan teks di tengah */
+        display: flex;
+        flex-direction: column;
+        align-items: center;         /* center horizontal */
+        justify-content: center;     /* center vertical dalam container */
+    }
+
+    /* ======== JUDUL & SUBJUDUL ======== */
     .section-title {
-        text-align: center;
         color: #0f172a;
         font-size: 46px;
         font-weight: 800;
@@ -247,19 +259,11 @@ st.markdown(
     }
 
     .section-subtitle {
-        text-align: center;
         color: #334155;
         font-size: 18px;
         max-width: 700px;
         margin: 0 auto 60px;
         line-height: 1.6;
-    }
-
-    /* ======== PEMBATAS LEBAR SECTION ======== */
-    .fitur-wrapper {
-        max-width: 1100px;        /* batasi lebar total section */
-        margin: 0 auto;           /* agar tetap di tengah */
-        padding: 0 40px 80px;     /* jarak kiri-kanan dan bawah */
     }
 
     /* ======== KONTENER FITUR ======== */
@@ -308,8 +312,8 @@ st.markdown(
     </style>
 
     <div class="fitur-wrapper">
-        <h1 class='section-title'>Fitur Unggulan</h1>
-        <p class='section-subtitle'>
+        <h1 class="section-title">Fitur Unggulan</h1>
+        <p class="section-subtitle">
             Teknologi AI terdepan yang memungkinkan Anda mengeksplorasi dunia bunga
             dengan cara yang belum pernah ada sebelumnya.
         </p>
@@ -327,7 +331,7 @@ with col1:
         """
         <div style='background-color:#E9FBF0; border-radius:15px; padding:25px; text-align:center;
                     box-shadow:0 4px 10px rgba(0,0,0,0.05); transition:0.3s;'>
-            <div style='font-size:40px; color:#00A86B;'>🌼</div>
+            <div style='font-size:40px; color:#FFF8E7;'>🌼</div>
             <h4 style='color:#0f172a; margin-bottom:8px;'>Kenali Jenis Bunga</h4>
             <p style='color:#334155; font-size:15px; line-height:1.5;'>
                 Upload foto bunga dan AI akan memberitahu jenis dan nama bunga tersebut.
