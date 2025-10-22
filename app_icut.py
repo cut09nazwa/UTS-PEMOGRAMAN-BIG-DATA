@@ -95,7 +95,7 @@ col_img, col_info = st.columns([2, 1])
 
 with col_img:
     # Ganti dengan path gambar kamu di folder project
-    image = Image.open("sample_images/flowers.jpg")
+    image = Image.open("sample_images/1cc501a2ea_jpg.rf.dc455624ba691a864edbf790e48543dd.jpg")
     st.image(image, use_container_width=True, caption="Contoh Gambar Bunga")
 
 with col_info:
