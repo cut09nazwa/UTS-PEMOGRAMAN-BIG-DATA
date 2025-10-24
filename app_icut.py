@@ -533,52 +533,90 @@ st.markdown("""
         Perjalanan interaktif yang akan membawa Anda memahami teknologi AI 
         dan menganalisis bunga favorit Anda
     </p>
-
-    <div class="step-container">
-        <div class="step-card">
-            <div class="step-left">
-                <div class="number n1">1</div>
-                <div class="step-text">
-                    <div class="step-title">Selamat Datang</div>
-                    <div class="step-desc">Mulai perjalanan Anda dengan tampilan sambutan yang menarik dan pengenalan fitur AI Flower Vision.</div>
-                </div>
-            </div>
-            <div class="step-icon">💐</div>
-        </div>
-
-        <div class="step-card">
-            <div class="step-left">
-                <div class="number n2">2</div>
-                <div class="step-text">
-                    <div class="step-title">Pelajari Teknologi AI</div>
-                    <div class="step-desc">Pahami bagaimana kecerdasan buatan bekerja untuk mengenali bentuk, warna, dan pola pada bunga.</div>
-                </div>
-            </div>
-            <div class="step-icon">🤖</div>
-        </div>
-
-        <div class="step-card">
-            <div class="step-left">
-                <div class="number n3">3</div>
-                <div class="step-text">
-                    <div class="step-title">Atur Preferensi</div>
-                    <div class="step-desc">Masukkan nama Anda, pilih tema tampilan, dan tentukan tujuan penggunaan untuk pengalaman yang personal.</div>
-                </div>
-            </div>
-            <div class="step-icon">🧍‍♀️</div>
-        </div>
-
-        <div class="step-card">
-            <div class="step-left">
-                <div class="number n4">4</div>
-                <div class="step-text">
-                    <div class="step-title">Analisis Gambar</div>
-                    <div class="step-desc">Upload foto bunga Anda dan pilih mode analisis untuk mendapatkan hasil klasifikasi atau deteksi objek.</div>
-                </div>
-            </div>
-            <div class="step-icon">📸</div>
-        </div>
     </div>
+    """,
+    unsafe_allow_html=True,
+)
 
-    <a href="#" class="start-button">🌼 Mulai Sekarang</a>
-""", unsafe_allow_html=True)
+    # ============ 4 KOTAK DALAM 1 BARIS ============
+col1, col2, col3, col4 = st.columns(4)
+
+with col1:
+    st.markdown(
+        """
+        <div style='background-color:#EAF3FF; border-radius:15px; padding:30px; 
+                    text-align:center; box-shadow:0 3px 10px rgba(0,0,0,0.05); 
+                    transition:0.3s; min-height:230px; display:flex; flex-direction:column; 
+                    justify-content:center;'>
+            <div style='font-size:38px;'>💐</div>
+            <h4 style='color:#0f172a; margin:10px 0;'>Selamat Datang</h4>
+            <p style='color:#334155; font-size:15px; line-height:1.5;'>
+                Kenali konsep AI Flower Vision dengan tampilan yang menarik dan interaktif.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+with col2:
+    st.markdown(
+        """
+        <div style='background-color:#F3E9FF; border-radius:15px; padding:30px; 
+                    text-align:center; box-shadow:0 3px 10px rgba(0,0,0,0.05); 
+                    transition:0.3s; min-height:230px; display:flex; flex-direction:column; 
+                    justify-content:center;'>
+            <div style='font-size:38px;'>🤖</div>
+            <h4 style='color:#0f172a; margin:10px 0;'>Teknologi AI</h4>
+            <p style='color:#334155; font-size:15px; line-height:1.5;'>
+                Pelajari bagaimana AI mengenali bentuk, warna, dan pola kelopak bunga.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+with col3:
+    st.markdown(
+        """
+        <div style='background-color:#E9FBF0; border-radius:15px; padding:30px; 
+                    text-align:center; box-shadow:0 3px 10px rgba(0,0,0,0.05); 
+                    transition:0.3s; min-height:230px; display:flex; flex-direction:column; 
+                    justify-content:center;'>
+            <div style='font-size:38px;'>🧍‍♀️</div>
+            <h4 style='color:#0f172a; margin:10px 0;'>Data Diri</h4>
+            <p style='color:#334155; font-size:15px; line-height:1.5;'>
+                Personalisasi pengalaman dengan nama, email, dan preferensi tema Anda.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+with col4:
+    st.markdown(
+        """
+        <div style='background-color:#FFF3E9; border-radius:15px; padding:30px; 
+                    text-align:center; box-shadow:0 3px 10px rgba(0,0,0,0.05); 
+                    transition:0.3s; min-height:230px; display:flex; flex-direction:column; 
+                    justify-content:center;'>
+            <div style='font-size:38px;'>📸</div>
+            <h4 style='color:#0f172a; margin:10px 0;'>Analisis Gambar</h4>
+            <p style='color:#334155; font-size:15px; line-height:1.5;'>
+                Upload gambar bunga dan dapatkan hasil klasifikasi atau deteksi objek.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+# ===== Tombol di Tengah =====
+st.markdown(
+    """
+    <div style='text-align:center; margin-top:35px;'>
+        <a href='#' style='background-color:#00a86b; color:white; padding:12px 35px; 
+        border-radius:30px; font-weight:600; text-decoration:none; 
+        box-shadow:0 4px 10px rgba(0,168,107,0.3); transition:0.3s;'>🌼 Mulai Sekarang</a>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
