@@ -534,33 +534,33 @@ st.markdown("""
         dan menganalisis bunga favorit Anda
     </p>
 
-    <div class="steps-container">
-        <div class="step-card">
-            <div class="step-icon blue">☕</div>
-            <div class="step-number blue">1</div>
-            <h3 class="step-title">Selamat Datang</h3>
-            <p class="step-desc">Kenali konsep AI Flower Vision dengan tampilan yang menarik dan interaktif</p>
+    <div class="card-container">
+        <div class="card">
+            <div class="icon">💐</div>
+            <div class="number">1</div>
+            <div class="card-title">Selamat Datang</div>
+            <div class="card-desc">Kenali konsep AI Flower Vision dengan tampilan yang menarik dan interaktif.</div>
         </div>
 
-        <div class="step-card">
-            <div class="step-icon purple">🧠</div>
-            <div class="step-number purple">2</div>
-            <h3 class="step-title">Teknologi AI</h3>
-            <p class="step-desc">Pelajari bagaimana AI mengenali bentuk, warna, dan pola kelopak bunga</p>
+        <div class="card">
+            <div class="icon">🤖</div>
+            <div class="number">2</div>
+            <div class="card-title">Teknologi AI</div>
+            <div class="card-desc">Pelajari bagaimana AI mengenali bentuk, warna, dan pola kelopak bunga.</div>
         </div>
 
-        <div class="step-card">
-            <div class="step-icon green">👤</div>
-            <div class="step-number green">3</div>
-            <h3 class="step-title">Data Diri</h3>
-            <p class="step-desc">Personalisasi pengalaman dengan nama, email, dan preferensi tema Anda</p>
+        <div class="card">
+            <div class="icon">🧍‍♀️</div>
+            <div class="number">3</div>
+            <div class="card-title">Data Diri</div>
+            <div class="card-desc">Personalisasi pengalaman dengan nama, email, dan preferensi tema Anda.</div>
         </div>
 
-        <div class="step-card">
-            <div class="step-icon orange">📷</div>
-            <div class="step-number orange">4</div>
-            <h3 class="step-title">Analisis Gambar</h3>
-            <p class="step-desc">Upload gambar bunga dan dapatkan hasil klasifikasi atau deteksi objek</p>
+        <div class="card">
+            <div class="icon">📸</div>
+            <div class="number">4</div>
+            <div class="card-title">Analisis Gambar</div>
+            <div class="card-desc">Upload gambar bunga dan dapatkan hasil klasifikasi atau deteksi objek.</div>
         </div>
     </div>
 
