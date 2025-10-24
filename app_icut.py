@@ -264,8 +264,6 @@ st.markdown(
         align-items: center;         /* center horizontal */
         justify-content: center;     /* center vertical dalam container */
         background: linear-gradient(145deg, #f8fffa 0%, #eaf7ff 100%); /* 🌸 warna baru bagian fitur unggulan *
-        border-radius: 24px; /* opsional, biar lembut kayak hero */
-        box-shadow: 0 6px 14px rgba(0,0,0,0.04); /* opsional */
     }
 
     /* ======== JUDUL & SUBJUDUL ======== */
