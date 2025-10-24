@@ -376,8 +376,10 @@ col1, col2 = st.columns(2)
 with col1:
     st.markdown(
         """
-        <div style='background-color:#E9FBF0; border-radius:15px; padding:25px; 
-                    text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.05); transition:0.3s;'>
+        <div style='background-color:#E9FBF0; border-radius:15px; padding:35px; 
+                    text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.05); 
+                    transition:0.3s; min-height:240px; display:flex; flex-direction:column; 
+                    justify-content:center;'>
             <div style='font-size:40px;'>🌼</div>
             <h4 style='color:#0f172a; margin-bottom:8px;'>Kenali Jenis Bunga</h4>
             <p style='color:#334155; font-size:15px; line-height:1.5;'>
@@ -392,8 +394,10 @@ with col1:
 with col2:
     st.markdown(
         """
-        <div style='background-color:#EAF3FF; border-radius:15px; padding:25px; 
-                    text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.05); transition:0.3s;'>
+        <div style='background-color:#EAF3FF; border-radius:15px; padding:35px; 
+                    text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.05); 
+                    transition:0.3s; min-height:240px; display:flex; flex-direction:column; 
+                    justify-content:center;'>
             <div style='font-size:40px;'>🔍</div>
             <h4 style='color:#0f172a; margin-bottom:8px;'>Deteksi Bagian Bunga</h4>
             <p style='color:#334155; font-size:15px; line-height:1.5;'>
