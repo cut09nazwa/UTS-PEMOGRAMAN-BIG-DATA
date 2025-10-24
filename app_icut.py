@@ -534,36 +534,51 @@ st.markdown("""
         dan menganalisis bunga favorit Anda
     </p>
 
-    <div class="card-container">
-        <div class="card">
-            <div class="icon">💐</div>
-            <div class="number">1</div>
-            <div class="card-title">Selamat Datang</div>
-            <div class="card-desc">Kenali konsep AI Flower Vision dengan tampilan yang menarik dan interaktif.</div>
+    <div class="step-container">
+        <div class="step-card">
+            <div class="step-left">
+                <div class="number n1">1</div>
+                <div class="step-text">
+                    <div class="step-title">Selamat Datang</div>
+                    <div class="step-desc">Mulai perjalanan Anda dengan tampilan sambutan yang menarik dan pengenalan fitur AI Flower Vision.</div>
+                </div>
+            </div>
+            <div class="step-icon">💐</div>
         </div>
 
-        <div class="card">
-            <div class="icon">🤖</div>
-            <div class="number">2</div>
-            <div class="card-title">Teknologi AI</div>
-            <div class="card-desc">Pelajari bagaimana AI mengenali bentuk, warna, dan pola kelopak bunga.</div>
+        <div class="step-card">
+            <div class="step-left">
+                <div class="number n2">2</div>
+                <div class="step-text">
+                    <div class="step-title">Pelajari Teknologi AI</div>
+                    <div class="step-desc">Pahami bagaimana kecerdasan buatan bekerja untuk mengenali bentuk, warna, dan pola pada bunga.</div>
+                </div>
+            </div>
+            <div class="step-icon">🤖</div>
         </div>
 
-        <div class="card">
-            <div class="icon">🧍‍♀️</div>
-            <div class="number">3</div>
-            <div class="card-title">Data Diri</div>
-            <div class="card-desc">Personalisasi pengalaman dengan nama, email, dan preferensi tema Anda.</div>
+        <div class="step-card">
+            <div class="step-left">
+                <div class="number n3">3</div>
+                <div class="step-text">
+                    <div class="step-title">Atur Preferensi</div>
+                    <div class="step-desc">Masukkan nama Anda, pilih tema tampilan, dan tentukan tujuan penggunaan untuk pengalaman yang personal.</div>
+                </div>
+            </div>
+            <div class="step-icon">🧍‍♀️</div>
         </div>
 
-        <div class="card">
-            <div class="icon">📸</div>
-            <div class="number">4</div>
-            <div class="card-title">Analisis Gambar</div>
-            <div class="card-desc">Upload gambar bunga dan dapatkan hasil klasifikasi atau deteksi objek.</div>
+        <div class="step-card">
+            <div class="step-left">
+                <div class="number n4">4</div>
+                <div class="step-text">
+                    <div class="step-title">Analisis Gambar</div>
+                    <div class="step-desc">Upload foto bunga Anda dan pilih mode analisis untuk mendapatkan hasil klasifikasi atau deteksi objek.</div>
+                </div>
+            </div>
+            <div class="step-icon">📸</div>
         </div>
     </div>
 
-    <a href="#" class="start-button">▶️ Mulai Perjalanan 4 Langkah</a>
-</div>
+    <a href="#" class="start-button">🌼 Mulai Sekarang</a>
 """, unsafe_allow_html=True)
