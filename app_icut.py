@@ -29,7 +29,7 @@ st.set_page_config(
 )
 
 # ==========================
-# CSS STYLING TAMPAK PROFESIONAL + BACKGROUND WARNA
+# CSS STYLING TAMPILAN PROFESIONAL + BACKGROUND WARNA
 # ==========================
 st.markdown("""
     <style>
@@ -40,7 +40,7 @@ st.markdown("""
         }
 
         [data-testid="stAppViewContainer"] {
-            background: linear-gradient(120deg, #f0fff4, #ffffff);
+            background: linear-gradient(120deg, #f1fff7, #ffffff);
         }
 
         /* ===== NAVBAR ===== */
@@ -49,20 +49,23 @@ st.markdown("""
             justify-content: space-between;
             align-items: center;
             background-color: #ffffff;
-            padding: 14px 40px;
-            box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
-            border-bottom: 3px solid #00a86b10;
+            padding: 16px 80px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-bottom: 2px solid #00a86b20;
+            border-radius: 16px;
+            margin: 20px 40px; /* supaya tidak mentok full kiri-kanan */
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
         .navbar a {
-            margin-left: 25px;
+            margin-left: 28px;
             text-decoration: none;
             color: #222;
             font-weight: 500;
             transition: 0.3s;
+            font-size: 17px;
         }
 
         .navbar a:hover {
@@ -75,19 +78,19 @@ st.markdown("""
 
         .navbar-title {
             font-family: 'Pacifico', cursive;
-            font-size: 28px;
+            font-size: 30px;
             font-weight: 600;
             color: #009970;
             letter-spacing: 0.5px;
         }
 
         .navbar-button {
-            background-color: #009970;
+            background-color: #00a86b;
             color: white !important;
-            padding: 10px 20px;
+            padding: 10px 22px;
             border-radius: 14px;
             font-weight: 600;
-            margin-left: 20px;
+            margin-left: 25px;
             box-shadow: 0px 3px 8px rgba(0, 153, 112, 0.25);
             transition: 0.3s ease;
         }
@@ -102,27 +105,30 @@ st.markdown("""
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 80px 60px;
-            background: linear-gradient(135deg, #ecfff4 0%, #ffffff 100%);
-            border-radius: 20px;
-            box-shadow: 0px 4px 12px rgba(0,0,0,0.05);
+            padding: 100px 80px;
+            margin: 30px 40px;
+            background: linear-gradient(145deg, #e9fff5 0%, #ffffff 100%);
+            border-radius: 24px;
+            box-shadow: 0px 6px 14px rgba(0,0,0,0.05);
         }
 
         .highlight {
             background-color: #c6f5e3;
             color: #006b47;
             display: inline-block;
-            padding: 8px 20px;
+            padding: 8px 22px;
             border-radius: 25px;
             font-weight: 600;
-            font-size: 16px;
-            margin-bottom: 10px;
+            font-size: 17px;
+            margin-bottom: 25px;
         }
 
         .hero-text h1 {
-            font-size: 48px;
+            font-size: 60px;
             font-weight: 800;
             color: #1a1a1a;
+            line-height: 1.2;
+            margin-bottom: 20px;
         }
 
         .hero-text span {
@@ -130,16 +136,17 @@ st.markdown("""
         }
 
         .hero-text p {
-            font-size: 18px;
+            font-size: 19px;
             color: #444;
             margin-top: 10px;
-            line-height: 1.6;
+            line-height: 1.7;
+            max-width: 600px;
         }
 
         .stats {
             display: flex;
-            gap: 50px;
-            margin-top: 20px;
+            gap: 60px;
+            margin-top: 25px;
         }
 
         .stat-box {
@@ -147,7 +154,7 @@ st.markdown("""
         }
 
         .stat-value {
-            font-size: 28px;
+            font-size: 30px;
             font-weight: bold;
             color: #00a86b;
         }
@@ -155,13 +162,13 @@ st.markdown("""
         .cta-button {
             background-color: #00a86b;
             color: white;
-            padding: 12px 28px;
+            padding: 14px 32px;
             font-size: 18px;
             border: none;
-            border-radius: 12px;
-            margin-top: 35px;
+            border-radius: 14px;
+            margin-top: 40px;
             cursor: pointer;
-            box-shadow: 0 3px 10px rgba(0, 168, 107, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 168, 107, 0.3);
             transition: 0.3s ease;
         }
 
@@ -171,7 +178,7 @@ st.markdown("""
         }
 
         .hero-img img {
-            width: 420px;
+            width: 440px;
             border-radius: 20px;
             box-shadow: 0px 6px 12px rgba(0,0,0,0.1);
         }
@@ -181,13 +188,14 @@ st.markdown("""
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 """, unsafe_allow_html=True)
 
+
 # ==========================
 # NAVBAR
 # ==========================
 st.markdown("""
 <div class="navbar">
     <div class="navbar-left">
-        <div class="navbar-title">AI Flower Vision</div>
+        <div class="navbar-title">🌸 AI Flower Vision</div>
     </div>
     <div class="navbar-right">
         <a href="#fitur">Fitur</a>
@@ -197,6 +205,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
+
 # ==========================
 # HERO SECTION
 # ==========================
@@ -204,7 +213,7 @@ col1, col2 = st.columns([1.2, 1])
 
 with col1:
     st.markdown("<div class='highlight'>Teknologi AI Terdepan untuk Klasifikasi Bunga</div>", unsafe_allow_html=True)
-    st.markdown("<h1>Kenali <span style='color:#00a86b;'>Setiap Bunga</span> dengan AI</h1>", unsafe_allow_html=True)
+    st.markdown("<div class='hero-text'><h1>Kenali <span>Setiap Bunga</span><br>dengan AI</h1></div>", unsafe_allow_html=True)
     st.markdown("""
         <p>
         Platform revolusioner yang menggunakan kecerdasan buatan untuk mengidentifikasi spesies bunga, 
@@ -229,9 +238,7 @@ with col1:
         </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("""
-        <button class="cta-button">🌺 Mulai Petualangan AI</button>
-    """, unsafe_allow_html=True)
+    st.markdown("<button class='cta-button'>🌺 Mulai Petualangan AI</button>", unsafe_allow_html=True)
 
 with col2:
     image = Image.open("sample_images/1cc501a2ea_jpg.rf.dc455624ba691a864edbf790e48543dd.jpg")
