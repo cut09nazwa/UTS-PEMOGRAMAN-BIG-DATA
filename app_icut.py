@@ -52,8 +52,8 @@ st.markdown("""
             padding: 16px 80px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.08);
             border-bottom: 2px solid #00a86b20;
-            border-radius: 16px;
-            margin: 20px 40px 20px 40px;; /* sejajar denga hero section */
+            border-radius: 0;
+            margin: 0;
             position: sticky;
             top: 0;
             z-index: 100;
