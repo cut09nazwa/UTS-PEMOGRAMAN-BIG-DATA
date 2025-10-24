@@ -53,7 +53,7 @@ st.markdown("""
             box-shadow: 0 3px 10px rgba(0,0,0,0.08);
             border-bottom: 2px solid #00a86b20;
             border-radius: 16px;
-            margin: 20px 40px; /* supaya tidak mentok full kiri-kanan */
+            margin: 20px 40px 20px 40px;; /* sejajar denga hero section */
             position: sticky;
             top: 0;
             z-index: 100;
