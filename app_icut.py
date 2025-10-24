@@ -255,15 +255,15 @@ st.markdown(
     /* ======== WRAPPER UTAMA ======== */
     .fitur-wrapper {
         width: 100%;
-        max-width: 1100px;
-        margin: 0 auto;              /* agar konten di tengah halaman */
-        padding: 60px 40px 80px;
-        text-align: center;          /* pastikan teks di tengah */
+        padding: 80px 60px;
+        text-align: center;
         display: flex;
         flex-direction: column;
-        align-items: center;         /* center horizontal */
-        justify-content: center;     /* center vertical dalam container */
-        background: linear-gradient(145deg, #f8fffa 0%, #eaf7ff 100%); /* 🌸 warna baru bagian fitur unggulan *
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(145deg, #f8fffa 0%, #eaf7ff 100%); /* 🌸 gradient full background */
+        margin: 0;
+        border-radius: 0; /* agar penuh tanpa sudut */
     }
 
     /* ======== JUDUL & SUBJUDUL ======== */
@@ -286,20 +286,21 @@ st.markdown(
     .features-container {
         display: flex;
         justify-content: center;
-        align-items: flex-start;
+        align-items: stretch;
         flex-wrap: wrap;
-        gap: 50px;
+        gap: 40px;
+        width: 100%;
+        max-width: 1100px;
     }
 
     /* ======== CARD FITUR ======== */
     .feature-card {
         flex: 1 1 45%;
-        max-width: 480px;
-        padding: 35px;
+        background-color: #ffffff;
         border-radius: 20px;
+        padding: 35px;
         box-shadow: 0 10px 20px rgba(0,0,0,0.08);
         transition: all 0.3s ease;
-        background-color: #ffffff;
         text-align: center;
     }
 
@@ -333,43 +334,25 @@ st.markdown(
             Teknologi AI terdepan yang memungkinkan Anda mengeksplorasi dunia bunga
             dengan cara yang belum pernah ada sebelumnya.
         </p>
+
+        <div class="features-container">
+            <div class="feature-card" style="background-color:#E9FBF0;">
+                <div class="feature-icon">🌼</div>
+                <div class="feature-title">Kenali Jenis Bunga</div>
+                <div class="feature-text">
+                    Upload foto bunga dan AI akan memberitahu jenis dan nama bunga tersebut.
+                </div>
+            </div>
+
+            <div class="feature-card" style="background-color:#EAF3FF;">
+                <div class="feature-icon">🔍</div>
+                <div class="feature-title">Deteksi Bagian Bunga</div>
+                <div class="feature-text">
+                    AI dapat mengenali bagian-bagian bunga seperti kelopak, putik, dan daun.
+                </div>
+            </div>
+        </div>
     </div>
     """,
     unsafe_allow_html=True,
 )
-
-# Tata letak 2 kolom — kode Python berada di luar string
-col1, col2 = st.columns(2)
-
-# ===== Kolom 1 =====
-with col1:
-    st.markdown(
-        """
-        <div style='background-color:#E9FBF0; border-radius:15px; padding:25px; text-align:center;
-                    box-shadow:0 4px 10px rgba(0,0,0,0.05); transition:0.3s;'>
-            <div style='font-size:40px; color:#FFF8E7;'>🌼</div>
-            <h4 style='color:#0f172a; margin-bottom:8px;'>Kenali Jenis Bunga</h4>
-            <p style='color:#334155; font-size:15px; line-height:1.5;'>
-                Upload foto bunga dan AI akan memberitahu jenis dan nama bunga tersebut.
-            </p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-# ===== Kolom 2 =====
-with col2:
-    st.markdown(
-        """
-        <div style='background-color:#EAF3FF; border-radius:15px; padding:25px; text-align:center;
-                    box-shadow:0 4px 10px rgba(0,0,0,0.05); transition:0.3s;'>
-            <div style='font-size:40px; color:#2563eb;'>🔍</div>
-            <h4 style='color:#0f172a; margin-bottom:8px;'>Deteksi Bagian Bunga</h4>
-            <p style='color:#334155; font-size:15px; line-height:1.5;'>
-                AI dapat mengenali bagian-bagian bunga seperti kelopak, putik, dan daun.
-            </p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
