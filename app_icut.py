@@ -45,75 +45,75 @@ def go_to_home():
 # ==========================
 if st.session_state.page == "home":
 
-st.markdown("""
-    <style>
-        /* ===== BODY & BACKGROUND ===== */
-        body {
-            background: linear-gradient(135deg, #eafaf1 0%, #ffffff 100%);
-            font-family: "Poppins", sans-serif;
-        }
+    st.markdown("""
+        <style>
+            /* ===== BODY & BACKGROUND ===== */
+            body {
+                background: linear-gradient(135deg, #eafaf1 0%, #ffffff 100%);
+                font-family: "Poppins", sans-serif;
+            }
 
-        [data-testid="stAppViewContainer"] {
-            background: linear-gradient(120deg, #f1fff7, #ffffff);
-        }
+            [data-testid="stAppViewContainer"] {
+                background: linear-gradient(120deg, #f1fff7, #ffffff);
+            }
 
-        /* ===== NAVBAR ===== */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #ffffff;
-            padding: 16px 80px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-            border-bottom: 2px solid #00a86b20;
-            border-radius: 0;
-            margin: 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            margin-bottom: 30px;
-        }
+            /* ===== NAVBAR ===== */
+            .navbar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #ffffff;
+                padding: 16px 80px;
+                box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+                border-bottom: 2px solid #00a86b20;
+                border-radius: 0;
+                margin: 0;
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                margin-bottom: 30px;
+            }
 
         .navbar a {
-            margin-left: 28px;
-            text-decoration: none;
-            color: #222;
-            font-weight: 500;
-            transition: 0.3s;
-            font-size: 17px;
-        }
+                margin-left: 28px;
+                text-decoration: none;
+                color: #222;
+                font-weight: 500;
+                transition: 0.3s;
+                font-size: 17px;
+            }
 
-        .navbar a:hover {
-            color: #00a86b;
-        }
+            .navbar a:hover {
+                color: #00a86b;
+            }
 
-        .navbar-left {
-            flex: 1;
-        }
+            .navbar-left {
+                flex: 1;
+            }
 
-        .navbar-title {
-            font-family: 'Pacifico', cursive;
-            font-size: 30px;
-            font-weight: 600;
-            color: #009970;
-            letter-spacing: 0.5px;
-        }
+            .navbar-title {
+                font-family: 'Pacifico', cursive;
+                font-size: 30px;
+                font-weight: 600;
+                color: #009970;
+                letter-spacing: 0.5px;
+            }
 
-        .navbar-button {
-            background-color: #00a86b;
-            color: white !important;
-            padding: 10px 22px;
-            border-radius: 14px;
-            font-weight: 600;
-            margin-left: 25px;
-            box-shadow: 0px 3px 8px rgba(0, 153, 112, 0.25);
-            transition: 0.3s ease;
-        }
+            .navbar-button {
+                background-color: #00a86b;
+                color: white !important;
+                padding: 10px 22px;
+                border-radius: 14px;
+                font-weight: 600;
+                margin-left: 25px;
+                box-shadow: 0px 3px 8px rgba(0, 153, 112, 0.25);
+                transition: 0.3s ease;
+            }
 
-        .navbar-button:hover {
-            background-color: #007e5d;
-            transform: translateY(-2px);
-        }
+            .navbar-button:hover {
+                background-color: #007e5d;
+                transform: translateY(-2px);
+            }
 
         /* ===== HERO SECTION ===== */
         .hero {
