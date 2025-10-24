@@ -331,9 +331,7 @@ st.markdown(
         font-size: 15px;
         color: #334155;
         line-height: 1.6;
-    }
-    </style>
-    
+    }    
 st.markdown(
     """
     <div class="fitur-wrapper">
