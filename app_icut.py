@@ -249,6 +249,7 @@ with col2:
 # BAGIAN FITUR UNGGULAN
 # =======================
 
+# === CSS Styling ===
 st.markdown(
     """
     <style>
@@ -327,26 +328,38 @@ st.markdown(
         line-height: 1.6;
     }
     </style>
+    """,
+    unsafe_allow_html=True
+)
 
-    st.markdown(
+# === Konten HTML ===
+st.markdown(
     """
-    <div class="features-container">
-        <div class="feature-card" style="background-color:#E9FBF0;">
-            <div class="feature-icon">🌼</div>
-            <div class="feature-title">Kenali Jenis Bunga</div>
-            <div class="feature-text">
-                Upload foto bunga dan AI akan memberitahu jenis dan nama bunga tersebut.
-            </div>
-        </div>
+    <div class="fitur-wrapper">
+        <h1 class="section-title">Fitur Unggulan</h1>
+        <p class="section-subtitle">
+            Teknologi AI terdepan yang memungkinkan Anda mengeksplorasi dunia bunga
+            dengan cara yang belum pernah ada sebelumnya.
+        </p>
 
-        <div class="feature-card" style="background-color:#EAF3FF;">
-            <div class="feature-icon">🔍</div>
-            <div class="feature-title">Deteksi Bagian Bunga</div>
-            <div class="feature-text">
-                AI dapat mengenali bagian-bagian bunga seperti kelopak, putik, dan daun.
+        <div class="features-container">
+            <div class="feature-card" style="background-color:#E9FBF0;">
+                <div class="feature-icon">&#127804;</div>
+                <div class="feature-title">Kenali Jenis Bunga</div>
+                <div class="feature-text">
+                    Upload foto bunga dan AI akan memberitahu jenis dan nama bunga tersebut.
+                </div>
+            </div>
+
+            <div class="feature-card" style="background-color:#EAF3FF;">
+                <div class="feature-icon">&#128269;</div>
+                <div class="feature-title">Deteksi Bagian Bunga</div>
+                <div class="feature-text">
+                    AI dapat mengenali bagian-bagian bunga seperti kelopak, putik, dan daun.
+                </div>
             </div>
         </div>
     </div>
     """,
-    unsafe_allow_html=True,
+    unsafe_allow_html=True
 )
