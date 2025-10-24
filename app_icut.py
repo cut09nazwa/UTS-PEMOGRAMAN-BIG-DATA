@@ -348,7 +348,7 @@ st.markdown(
 )
 
 # =======================
-# TATA LETAK FITUR (2 KOLOM)
+# TATA LETAK FITUR (2 KOLOM) - FIXED
 # =======================
 
 col1, col2 = st.columns(2)
