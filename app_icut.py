@@ -420,7 +420,7 @@ st.markdown("""
     /* ===== WRAPPER SECTION ===== */
     .proses-wrapper {
         width: 100%;
-        padding: 90px 60px;
+        padding: 50px 40px;
         text-align: center;
         display: flex;
         flex-direction: column;
@@ -434,14 +434,14 @@ st.markdown("""
         color: #0f172a;
         font-size: 42px;
         font-weight: 800;
-        margin-bottom: 10px;
+        margin-bottom: 6x;
     }
 
     .proses-subtitle {
         color: #334155;
-        font-size: 18px;
+        font-size: 17px;
         max-width: 700px;
-        margin: 0 auto 60px;
+        margin: 0 auto 35px;
         line-height: 1.6;
     }
 
@@ -515,6 +515,7 @@ st.markdown("""
         text-decoration: none;
         box-shadow: 0 6px 14px rgba(16,185,129,0.3);
         transition: all 0.3s ease;
+        margin-top: 10px;
     }
 
     .start-button:hover {
