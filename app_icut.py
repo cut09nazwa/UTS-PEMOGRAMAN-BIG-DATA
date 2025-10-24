@@ -333,8 +333,18 @@ st.markdown(
         line-height: 1.6;
     }
     </style>
+    
+st.markdown(
+    """
+    <div class="fitur-wrapper">
+        <h1 class="section-title">Fitur Unggulan</h1>
+        <p class="section-subtitle">
+            Teknologi AI terdepan yang memungkinkan Anda mengeksplorasi dunia bunga 
+            dengan cara yang belum pernah ada sebelumnya.
+        </p>
+    </div>
     """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )
 
 # =======================
