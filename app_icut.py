@@ -253,6 +253,15 @@ with col2:
 st.markdown(
     """
     <style>
+    /* ======== SET BACKGROUND DASHBOARD ======== */
+    [data-testid="stAppViewContainer"] {
+        background: linear-gradient(145deg, #f8fffa 0%, #eaf7ff 100%) !important;
+    }
+
+    [data-testid="stSidebar"] {
+        background: linear-gradient(145deg, #f8fffa 0%, #eaf7ff 100%) !important;
+    }
+
     /* ======== WRAPPER UTAMA ======== */
     .fitur-wrapper {
         width: 100%;
@@ -292,9 +301,9 @@ st.markdown(
         gap: 40px;
         width: 100%;
         max-width: 1100px;
-        background-color: #ffffff; /* samakan warna dengan card agar sela tidak belang */
-        padding: 40px 0; /* beri sedikit ruang atas bawah agar lega */
-        border-radius: 20px; /* biar rapi kalau di atas background lain */
+        background-color: #ffffff; /* untuk jaga jarak antar card */
+        padding: 40px 0;
+        border-radius: 20px;
     }
 
     /* ======== CARD FITUR ======== */
@@ -309,12 +318,11 @@ st.markdown(
         text-align: center;
     }
 
-    /* Efek hover */
     .feature-card:hover {
         transform: translateY(-8px);
         box-shadow: 0 16px 30px rgba(0,0,0,0.15);
     }
-    
+
     .feature-icon {
         font-size: 40px;
         margin-bottom: 10px;
@@ -337,6 +345,10 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+# =======================
+# KONTEN FITUR UNGGULAN
+# =======================
+
 st.markdown(
     """
     <div class="fitur-wrapper">
@@ -351,7 +363,7 @@ st.markdown(
 )
 
 # =======================
-# TATA LETAK FITUR (2 KOLOM) - FIXED
+# TATA LETAK FITUR (2 KOLOM)
 # =======================
 
 col1, col2 = st.columns(2)
