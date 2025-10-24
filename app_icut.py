@@ -31,6 +31,20 @@ st.set_page_config(
 # ==========================
 # CSS STYLING TAMPILAN PROFESIONAL + BACKGROUND WARNA
 # ==========================
+
+if "page" not in st.session_state:
+    st.session_state.page = "home"
+
+def go_to_intro():
+    st.session_state.page = "intro"
+
+def go_to_home():
+    st.session_state.page = "home"    
+# ==========================
+# HALAMAN 1: HOME / HALAMAN AWAL
+# ==========================
+if st.session_state.page == "home":
+
 st.markdown("""
     <style>
         /* ===== BODY & BACKGROUND ===== */
@@ -239,7 +253,9 @@ with col1:
         </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("<button class='cta-button'>🌺 Mulai Petualangan AI</button>", unsafe_allow_html=True)
+# Tombol navigasi ke halaman INTRO
+if st.button("🌺 Mulai Petualangan AI"):
+    go_to_intro()
 
 with col2:
     image = Image.open("sample_images/1cc501a2ea_jpg.rf.dc455624ba691a864edbf790e48543dd.jpg")
@@ -622,7 +638,7 @@ st.markdown("""
 # ==========================
 # HALAMAN SELAMAT DATANG / INTRO
 # ==========================
-
+if st.session_state.page == "intro":
 # ===== CSS STYLING =====
 st.markdown("""
     <style>
@@ -786,14 +802,15 @@ with st.container():
             </div>
         </div>
         """, unsafe_allow_html=True)
+        
+colA, colB = st.columns(2)
+with colA:
+    if st.button("🚀 Mulai Perjalanan", use_container_width=True):
+        st.session_state.page = "home"
 
-        # Tombol Aksi
-        st.markdown("""
-        <div class='button-row'>
-            <a href='#' class='btn-green'>🚀 Mulai Perjalanan</a>
-            <a href='#' class='btn-outline'>⏭ Lewati Intro</a>
-        </div>
-        """, unsafe_allow_html=True)
+with colB:
+    if st.button("⏭ Lewati Intro", use_container_width=True):
+        st.session_state.page = "home"
 
     # Kolom Kanan: Gambar dari file lokal (seperti contohmu)
     with col2:
