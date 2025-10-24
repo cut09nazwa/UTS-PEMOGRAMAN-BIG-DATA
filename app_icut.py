@@ -334,31 +334,42 @@ st.markdown(
     }
 
     /* ======== WRAPPER & SECTION ======== */
-    st.markdown("""
+    st.markdown(
+    """
     <style>
     .fitur-wrapper {
-    width: 100%;
-    padding: 80px 60px;
-    text-align: center;
-    background: linear-gradient(145deg, #f8fffa 0%, #eaf7ff 100%);
-    border-radius: 0;
-    margin: 0;
-}
+        width: 100%;
+        padding: 80px 60px;
+        text-align: center;
+        background: linear-gradient(145deg, #f8fffa 0%, #eaf7ff 100%);
+        border-radius: 0;
+        margin: 0;
+    }
     .section-title {
-    color: #0f172a;
-    font-size: 46px;
-    font-weight: 800;
-    margin-bottom: 10px;
-}
+        color: #0f172a;
+        font-size: 46px;
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
     .section-subtitle {
-    color: #334155;
-    font-size: 18px;
-    max-width: 700px;
-    margin: 0 auto 60px;
-    line-height: 1.6;
-}
+        color: #334155;
+        font-size: 18px;
+        max-width: 700px;
+        margin: 0 auto 60px;
+        line-height: 1.6;
+    }
     </style>
-""", unsafe_allow_html=True)
+
+    <div class="fitur-wrapper">
+        <h1 class="section-title">Fitur Unggulan</h1>
+        <p class="section-subtitle">
+            Teknologi AI terdepan yang memungkinkan Anda mengeksplorasi dunia bunga 
+            dengan cara yang belum pernah ada sebelumnya.
+        </p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 # =======================
 # TATA LETAK FITUR (2 KOLOM)
