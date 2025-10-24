@@ -519,42 +519,45 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# ==== BAGIAN HTML ====
+# ===== HTML STRUCTURE =====
 st.markdown("""
-    <div class="proses-wrapper">
-        <h1 class="proses-title">Proses Mudah dalam 4 Langkah</h1>
-        <p class="proses-subtitle">
-            Perjalanan interaktif yang akan membawa Anda memahami teknologi AI 
-            dan menganalisis bunga favorit Anda
-        </p>
+<div class="proses-wrapper">
+    <h1 class="proses-title">Proses Mudah dalam 4 Langkah</h1>
+    <p class="proses-subtitle">
+        Perjalanan interaktif yang akan membawa Anda memahami teknologi AI 
+        dan menganalisis bunga favorit Anda
+    </p>
 
-        <div class="steps-container">
-            <div class="step-card">
-                <div class="step-number blue">1</div>
-                <h3 class="step-title">Selamat Datang</h3>
-                <p class="step-desc">Kenali konsep AI Flower Vision dengan tampilan yang menarik dan interaktif</p>
-            </div>
-
-            <div class="step-card">
-                <div class="step-number purple">2</div>
-                <h3 class="step-title">Teknologi AI</h3>
-                <p class="step-desc">Pelajari bagaimana AI mengenali bentuk, warna, dan pola kelopak bunga</p>
-            </div>
-
-            <div class="step-card">
-                <div class="step-number green">3</div>
-                <h3 class="step-title">Data Diri</h3>
-                <p class="step-desc">Personalisasi pengalaman dengan nama, email, dan preferensi tema Anda</p>
-            </div>
-
-            <div class="step-card">
-                <div class="step-number orange">4</div>
-                <h3 class="step-title">Analisis Gambar</h3>
-                <p class="step-desc">Upload gambar bunga dan dapatkan hasil klasifikasi atau deteksi objek</p>
-            </div>
+    <div class="steps-container">
+        <div class="step-card">
+            <div class="step-icon icon-blue">☕</div>
+            <div class="step-number">1</div>
+            <h3 class="step-title">Selamat Datang</h3>
+            <p class="step-desc">Kenali konsep AI Flower Vision dengan tampilan yang menarik dan interaktif</p>
         </div>
 
-        <a href="#" class="start-button">🟢 Mulai Perjalanan 4 Langkah</a>
-    </div>
-""", unsafe_allow_html=True)
+        <div class="step-card">
+            <div class="step-icon icon-purple">🧠</div>
+            <div class="step-number">2</div>
+            <h3 class="step-title">Teknologi AI</h3>
+            <p class="step-desc">Pelajari bagaimana AI mengenali bentuk, warna, dan pola kelopak bunga</p>
+        </div>
 
+        <div class="step-card">
+            <div class="step-icon icon-green">👤</div>
+            <div class="step-number">3</div>
+            <h3 class="step-title">Data Diri</h3>
+            <p class="step-desc">Personalisasi pengalaman dengan nama, email, dan preferensi tema Anda</p>
+        </div>
+
+        <div class="step-card">
+            <div class="step-icon icon-orange">📷</div>
+            <div class="step-number">4</div>
+            <h3 class="step-title">Analisis Gambar</h3>
+            <p class="step-desc">Upload gambar bunga dan dapatkan hasil klasifikasi atau deteksi objek</p>
+        </div>
+    </div>
+
+    <a href="#" class="start-button">▶️ Mulai Perjalanan 4 Langkah</a>
+</div>
+""", unsafe_allow_html=True)
