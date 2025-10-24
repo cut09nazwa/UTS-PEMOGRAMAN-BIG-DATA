@@ -429,29 +429,29 @@ st.markdown("""
         background: linear-gradient(145deg, #f8fffa 0%, #eaf7ff 100%);
     }
 
-    # ===== STYLE SECTION =====
+# ===== STYLE SECTION =====
 st.markdown("""
     <style>
-        .section-title {
+    .section-title {
             text-align: center;
             font-size: 32px;
             font-weight: 700;
             color: #0b132b;
             margin-bottom: 5px;
         }
-        .section-subtitle {
+    .section-subtitle {
             text-align: center;
             color: #555;
             font-size: 16px;
             margin-bottom: 50px;
         }
-        .card-container {
+    .card-container {
             display: flex;
             justify-content: center;
             gap: 25px;
             flex-wrap: wrap;
         }
-        .card {
+    .card {
             background-color: white;
             border-radius: 20px;
             padding: 30px;
@@ -460,15 +460,15 @@ st.markdown("""
             box-shadow: 0px 3px 10px rgba(0,0,0,0.08);
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
-        .card:hover {
+    .card:hover {
             transform: translateY(-5px);
             box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
         }
-        .icon {
+    .icon {
             font-size: 32px;
             margin-bottom: 10px;
         }
-        .number {
+    .number {
             display: inline-block;
             background: linear-gradient(to right, #00b4d8, #48cae4);
             color: white;
@@ -480,18 +480,18 @@ st.markdown("""
             font-size: 14px;
             margin-bottom: 15px;
         }
-        .card-title {
+    .card-title {
             font-size: 18px;
             font-weight: 700;
             margin-bottom: 8px;
             color: #0b132b;
         }
-        .card-desc {
+    .card-desc {
             color: #444;
             font-size: 14px;
             line-height: 1.5;
         }
-        .start-button {
+    .start-button {
             display: block;
             margin: 40px auto;
             padding: 10px 25px;
@@ -505,7 +505,7 @@ st.markdown("""
             box-shadow: 0px 4px 12px rgba(0, 200, 150, 0.3);
             transition: all 0.2s ease-in-out;
         }
-        .start-button:hover {
+    .start-button:hover {
             transform: scale(1.05);
             box-shadow: 0px 6px 15px rgba(0, 200, 150, 0.4);
         }
