@@ -284,7 +284,7 @@ st.markdown(
     }
 
     /* ======== KONTENER FITUR ======== */
-.features-container {
+    .features-container {
     display: flex;
     justify-content: center;
     align-items: stretch;
@@ -297,8 +297,8 @@ st.markdown(
     border-radius: 20px; /* opsional: biar rapi kalau di atas background lain */
 }
 
-/* ======== CARD FITUR ======== */
-.feature-card {
+    /* ======== CARD FITUR ======== */
+    .feature-card {
     flex: 1 1 45%;
     max-width: 480px;
     padding: 35px;
@@ -309,8 +309,8 @@ st.markdown(
     text-align: center;
 }
 
-/* Efek hover */
-.feature-card:hover {
+    /* Efek hover */
+    .feature-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 16px 30px rgba(0,0,0,0.15);
 }
