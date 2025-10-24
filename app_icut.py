@@ -265,30 +265,30 @@ st.markdown(
     /* ======== WRAPPER UTAMA ======== */
     .fitur-wrapper {
         width: 100%;
-        padding: 80px 60px;
+        padding: 60px 50px 40px;
         text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         background: linear-gradient(145deg, #f8fffa 0%, #eaf7ff 100%);
-        margin: 0;
+        margin: 0 ;
         border-radius: 0;
     }
 
     /* ======== JUDUL & SUBJUDUL ======== */
     .section-title {
         color: #0f172a;
-        font-size: 46px;
+        font-size: 44px;
         font-weight: 800;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
     }
 
     .section-subtitle {
         color: #334155;
         font-size: 18px;
-        max-width: 700px;
-        margin: 0 auto 60px;
+        max-width: 720px;
+        margin: 0 auto 45px;
         line-height: 1.6;
     }
 
@@ -298,11 +298,11 @@ st.markdown(
         justify-content: center;
         align-items: stretch;
         flex-wrap: wrap;
-        gap: 40px;
+        gap: 32px;
         width: 100%;
         max-width: 1100px;
         background-color: #ffffff; /* untuk jaga jarak antar card */
-        padding: 40px 0;
+        padding: 20px 0;
         border-radius: 20px;
     }
 
@@ -310,28 +310,29 @@ st.markdown(
     .feature-card {
         flex: 1 1 45%;
         max-width: 480px;
-        padding: 35px;
+        padding: 30px 28px;
         border-radius: 20px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.06);
         transition: all 0.3s ease;
         background-color: #ffffff;
         text-align: center;
+        min-height: 230px; /
     }
 
     .feature-card:hover {
         transform: translateY(-8px);
-        box-shadow: 0 16px 30px rgba(0,0,0,0.15);
+        box-shadow: 0 14px 28px rgba(0,0,0,0.15);
     }
 
     .feature-icon {
         font-size: 40px;
-        margin-bottom: 10px;
+        margin-bottom: 14px;
     }
 
     .feature-title {
-        font-size: 22px;
+        font-size: 21px;
         font-weight: 700;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
         color: #0f172a;
     }
 
@@ -339,6 +340,8 @@ st.markdown(
         font-size: 15px;
         color: #334155;
         line-height: 1.6;
+        margin: 0 auto;
+        max-width: 90%;
     }
     </style>
     """,
@@ -374,7 +377,7 @@ with col1:
         """
         <div style='background-color:#E9FBF0; border-radius:15px; padding:35px; 
                     text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.05); 
-                    transition:0.3s; min-height:240px; display:flex; flex-direction:column; 
+                    transition:0.3s; min-height:230px; display:flex; flex-direction:column; 
                     justify-content:center;'>
             <div style='font-size:40px;'>🌼</div>
             <h4 style='color:#0f172a; margin-bottom:8px;'>Kenali Jenis Bunga</h4>
@@ -392,7 +395,7 @@ with col2:
         """
         <div style='background-color:#EAF3FF; border-radius:15px; padding:35px; 
                     text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.05); 
-                    transition:0.3s; min-height:240px; display:flex; flex-direction:column; 
+                    transition:0.3s; min-height:230px; display:flex; flex-direction:column; 
                     justify-content:center;'>
             <div style='font-size:40px;'>🔍</div>
             <h4 style='color:#0f172a; margin-bottom:8px;'>Deteksi Bagian Bunga</h4>
