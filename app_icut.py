@@ -285,35 +285,35 @@ st.markdown(
 
     /* ======== KONTENER FITUR ======== */
     .features-container {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    flex-wrap: wrap;
-    gap: 40px;
-    width: 100%;
-    max-width: 1100px;
-    background-color: #ffffff; /* ✅ samakan warna dengan card agar sela tidak belang */
-    padding: 40px 0; /* beri sedikit ruang atas bawah agar lega */
-    border-radius: 20px; /* opsional: biar rapi kalau di atas background lain */
-}
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        flex-wrap: wrap;
+        gap: 40px;
+        width: 100%;
+        max-width: 1100px;
+        background-color: #ffffff; /* samakan warna dengan card agar sela tidak belang */
+        padding: 40px 0; /* beri sedikit ruang atas bawah agar lega */
+        border-radius: 20px; /* biar rapi kalau di atas background lain */
+    }
 
     /* ======== CARD FITUR ======== */
     .feature-card {
-    flex: 1 1 45%;
-    max-width: 480px;
-    padding: 35px;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
-    background-color: #ffffff; /* ✅ warna kartu */
-    text-align: center;
-}
+        flex: 1 1 45%;
+        max-width: 480px;
+        padding: 35px;
+        border-radius: 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        transition: all 0.3s ease;
+        background-color: #ffffff;
+        text-align: center;
+    }
 
     /* Efek hover */
     .feature-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 30px rgba(0,0,0,0.15);
-}
+        transform: translateY(-8px);
+        box-shadow: 0 16px 30px rgba(0,0,0,0.15);
+    }
     
     .feature-icon {
         font-size: 40px;
@@ -332,41 +332,7 @@ st.markdown(
         color: #334155;
         line-height: 1.6;
     }
-
-    /* ======== WRAPPER & SECTION ======== */
-    st.markdown(
-    """
-    <style>
-    .fitur-wrapper {
-        width: 100%;
-        padding: 80px 60px;
-        text-align: center;
-        background: linear-gradient(145deg, #f8fffa 0%, #eaf7ff 100%);
-        border-radius: 0;
-        margin: 0;
-    }
-    .section-title {
-        color: #0f172a;
-        font-size: 46px;
-        font-weight: 800;
-        margin-bottom: 10px;
-    }
-    .section-subtitle {
-        color: #334155;
-        font-size: 18px;
-        max-width: 700px;
-        margin: 0 auto 60px;
-        line-height: 1.6;
-    }
     </style>
-
-    <div class="fitur-wrapper">
-        <h1 class="section-title">Fitur Unggulan</h1>
-        <p class="section-subtitle">
-            Teknologi AI terdepan yang memungkinkan Anda mengeksplorasi dunia bunga 
-            dengan cara yang belum pernah ada sebelumnya.
-        </p>
-    </div>
     """,
     unsafe_allow_html=True
 )
