@@ -297,11 +297,12 @@ st.markdown(
     /* ======== CARD FITUR ======== */
     .feature-card {
         flex: 1 1 45%;
-        background-color: #ffffff;
-        border-radius: 20px;
+        max-width: 480px;
         padding: 35px;
+        border-radius: 20px;
         box-shadow: 0 10px 20px rgba(0,0,0,0.08);
         transition: all 0.3s ease;
+        background-color: #ffffff;
         text-align: center;
     }
 
@@ -327,39 +328,78 @@ st.markdown(
         color: #334155;
         line-height: 1.6;
     }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
-# === HTML Konten ===
-st.markdown(
-    """
+    /* ======== WRAPPER & SECTION ======== */
+    .fitur-wrapper {
+        width: 100%;
+        padding: 80px 60px;
+        text-align: center;
+        background: linear-gradient(145deg, #f8fffa 0%, #eaf7ff 100%);
+        border-radius: 0;
+        margin: 0;
+    }
+
+    .section-title {
+        color: #0f172a;
+        font-size: 46px;
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+        color: #334155;
+        font-size: 18px;
+        max-width: 700px;
+        margin: 0 auto 60px;
+        line-height: 1.6;
+    }
+    </style>
+
     <div class="fitur-wrapper">
         <h1 class="section-title">Fitur Unggulan</h1>
         <p class="section-subtitle">
-            Teknologi AI terdepan yang memungkinkan Anda mengeksplorasi dunia bunga
+            Teknologi AI terdepan yang memungkinkan Anda mengeksplorasi dunia bunga 
             dengan cara yang belum pernah ada sebelumnya.
         </p>
-
-        <div class="features-container">
-            <div class="feature-card" style="background-color:#E9FBF0;">
-                <div class="feature-icon">🌸</div>
-                <div class="feature-title">Kenali Jenis Bunga</div>
-                <div class="feature-text">
-                    Upload foto bunga dan AI akan memberitahu jenis dan nama bunga tersebut.
-                </div>
-            </div>
-
-            <div class="feature-card" style="background-color:#EAF3FF;">
-                <div class="feature-icon">🔍</div>
-                <div class="feature-title">Deteksi Bagian Bunga</div>
-                <div class="feature-text">
-                    AI dapat mengenali bagian-bagian bunga seperti kelopak, putik, dan daun.
-                </div>
-            </div>
-        </div>
     </div>
     """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )
+
+# =======================
+# TATA LETAK FITUR (2 KOLOM)
+# =======================
+
+col1, col2 = st.columns(2)
+
+# ===== Kolom 1 =====
+with col1:
+    st.markdown(
+        """
+        <div style='background-color:#E9FBF0; border-radius:15px; padding:25px; 
+                    text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.05); transition:0.3s;'>
+            <div style='font-size:40px;'>🌼</div>
+            <h4 style='color:#0f172a; margin-bottom:8px;'>Kenali Jenis Bunga</h4>
+            <p style='color:#334155; font-size:15px; line-height:1.5;'>
+                Upload foto bunga dan AI akan memberitahu jenis dan nama bunga tersebut.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+# ===== Kolom 2 =====
+with col2:
+    st.markdown(
+        """
+        <div style='background-color:#EAF3FF; border-radius:15px; padding:25px; 
+                    text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.05); transition:0.3s;'>
+            <div style='font-size:40px;'>🔍</div>
+            <h4 style='color:#0f172a; margin-bottom:8px;'>Deteksi Bagian Bunga</h4>
+            <p style='color:#334155; font-size:15px; line-height:1.5;'>
+                AI dapat mengenali bagian-bagian bunga seperti kelopak, putik, dan daun.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
