@@ -262,9 +262,9 @@ st.markdown(
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(145deg, #f8fffa 0%, #eaf7ff 100%); /* 🌸 gradient full background */
+        background: linear-gradient(145deg, #f8fffa 0%, #eaf7ff 100%);
         margin: 0;
-        border-radius: 0; /* agar penuh tanpa sudut */
+        border-radius: 0;
     }
 
     /* ======== JUDUL & SUBJUDUL ======== */
@@ -332,7 +332,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# === Konten HTML ===
+# === HTML Konten ===
 st.markdown(
     """
     <div class="fitur-wrapper">
@@ -344,7 +344,7 @@ st.markdown(
 
         <div class="features-container">
             <div class="feature-card" style="background-color:#E9FBF0;">
-                <div class="feature-icon">&#127804;</div>
+                <div class="feature-icon">🌸</div>
                 <div class="feature-title">Kenali Jenis Bunga</div>
                 <div class="feature-text">
                     Upload foto bunga dan AI akan memberitahu jenis dan nama bunga tersebut.
@@ -352,7 +352,7 @@ st.markdown(
             </div>
 
             <div class="feature-card" style="background-color:#EAF3FF;">
-                <div class="feature-icon">&#128269;</div>
+                <div class="feature-icon">🔍</div>
                 <div class="feature-title">Deteksi Bagian Bunga</div>
                 <div class="feature-text">
                     AI dapat mengenali bagian-bagian bunga seperti kelopak, putik, dan daun.
