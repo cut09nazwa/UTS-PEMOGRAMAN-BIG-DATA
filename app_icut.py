@@ -412,8 +412,6 @@ with col2:
 # BAGIAN PROSES DALAM 4 LANGKAH
 # ==========================
 
-import streamlit as st
-
 # ===== CSS STYLING =====
 st.markdown("""
     <style>
@@ -426,129 +424,132 @@ st.markdown("""
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(145deg, #f8fffa 0%, #eaf7ff 100%);
+        background-color: #ffffff;
     }
 
-# ===== STYLE SECTION =====
-st.markdown("""
-    <style>
+    /* ===== STYLE SECTION ===== */
     .section-title {
-            text-align: center;
-            font-size: 32px;
-            font-weight: 700;
-            color: #0b132b;
-            margin-bottom: 5px;
-        }
+        text-align: center;
+        font-size: 32px;
+        font-weight: 700;
+        color: #0b132b;
+        margin-bottom: 5px;
+    }
     .section-subtitle {
-            text-align: center;
-            color: #555;
-            font-size: 16px;
-            margin-bottom: 50px;
-        }
+        text-align: center;
+        color: #555;
+        font-size: 16px;
+        margin-bottom: 50px;
+    }
     .card-container {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        flex-wrap: wrap;
+    }
     .card {
-            background-color: white;
-            border-radius: 20px;
-            padding: 30px;
-            width: 220px;
-            text-align: center;
-            box-shadow: 0px 3px 10px rgba(0,0,0,0.08);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
+        background-color: white;
+        border-radius: 20px;
+        padding: 30px;
+        width: 220px;
+        text-align: center;
+        box-shadow: 0px 3px 10px rgba(0,0,0,0.08);
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
     .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
-        }
+        transform: translateY(-5px);
+        box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
+    }
     .icon {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
     .number {
-            display: inline-block;
-            background: linear-gradient(to right, #00b4d8, #48cae4);
-            color: white;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            line-height: 30px;
-            font-weight: bold;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
+        display: inline-block;
+        background: linear-gradient(to right, #00b4d8, #48cae4);
+        color: white;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-weight: bold;
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
     .card-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #0b132b;
-        }
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: #0b132b;
+    }
     .card-desc {
-            color: #444;
-            font-size: 14px;
-            line-height: 1.5;
-        }
+        color: #444;
+        font-size: 14px;
+        line-height: 1.5;
+    }
     .start-button {
-            display: block;
-            margin: 40px auto;
-            padding: 10px 25px;
-            background: linear-gradient(to right, #0db27e, #00c897);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0px 4px 12px rgba(0, 200, 150, 0.3);
-            transition: all 0.2s ease-in-out;
-        }
+        display: block;
+        margin: 40px auto;
+        padding: 10px 25px;
+        background: linear-gradient(to right, #0db27e, #00c897);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0px 4px 12px rgba(0, 200, 150, 0.3);
+        transition: all 0.2s ease-in-out;
+    }
     .start-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 6px 15px rgba(0, 200, 150, 0.4);
-        }
+        transform: scale(1.05);
+        box-shadow: 0px 6px 15px rgba(0, 200, 150, 0.4);
+    }
     </style>
 """, unsafe_allow_html=True)
 
-# ===== SECTION TITLE =====
-st.markdown("<div class='section-title'>Proses Mudah dalam 4 Langkah</div>", unsafe_allow_html=True)
-st.markdown("<div class='section-subtitle'>Perjalanan interaktif yang akan membawa Anda memahami teknologi AI dan menganalisis bunga favorit Anda</div>", unsafe_allow_html=True)
-
-# ===== 4 CARD GRID =====
+# ===== SECTION CONTENT =====
 st.markdown("""
-<div class="card-container">
+<div class="proses-wrapper">
 
-    <div class="card">
-        <div class="icon">💐</div>
-        <div class="number">1</div>
-        <div class="card-title">Selamat Datang</div>
-        <div class="card-desc">Kenali konsep AI Flower Vision dengan tampilan yang menarik dan interaktif.</div>
+    <div class="section-title">Proses Mudah dalam 4 Langkah</div>
+    <div class="section-subtitle">
+        Perjalanan interaktif yang akan membawa Anda memahami teknologi AI dan menganalisis bunga favorit Anda
     </div>
 
-    <div class="card">
-        <div class="icon">🤖</div>
-        <div class="number">2</div>
-        <div class="card-title">Teknologi AI</div>
-        <div class="card-desc">Pelajari bagaimana AI mengenali bentuk, warna, dan pola kelopak bunga.</div>
+    <div class="card-container">
+
+        <div class="card">
+            <div class="icon">💐</div>
+            <div class="number">1</div>
+            <div class="card-title">Selamat Datang</div>
+            <div class="card-desc">Kenali konsep AI Flower Vision dengan tampilan yang menarik dan interaktif.</div>
+        </div>
+
+        <div class="card">
+            <div class="icon">🤖</div>
+            <div class="number">2</div>
+            <div class="card-title">Teknologi AI</div>
+            <div class="card-desc">Pelajari bagaimana AI mengenali bentuk, warna, dan pola kelopak bunga.</div>
+        </div>
+
+        <div class="card">
+            <div class="icon">🧍‍♀️</div>
+            <div class="number">3</div>
+            <div class="card-title">Data Diri</div>
+            <div class="card-desc">Personalisasi pengalaman dengan nama, email, dan preferensi tema Anda.</div>
+        </div>
+
+        <div class="card">
+            <div class="icon">📸</div>
+            <div class="number">4</div>
+            <div class="card-title">Analisis Gambar</div>
+            <div class="card-desc">Upload gambar bunga dan dapatkan hasil klasifikasi atau deteksi objek.</div>
+        </div>
+
     </div>
 
-    <div class="card">
-        <div class="icon">🧍‍♀️</div>
-        <div class="number">3</div>
-        <div class="card-title">Data Diri</div>
-        <div class="card-desc">Personalisasi pengalaman dengan nama, email, dan preferensi tema Anda.</div>
-    </div>
-
-    <div class="card">
-        <div class="icon">📸</div>
-        <div class="number">4</div>
-        <div class="card-title">Analisis Gambar</div>
-        <div class="card-desc">Upload gambar bunga dan dapatkan hasil klasifikasi atau deteksi objek.</div>
-    </div>
+    <button class="start-button">▶️ Mulai Perjalanan 4 Langkah</button>
 
 </div>
-
-<button class="start-button">▶️ Mulai Perjalanan 4 Langkah</button>
 """, unsafe_allow_html=True)
