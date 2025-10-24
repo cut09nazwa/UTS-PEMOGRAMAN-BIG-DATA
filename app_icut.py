@@ -284,33 +284,37 @@ st.markdown(
     }
 
     /* ======== KONTENER FITUR ======== */
-    .features-container {
-        display: flex;
-        justify-content: center;
-        align-items: stretch;
-        flex-wrap: wrap;
-        gap: 40px;
-        width: 100%;
-        max-width: 1100px;
-    }
+.features-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 40px;
+    width: 100%;
+    max-width: 1100px;
+    background-color: #ffffff; /* ✅ samakan warna dengan card agar sela tidak belang */
+    padding: 40px 0; /* beri sedikit ruang atas bawah agar lega */
+    border-radius: 20px; /* opsional: biar rapi kalau di atas background lain */
+}
 
-    /* ======== CARD FITUR ======== */
-    .feature-card {
-        flex: 1 1 45%;
-        max-width: 480px;
-        padding: 35px;
-        border-radius: 20px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-        transition: all 0.3s ease;
-        background-color: #ffffff;
-        text-align: center;
-    }
+/* ======== CARD FITUR ======== */
+.feature-card {
+    flex: 1 1 45%;
+    max-width: 480px;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    background-color: #ffffff; /* ✅ warna kartu */
+    text-align: center;
+}
 
-    .feature-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 16px 30px rgba(0,0,0,0.15);
-    }
-
+/* Efek hover */
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 30px rgba(0,0,0,0.15);
+}
+    
     .feature-icon {
         font-size: 40px;
         margin-bottom: 10px;
