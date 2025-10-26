@@ -854,9 +854,27 @@ else:
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# =======================
-# TOMBOL AKSI (Tengah)
-# =======================
-st.markdown("<div class='btn-center'>", unsafe_allow_html=True)
-st.button("🌿 Mulai Analisis Gambar", key="start", disabled=tombol_disabled)
-st.markdown("</div>", unsafe_allow_html=True)
+# ======= TOMBOL =======
+st.markdown("""
+<div style='text-align:center; margin-top:30px;'>
+    <a href='#ai-tech' 
+       style='display:inline-block; background-color:#00a86b; color:#ffffff !important;
+              padding:12px 35px; border-radius:30px; font-weight:600; text-decoration:none;
+              box-shadow:0 4px 10px rgba(0,168,107,0.3); transition:transform .18s ease, box-shadow .18s ease;
+              font-size:16px;'>
+       👇📸 <span style='color:#ffffff;'>Mulai Analisis Gambar</span>
+    </a>
+</div>
+
+<style>
+html { scroll-behavior: smooth; }
+a.cta-button, a[style*="background-color:#00a86b"] {
+    text-decoration: none !important;
+    color: #ffffff !important;
+}
+a.cta-button:hover, a[style*="background-color:#00a86b"]:hover {
+    transform: translateY(-3px);
+    box-shadow:0 8px 18px rgba(0,168,107,0.28);
+}
+</style>
+""", unsafe_allow_html=True)
