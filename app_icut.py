@@ -753,6 +753,15 @@ html { scroll-behavior: smooth; }
 </style>
 """, unsafe_allow_html=True)
 
+# ===== Bagian Target Scroll =====
+st.markdown("<div id='pengaturan' style='margin-top:100px;'></div>", unsafe_allow_html=True)
+
+# ===== Judul Halaman =====
+st.markdown(
+    "<h2 style='text-align:center; font-weight:700;'>Personalisasi Pengalaman Anda</h2>",
+    unsafe_allow_html=True
+)
+
 # ==========================
 # PERSONALISASI USER
 # ==========================
@@ -820,6 +829,9 @@ st.markdown("""
         }
     </style>
 """, unsafe_allow_html=True)
+
+# Tambahkan anchor & jarak di sini
+st.markdown("<div id='pengaturan' style='margin-top:120px;'></div>", unsafe_allow_html=True)
 
 # =======================
 # JUDUL HALAMAN
