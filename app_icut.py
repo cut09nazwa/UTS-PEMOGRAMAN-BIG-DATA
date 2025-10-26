@@ -756,7 +756,6 @@ html { scroll-behavior: smooth; }
 # ==========================
 # PERSONALISASI USER
 # ==========================
-import streamlit as st
 
 st.set_page_config(page_title="AI Flower Vision", page_icon="🌸", layout="wide")
 
@@ -827,12 +826,14 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ======== INPUT FORM ========
-col1, col2 = st.columns([1,1])
+col1, col2 = st.columns([1, 1])
 with col1:
     nama = st.text_input("Nama Anda", placeholder="Masukkan nama di sini")
 with col2:
-    tujuan = st.selectbox("Tujuan Anda menggunakan AI Flower Vision", 
-                          ["Belajar tentang bunga", "Penelitian", "Proyek tugas", "Lainnya"])
+    tujuan = st.selectbox(
+        "Tujuan Anda menggunakan AI Flower Vision",
+        ["Belajar tentang bunga", "Penelitian", "Proyek tugas", "Lainnya"]
+    )
 
 st.markdown("<br><br>", unsafe_allow_html=True)
 
@@ -841,6 +842,9 @@ mulai = st.button("🌿 Mulai Analisis Gambar", key="start", use_container_width
 
 if mulai:
     if nama:
-        st.success(f"Halo, {nama}! Selamat
+        st.success(f"Halo, {nama}! Selamat datang di AI Flower Vision 🌸")
+    else:
+        st.warning("Masukkan nama terlebih dahulu sebelum memulai.")
+
 
         
