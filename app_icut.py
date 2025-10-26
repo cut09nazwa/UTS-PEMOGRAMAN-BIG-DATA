@@ -756,31 +756,31 @@ html { scroll-behavior: smooth; }
 # ==========================
 # PERSONALISASI USER
 # ==========================
-
 st.set_page_config(page_title="Personalisasi Tampilan", layout="wide")
 
-# =========================
-# INJEKSI CSS
-# =========================
+# ==============================
+# CSS STYLING
+# ==============================
 st.markdown("""
 <style>
+/* ===== BODY ===== */
 body {
     background: linear-gradient(to right, #e8f9fd, #eefbfd);
     font-family: "Poppins", sans-serif;
 }
 
-/* ===== KOTAK UTAMA ===== */
-.container-box {
-    background-color: white;
-    border-radius: 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    padding: 50px 80px;
+/* ===== WRAPPER UTAMA ===== */
+.wrapper {
     width: 80%;
     margin: 60px auto;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    padding: 60px 80px;
     text-align: center;
 }
 
-/* ===== JUDUL ===== */
+/* ===== JUDUL DAN SUBJUDUL ===== */
 .section-title {
     font-size: 36px;
     font-weight: 800;
@@ -788,22 +788,18 @@ body {
     margin-bottom: 10px;
 }
 
-/* ===== SUBTITLE ===== */
 .section-subtitle {
     font-size: 18px;
     color: #555;
     margin-bottom: 40px;
 }
 
-/* ===== LABEL INPUT ===== */
-.label {
-    text-align: left;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 8px;
+/* ===== INPUT AREA ===== */
+.input-area {
+    width: 70%;
+    margin: 0 auto 30px auto;
 }
 
-/* ===== INPUT FIELD ===== */
 input[type="text"] {
     width: 100%;
     padding: 14px 18px;
@@ -813,12 +809,20 @@ input[type="text"] {
     font-size: 16px;
 }
 
-/* ===== PILIHAN TEMA ===== */
+/* ===== LABEL ===== */
+.label {
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+/* ===== TEMA TAMPILAN ===== */
 .theme-options {
     display: flex;
     justify-content: center;
-    gap: 25px;
-    margin: 30px 0;
+    gap: 30px;
+    margin: 40px 0;
 }
 
 .theme-card {
@@ -837,7 +841,7 @@ input[type="text"] {
 }
 
 /* ===== TOMBOL ===== */
-.stButton > button {
+button[kind="primary"] {
     background-color: #7b5cff !important;
     color: white !important;
     border-radius: 12px !important;
@@ -846,67 +850,41 @@ input[type="text"] {
     border: none !important;
     transition: all 0.3s ease !important;
 }
-.stButton > button:hover {
+
+button[kind="primary"]:hover {
     background-color: #6040e0 !important;
     transform: scale(1.03);
 }
 </style>
 """, unsafe_allow_html=True)
 
-# =========================
-# ISI HALAMAN
-# =========================
+# ==============================
+# BAGIAN UTAMA
+# ==============================
 st.markdown("""
-<div class="container-box">
+<div class="wrapper">
     <h1 class="section-title">Personalisasi Pengalaman Anda</h1>
     <p class="section-subtitle">Masukkan nama dan pilih tema tampilan sesuai preferensi Anda</p>
+
+    <div class="input-area">
+        <div class="label">👤 Nama Anda</div>
+    </div>
 """, unsafe_allow_html=True)
 
 # Input nama
-st.markdown("<div class='label'>👤 Nama Anda</div>", unsafe_allow_html=True)
 nama = st.text_input("Masukkan nama Anda...", label_visibility="collapsed")
 
-# Pilihan tema
+# Tema tampilan
 st.markdown("<div class='label'>🎨 Tema Tampilan</div>", unsafe_allow_html=True)
-tema = st.radio(
-    "Pilih tema tampilan:",
-    ["🌞 Tema Terang - Cerah & Segar", "🌙 Tema Gelap - Elegan & Nyaman"],
-    label_visibility="collapsed",
-    horizontal=True
-)
-
-# =========================
-# APLIKASI PERUBAHAN TEMA
-# =========================
-if tema.startswith("🌙"):
-    st.markdown("""
-    <style>
-    body {
-        background: linear-gradient(to right, #2b2b2b, #3a3a3a);
-        color: #f2f2f2;
-    }
-    .container-box {
-        background-color: #2f2f2f;
-        color: #f2f2f2;
-    }
-    input[type="text"] {
-        background-color: #3b3b3b;
-        border-color: #555;
-        color: white;
-    }
-    .theme-card {
-        background: #3a3a3a;
-        border-color: #555;
-        color: #f2f2f2;
-    }
-    .stButton > button {
-        background-color: #a38cff !important;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+col1, col2 = st.columns(2)
+with col1:
+    st.markdown("<div class='theme-card'>🌞 Tema Terang<br><small>Tampilan cerah dan segar</small></div>", unsafe_allow_html=True)
+with col2:
+    st.markdown("<div class='theme-card'>🌙 Tema Gelap<br><small>Tampilan elegan dan nyaman</small></div>", unsafe_allow_html=True)
 
 # Tombol
 st.markdown("<br>", unsafe_allow_html=True)
 st.button("🔍 Mulai Analisis Gambar")
 
 st.markdown("</div>", unsafe_allow_html=True)
+
