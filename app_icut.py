@@ -754,7 +754,7 @@ html { scroll-behavior: smooth; }
 """, unsafe_allow_html=True)
 
 # ===== Bagian Target Scroll =====
-st.markdown("<div id='pengaturan' style='margin-top:100px;'></div>", unsafe_allow_html=True)
+st.markdown("<div id='pengaturan' style='margin-top:30px;'></div>", unsafe_allow_html=True)
 
 # ==========================
 # PERSONALISASI USER
