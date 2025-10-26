@@ -756,101 +756,56 @@ html { scroll-behavior: smooth; }
 # ==========================
 # PERSONALISASI USER
 # ==========================
-
-# ======== CSS STYLING ========
-st.markdown(
-    """
+st.markdown("""
     <style>
-    /* ======== BACKGROUND ======== */
-    [data-testid="stAppViewContainer"] {
-        background: linear-gradient(145deg, #f8fffa 0%, #eaf7ff 100%) !important;
-    }
+        .stTextInput > div > div > input, 
+        .stSelectbox > div > div > select {
+            background-color: rgba(255, 255, 255, 0.3);
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
 
-    [data-testid="stSidebar"] {
-        background: linear-gradient(145deg, #f8fffa 0%, #eaf7ff 100%) !important;
-    }
+        .stTextInput label, .stSelectbox label {
+            font-weight: 600;
+            color: #333333;
+        }
 
-    /* ======== WRAPPER ======== */
-    .personal-wrapper {
-        width: 100%;
-        padding: 60px 50px 40px;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(145deg, #f8fffa 0%, #eaf7ff 100%);
-        border-radius: 0;
-    }
+        .sapaan {
+            background-color: #e6fff3;
+            border-radius: 10px;
+            padding: 12px;
+            margin-top: 10px;
+            text-align: center;
+            font-weight: 600;
+            color: #0a6b36;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
 
-    /* ======== JUDUL & SUBJUDUL ======== */
-    .section-title {
-        color: #0f172a;
-        font-size: 44px;
-        font-weight: 800;
-        margin-bottom: 12px;
-    }
-
-    .section-subtitle {
-        color: #334155;
-        font-size: 18px;
-        max-width: 720px;
-        margin: 0 auto 45px;
-        line-height: 1.6;
-    }
-
-    /* ======== CARD FORM ======== */
-    .form-card {
-        background-color: #ffffff;
-        border-radius: 20px;
-        padding: 40px 50px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-        width: 100%;
-        max-width: 700px;
-        text-align: center;
-    }
-
-    /* ======== TOMBOL ======== */
-    .stButton > button {
-        background-color: #10b981;
-        color: white;
-        font-weight: 600;
-        border: none;
-        border-radius: 12px;
-        padding: 14px 28px;
-        font-size: 16px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        transition: 0.3s;
-    }
-
-    .stButton > button:hover {
-        background-color: #0ea871;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-    }
-
+        .peringatan {
+            background-color: #ffe6e6;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 10px;
+            text-align: center;
+            color: #a83232;
+            font-weight: 500;
+        }
     </style>
-    """,
-    unsafe_allow_html=True
-)
+""", unsafe_allow_html=True)
 
-# ======== HEADER ========
-st.markdown(
-    """
-    <div class="personal-wrapper">
-        <h1 class="section-title">Personalisasi Pengalaman Anda</h1>
-        <p class="section-subtitle">
-            Masukkan nama Anda dan pilih tujuan menggunakan AI Flower Vision sesuai preferensi Anda.
-        </p>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
+# =======================
+# JUDUL HALAMAN
+# =======================
+st.markdown("<h2 style='text-align:center; font-weight:700;'>Personalisasi Pengalaman Anda</h2>", unsafe_allow_html=True)
+st.markdown("<p style='text-align:center;'>Masukkan nama Anda dan pilih tujuan menggunakan AI Flower Vision sesuai preferensi Anda.</p>", unsafe_allow_html=True)
 
-# ======== CARD FORM ========
-st.markdown('<div class="form-card">', unsafe_allow_html=True)
+st.markdown("<br>", unsafe_allow_html=True)
 
-# ======== INPUT FORM ========
+# =======================
+# INPUT FORM
+# =======================
 col1, col2 = st.columns([1, 1])
 
 with col1:
@@ -859,25 +814,25 @@ with col1:
 with col2:
     tujuan = st.selectbox(
         "Tujuan Anda menggunakan AI Flower Vision",
-        ["Belajar tentang bunga", "Penelitian", "Proyek tugas", "Lainnya"]
+        ["", "Belajar tentang bunga", "Penelitian", "Proyek tugas", "Lainnya"]
     )
+
+# =======================
+# LOGIKA INTERAKTIF
+# =======================
+if nama and tujuan:
+    st.markdown(f"<div class='sapaan'>Halo, {nama}! Selamat datang di AI Flower Vision 🌸<br>Tujuan Anda: {tujuan}</div>", unsafe_allow_html=True)
+    tombol_disabled = False
+else:
+    st.markdown("<div class='peringatan'>⚠️ Harap isi nama dan pilih tujuan terlebih dahulu.</div>", unsafe_allow_html=True)
+    tombol_disabled = True
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# ======== TOMBOL ========
-col_tengah = st.columns([1, 1, 1])  # biar tombol di tengah
-with col_tengah[1]:
-    mulai = st.button("🌿 Mulai Analisis Gambar", key="start", use_container_width=True)
-
-# ======== RESPON ========
-if mulai:
-    if nama:
-        st.success(f"Halo, {nama}! Selamat datang di AI Flower Vision 🌸")
-        st.info(f"Tujuan Anda: {tujuan}")
-    else:
-        st.warning("Masukkan nama terlebih dahulu sebelum memulai.")
-
-st.markdown('</div>', unsafe_allow_html=True)
+# =======================
+# TOMBOL AKSI
+# =======================
+st.button("🌿 Mulai Analisis Gambar", key="start", use_container_width=True, disabled=tombol_disabled)
 
 
 
