@@ -756,50 +756,60 @@ html { scroll-behavior: smooth; }
 # ==========================
 # PERSONALISASI USER
 # ==========================
-st.set_page_config(page_title="AI Flower Vision", page_icon="🌸", layout="centered")
+import streamlit as st
+
+st.set_page_config(page_title="AI Flower Vision", page_icon="🌸", layout="wide")
 
 # ======== CSS STYLING ========
 st.markdown("""
     <style>
-        .main-card {
+        /* ===== WRAPPER UTAMA ===== */
+        .section-wrapper {
+            width: 100%;
+            min-height: 100vh;
             background-color: #EAFBF0;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0px 4px 15px rgba(0,0,0,0.05);
+            padding: 100px 80px;
             text-align: center;
-            width: 80%;
-            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
+
+        /* ===== TEKS UTAMA ===== */
         .title {
-            font-size: 28px;
+            font-size: 40px;
             font-weight: 700;
             color: #1B1C1E;
             margin-top: 10px;
         }
+
         .subtitle {
-            font-size: 16px;
+            font-size: 18px;
             color: #4F4F4F;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
-        .input-box {
-            width: 60%;
-            margin: 0 auto 20px auto;
-        }
-        .stTextInput>div>div>input {
-            border-radius: 10px;
-        }
+
+        /* ===== INPUT BOX ===== */
+        .stTextInput>div>div>input,
         .stSelectbox>div>div>select {
-            border-radius: 10px;
+            border-radius: 10px !important;
+            border: 1px solid #D1D5DB;
+            padding: 10px;
         }
+
+        /* ===== BUTTON ===== */
         .button-start {
             background-color: #16A34A;
             color: white;
             border: none;
-            padding: 12px 30px;
-            border-radius: 10px;
+            padding: 14px 40px;
+            border-radius: 12px;
             font-weight: 600;
+            font-size: 16px;
             transition: 0.3s;
         }
+
         .button-start:hover {
             background-color: #15803D;
             transform: scale(1.03);
@@ -807,16 +817,16 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# ======== UI KONTEN ========
+# ======== KONTEN UTAMA ========
 st.markdown("""
-<div class="main-card">
-    <div style="font-size:45px;">🌸</div>
+<div class="section-wrapper">
+    <div style="font-size:50px;">🌸</div>
     <div class="title">Kenali Jenis Bunga</div>
     <div class="subtitle">Masukkan nama Anda dan pilih tujuan menggunakan AI Flower Vision</div>
 </div>
 """, unsafe_allow_html=True)
 
-# ======== INPUT ========
+# ======== INPUT FORM ========
 col1, col2 = st.columns([1,1])
 with col1:
     nama = st.text_input("Nama Anda", placeholder="Masukkan nama di sini")
@@ -824,17 +834,13 @@ with col2:
     tujuan = st.selectbox("Tujuan Anda menggunakan AI Flower Vision", 
                           ["Belajar tentang bunga", "Penelitian", "Proyek tugas", "Lainnya"])
 
-st.markdown("<br>", unsafe_allow_html=True)
+st.markdown("<br><br>", unsafe_allow_html=True)
 
 # ======== TOMBOL ========
 mulai = st.button("🌿 Mulai Analisis Gambar", key="start", use_container_width=True)
 
 if mulai:
     if nama:
-        st.success(f"Halo, {nama}! Selamat datang di AI Flower Vision 🌸")
-    else:
-        st.warning("Masukkan nama terlebih dahulu sebelum memulai.")
+        st.success(f"Halo, {nama}! Selamat
 
-
-
-
+        
