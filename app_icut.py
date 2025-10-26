@@ -242,6 +242,8 @@ with col1:
             </div>
         </div>
     """, unsafe_allow_html=True)
+    
+    st.markdown("<button class='cta-button'>🌺 Mulai Petualangan AI</button>", unsafe_allow_html=True)
 
 with col2:
     image = Image.open("sample_images/1cc501a2ea_jpg.rf.dc455624ba691a864edbf790e48543dd.jpg")
