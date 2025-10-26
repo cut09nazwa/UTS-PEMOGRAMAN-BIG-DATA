@@ -617,6 +617,6 @@ st.markdown("""
 <div style='text-align:center; margin-top:30px;'>
     <a href='#' style='background-color:#00a86b; color:white; padding:12px 35px; 
     border-radius:30px; font-weight:600; text-decoration:none; 
-    box-shadow:0 4px 10px rgba(0,168,107,0.3); transition:0.3s;'>🌼 Mulai Sekarang</a>
+    box-shadow:0 4px 10px rgba(0,168,107,0.3); transition:0.3s;'>👇🌼 Mulai Eksplorasi</a>
 </div>
 """, unsafe_allow_html=True)
