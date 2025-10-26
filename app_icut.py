@@ -328,7 +328,7 @@ st.markdown(
         transition: all 0.3s ease;
         background-color: #ffffff;
         text-align: center;
-        min-height: 230px; /
+        min-height: 230px; 
     }
 
     .feature-card:hover {
