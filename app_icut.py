@@ -623,17 +623,17 @@ st.markdown(f"""
 # ======= TOMBOL =======
 st.markdown("""
 <div style='text-align:center; margin-top:30px;'>
-    <a href='#mulai' style='display:inline-block; background-color:#00a86b; color:#ffffff !important;
-       padding:12px 35px; border-radius:30px; font-weight:600; text-decoration:none;
-       box-shadow:0 4px 10px rgba(0,168,107,0.3); transition:transform .18s ease, box-shadow .18s ease;
-       font-size:16px;'>
-       👇🌼 Mulai Eksplorasi
+    <a href='#mulai' 
+       style='display:inline-block; background-color:#00a86b; color:#ffffff !important;
+              padding:12px 35px; border-radius:30px; font-weight:600; text-decoration:none;
+              box-shadow:0 4px 10px rgba(0,168,107,0.3); transition:transform .18s ease, box-shadow .18s ease;
+              font-size:16px;'>
+       👇🌼 <span style='color:#ffffff;'>Mulai Eksplorasi</span>
     </a>
 </div>
 
 <style>
 html { scroll-behavior: smooth; }
-
 a.cta-button, a[style*="background-color:#00a86b"] {
     text-decoration: none !important;
     color: #ffffff !important;
