@@ -758,6 +758,7 @@ html { scroll-behavior: smooth; }
 # ==========================
 st.markdown("""
     <style>
+        /* Input transparan lembut */
         .stTextInput > div > div > input, 
         .stSelectbox > div > div > select {
             background-color: rgba(255, 255, 255, 0.3);
@@ -772,6 +773,7 @@ st.markdown("""
             color: #333333;
         }
 
+        /* Sapaan & peringatan */
         .sapaan {
             background-color: #e6fff3;
             border-radius: 10px;
@@ -793,10 +795,11 @@ st.markdown("""
             font-weight: 500;
         }
 
-        /* Tombol hijau kecil di tengah */
+        /* Tombol hijau di tengah */
         .btn-center {
             display: flex;
             justify-content: center;
+            margin-top: 20px;
         }
 
         .stButton button {
@@ -804,8 +807,9 @@ st.markdown("""
             color: white;
             border: none;
             border-radius: 30px;
-            padding: 0.5rem 1.5rem;
+            padding: 0.6rem 1.8rem;
             font-weight: 600;
+            font-size: 16px;
             box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
             transition: 0.3s;
         }
@@ -814,37 +818,14 @@ st.markdown("""
             background: linear-gradient(90deg, #23d97a, #14a255);
             transform: scale(1.05);
         }
-
-        /* Efek halus untuk scroll target */
-        #personalisasi {
-            scroll-margin-top: 100px;
-        }
     </style>
 """, unsafe_allow_html=True)
 
 # =======================
-# TOMBOL LANJUT KE PENGATURAN
+# JUDUL HALAMAN
 # =======================
-st.markdown("<br><div class='btn-center'>", unsafe_allow_html=True)
-lanjut = st.button("⬇️ Lanjut ke Pengaturan")
-st.markdown("</div>", unsafe_allow_html=True)
-
-if lanjut:
-    st.markdown("<a href='#personalisasi'></a>", unsafe_allow_html=True)
-    st.markdown(
-        """
-        <script>
-        document.querySelector('a[href="#personalisasi"]').scrollIntoView({behavior: 'smooth'});
-        </script>
-        """, unsafe_allow_html=True
-    )
-
-# =======================
-# BAGIAN PERSONLASI
-# =======================
-st.markdown("<br><br><h2 id='personalisasi' style='text-align:center; font-weight:700;'>Personalisasi Pengalaman Anda</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align:center; font-weight:700;'>Personalisasi Pengalaman Anda</h2>", unsafe_allow_html=True)
 st.markdown("<p style='text-align:center;'>Masukkan nama Anda dan pilih tujuan menggunakan AI Flower Vision sesuai preferensi Anda.</p>", unsafe_allow_html=True)
-
 st.markdown("<br>", unsafe_allow_html=True)
 
 # =======================
@@ -874,7 +855,7 @@ else:
 st.markdown("<br>", unsafe_allow_html=True)
 
 # =======================
-# TOMBOL AKSI (Kecil di Tengah)
+# TOMBOL AKSI (Tengah)
 # =======================
 st.markdown("<div class='btn-center'>", unsafe_allow_html=True)
 st.button("🌿 Mulai Analisis Gambar", key="start", disabled=tombol_disabled)
