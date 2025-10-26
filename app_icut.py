@@ -756,135 +756,147 @@ html { scroll-behavior: smooth; }
 # ==========================
 # PERSONALISASI USER
 # ==========================
-st.set_page_config(page_title="Personalisasi Tampilan", layout="wide")
+# --- Inisialisasi tema ---
+if "tema" not in st.session_state:
+    st.session_state.tema = "terang"
 
-# ==============================
-# CSS STYLING
-# ==============================
-st.markdown("""
+# --- Warna tema ---
+if st.session_state.tema == "terang":
+    bg_color = "#E6FAF2"
+    text_color = "#0f172a"
+    card_color = "#ffffff"
+    border_color = "#00a86b"
+    accent_color = "#00a86b"
+else:
+    bg_color = "#0f172a"
+    text_color = "#f1f5f9"
+    card_color = "#1e293b"
+    border_color = "#334155"
+    accent_color = "#00a86b"
+
+# --- CSS Styling ---
+st.markdown(f"""
 <style>
-/* ===== BODY ===== */
-body {
-    background: linear-gradient(to right, #e8f9fd, #eefbfd);
-    font-family: "Poppins", sans-serif;
-}
-
-/* ===== WRAPPER UTAMA ===== */
-.wrapper {
-    width: 80%;
-    margin: 60px auto;
-    background: white;
-    border-radius: 25px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    padding: 60px 80px;
+body {{
+    background-color: {bg_color};
+    font-family: 'Poppins', sans-serif;
+    color: {text_color};
+}}
+h1 {{
     text-align: center;
-}
-
-/* ===== JUDUL DAN SUBJUDUL ===== */
-.section-title {
-    font-size: 36px;
     font-weight: 800;
-    color: #222;
-    margin-bottom: 10px;
-}
-
-.section-subtitle {
-    font-size: 18px;
-    color: #555;
+    font-size: 42px;
+    margin-bottom: 5px;
+}}
+p.subtitle {{
+    text-align: center;
+    font-size: 17px;
+    color: #64748b;
     margin-bottom: 40px;
-}
-
-/* ===== INPUT AREA ===== */
-.input-area {
-    width: 70%;
-    margin: 0 auto 30px auto;
-}
-
-input[type="text"] {
-    width: 100%;
-    padding: 14px 18px;
-    border: 2px solid #ccc;
-    border-radius: 15px;
-    background: #f9fafc;
-    font-size: 16px;
-}
-
-/* ===== LABEL ===== */
-.label {
-    text-align: left;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 8px;
-}
-
-/* ===== TEMA TAMPILAN ===== */
-.theme-options {
+}}
+.card {{
+    background-color: {card_color};
+    border-radius: 22px;
+    padding: 40px 60px;
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}}
+.section-wrapper {{
     display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin: 40px 0;
-}
-
-.theme-card {
-    border: 2px solid #ddd;
-    border-radius: 15px;
-    padding: 20px 30px;
-    width: 250px;
-    transition: all 0.3s ease;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+}}
+.left, .right {{
+    flex: 1;
+    min-width: 320px;
+}}
+.theme-option {{
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px 20px;
+    text-align: left;
     cursor: pointer;
-    background: #fafbff;
-}
-
-.theme-card:hover {
-    border-color: #7b5cff;
-    transform: translateY(-4px);
-}
-
-/* ===== TOMBOL ===== */
-button[kind="primary"] {
-    background-color: #7b5cff !important;
-    color: white !important;
-    border-radius: 12px !important;
-    padding: 12px 24px !important;
-    font-size: 16px !important;
-    border: none !important;
-    transition: all 0.3s ease !important;
-}
-
-button[kind="primary"]:hover {
-    background-color: #6040e0 !important;
-    transform: scale(1.03);
-}
+    transition: 0.3s;
+    font-weight: 500;
+}}
+.theme-option:hover {{
+    border-color: {accent_color};
+    box-shadow: 0 4px 12px rgba(0,168,107,0.15);
+}}
+.selected {{
+    border-color: {accent_color};
+    background-color: rgba(0,168,107,0.1);
+}}
+.button {{
+    background-color: {accent_color};
+    color: white;
+    padding: 14px 40px;
+    border-radius: 30px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: 0.3s;
+    box-shadow: 0 6px 16px rgba(0,168,107,0.25);
+}}
+.button:hover {{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,168,107,0.35);
+}}
 </style>
 """, unsafe_allow_html=True)
 
-# ==============================
-# BAGIAN UTAMA
-# ==============================
-st.markdown("""
-<div class="wrapper">
-    <h1 class="section-title">Personalisasi Pengalaman Anda</h1>
-    <p class="section-subtitle">Masukkan nama dan pilih tema tampilan sesuai preferensi Anda</p>
+# --- Judul dan Subjudul ---
+st.markdown("<h1>Personalisasi Pengalaman Anda</h1>", unsafe_allow_html=True)
+st.markdown("<p class='subtitle'>Masukkan nama dan pilih tema tampilan sesuai preferensi Anda</p>", unsafe_allow_html=True)
 
-    <div class="input-area">
-        <div class="label">👤 Nama Anda</div>
-    </div>
-""", unsafe_allow_html=True)
+# --- Kartu utama ---
+st.markdown("<div class='card'>", unsafe_allow_html=True)
+st.markdown("<div class='section-wrapper'>", unsafe_allow_html=True)
 
-# Input nama
-nama = st.text_input("Masukkan nama Anda...", label_visibility="collapsed")
+# === Bagian kiri: Input nama ===
+col1, col2 = st.columns([1, 1])
 
-# Tema tampilan
-st.markdown("<div class='label'>🎨 Tema Tampilan</div>", unsafe_allow_html=True)
-col1, col2 = st.columns(2)
 with col1:
-    st.markdown("<div class='theme-card'>🌞 Tema Terang<br><small>Tampilan cerah dan segar</small></div>", unsafe_allow_html=True)
+    st.markdown("<div class='left'>", unsafe_allow_html=True)
+    st.markdown("**👤 Nama Anda**")
+    nama = st.text_input("", placeholder="Masukkan nama Anda...", key="nama_input")
+
+    if nama:
+        st.markdown(f"<div style='margin-top:10px; background-color:rgba(0,168,107,0.1); padding:12px 18px; border-radius:10px; font-weight:500;'>🌸 Halo, {nama}! Selamat datang di <b>AI Flower Vision</b></div>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
+
+# === Bagian kanan: Pilih tema ===
 with col2:
-    st.markdown("<div class='theme-card'>🌙 Tema Gelap<br><small>Tampilan elegan dan nyaman</small></div>", unsafe_allow_html=True)
+    st.markdown("<div class='right'>", unsafe_allow_html=True)
+    st.markdown("**🎨 Tema Tampilan**")
 
-# Tombol
-st.markdown("<br>", unsafe_allow_html=True)
-st.button("🔍 Mulai Analisis Gambar")
+    col_t1, col_t2 = st.columns(2)
+    with col_t1:
+        terang_active = "selected" if st.session_state.tema == "terang" else "theme-option"
+        if st.button("☀️ Tema Terang\nTampilan cerah dan segar", key="tema_terang"):
+            st.session_state.tema = "terang"
+            st.rerun()
 
+    with col_t2:
+        gelap_active = "selected" if st.session_state.tema == "gelap" else "theme-option"
+        if st.button("🌙 Tema Gelap\nTampilan elegan dan nyaman", key="tema_gelap"):
+            st.session_state.tema = "gelap"
+            st.rerun()
+
+    st.markdown("</div>", unsafe_allow_html=True)
+
+st.markdown("</div>", unsafe_allow_html=True)  # end section-wrapper
+st.markdown("</div>", unsafe_allow_html=True)  # end card
+
+# --- Tombol Lanjut ---
+st.markdown("<div style='text-align:center;'>", unsafe_allow_html=True)
+if st.button("⬇️ Mulai Analisis Gambar", key="lanjut"):
+    st.markdown("<script>window.location.href='#analisis';</script>", unsafe_allow_html=True)
+st.markdown(f"<button class='button'>Mulai Analisis Gambar</button>", unsafe_allow_html=True)
 st.markdown("</div>", unsafe_allow_html=True)
+
 
