@@ -726,9 +726,9 @@ with col3:
     )yang belajar dari ribuan gambar bunga untuk meningkatkan akurasi klasifikasi.
             </p>
             <ul style='list-style:none; padding:0; text-align:left; color:#475569; font-size:14px;'>
-                <li>• Training dataset 100k+</li>
-                <li>• Continuous learning</li>
-                <li>• Accuracy optimization</li>
+                <li>1 Training dataset 100k+</li>
+                <li>2 Continuous learning</li>
+                <li>3 Accuracy optimization</li>
             </ul>
         </div>
         """,
