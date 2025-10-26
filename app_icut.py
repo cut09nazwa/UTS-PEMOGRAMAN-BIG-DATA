@@ -759,142 +759,60 @@ import streamlit as st
 # SECTION PERSONALISASI TAMPILAN
 # =========================
 
-st.set_page_config(page_title="Personalisasi Tampilan", layout="wide")
+st.set_page_config(page_title="AI Flower Vision", layout="centered")
 
-# CSS Styling
+# ==========================
+# CSS STYLING SEDERHANA
+# ==========================
 st.markdown("""
-<style>
-body {
-    background: linear-gradient(to right, #e8f9fd, #eefbfd);
-    font-family: 'Poppins', sans-serif;
-}
-
-/* ===== KOTAK PUTIH ===== */
-.box-container {
-    background-color: white;
-    border-radius: 25px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    width: 80%;
-    margin: 70px auto;
-    padding: 60px 80px;
-    text-align: center;
-}
-
-/* ===== JUDUL ===== */
-.section-title {
-    font-size: 36px;
-    font-weight: 800;
-    color: #222;
-    margin-bottom: 10px;
-}
-
-/* ===== SUBJUDUL ===== */
-.section-subtitle {
-    font-size: 18px;
-    color: #555;
-    margin-bottom: 40px;
-}
-
-/* ===== LABEL ===== */
-.label {
-    text-align: left;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 8px;
-}
-
-/* ===== INPUT FIELD ===== */
-.stTextInput > div > div > input {
-    width: 100% !important;
-    padding: 14px 18px !important;
-    border: 2px solid #ccc !important;
-    border-radius: 15px !important;
-    background: #f9fafc !important;
-    font-size: 16px !important;
-}
-
-/* ===== RADIO TEMA ===== */
-.stRadio > label {
-    display: none !important;
-}
-.stRadio > div {
-    display: flex !important;
-    justify-content: center !important;
-    gap: 30px !important;
-}
-.stRadio div[role="radiogroup"] > div {
-    background-color: #fafbff;
-    border: 2px solid #ddd;
-    border-radius: 15px;
-    padding: 20px 30px;
-    width: 250px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.stRadio div[role="radiogroup"] > div:hover {
-    border-color: #7b5cff;
-    transform: translateY(-4px);
-}
-
-/* ===== TOMBOL ===== */
-.stButton > button {
-    background-color: #7b5cff !important;
-    color: white !important;
-    border-radius: 12px !important;
-    padding: 12px 24px !important;
-    font-size: 16px !important;
-    border: none !important;
-    transition: all 0.3s ease !important;
-}
-.stButton > button:hover {
-    background-color: #6040e0 !important;
-    transform: scale(1.03);
-}
-</style>
-""", unsafe_allow_html=True)
-
-
-# === KOTAK UTAMA ===
-st.markdown("<div class='box-container'>", unsafe_allow_html=True)
-
-st.markdown("""
-<h1 class="section-title">Personalisasi Pengalaman Anda</h1>
-<p class="section-subtitle">Masukkan nama dan pilih tema tampilan sesuai preferensi Anda</p>
-""", unsafe_allow_html=True)
-
-st.markdown("<div class='label'>👤 Nama Anda</div>", unsafe_allow_html=True)
-nama = st.text_input("Masukkan nama Anda...", label_visibility="collapsed")
-
-st.markdown("<div class='label'>🎨 Tema Tampilan</div>", unsafe_allow_html=True)
-tema = st.radio("", ["🌞 Tema Terang - Cerah & Segar", "🌙 Tema Gelap - Elegan & Nyaman"], horizontal=True)
-
-# Terapkan tema
-if tema.startswith("🌙"):
-    st.markdown("""
     <style>
-    body {
-        background: linear-gradient(to right, #2b2b2b, #3a3a3a);
-        color: #f2f2f2;
-    }
-    .box-container {
-        background-color: #2f2f2f;
-        color: #f2f2f2;
-    }
-    .stTextInput > div > div > input {
-        background-color: #3b3b3b !important;
-        border-color: #555 !important;
-        color: white !important;
-    }
-    .stRadio div[role="radiogroup"] > div {
-        background: #3a3a3a !important;
-        border-color: #555 !important;
-        color: #f2f2f2 !important;
-    }
+        .main {
+            background-color: #EAFBF4;
+        }
+        .form-container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            margin: 50px auto;
+        }
+        .stTextInput, .stRadio, .stButton {
+            margin-top: 15px;
+        }
+        .title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: #0B5345;
+        }
+        .subtitle {
+            text-align: center;
+            color: #5D6D7E;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
     </style>
-    """, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
-st.markdown("<br>", unsafe_allow_html=True)
-st.button("🔍 Mulai Analisis Gambar")
+# ==========================
+# FORM UTAMA
+# ==========================
+with st.container():
+    st.markdown('<div class="form-container">', unsafe_allow_html=True)
 
-st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown('<div class="title">Personalisasi Pengalaman Anda</div>', unsafe_allow_html=True)
+    st.markdown('<div class="subtitle">Masukkan nama dan pilih tema tampilan sesuai preferensi Anda</div>', unsafe_allow_html=True)
+
+    nama = st.text_input("Nama Anda", placeholder="Masukkan nama Anda di sini")
+
+    tema = st.radio("Tema Tampilan", ["🌞 Tema Terang", "🌙 Tema Gelap"])
+
+    if nama:
+        st.success(f"Halo, {nama}! Selamat datang di AI Flower Vision 🌸")
+
+    st.markdown("")
+    st.button("🌼 Mulai Analisis Gambar")
+
+    st.markdown('</div>', unsafe_allow_html=True)
