@@ -646,144 +646,109 @@ a.cta-button:hover, a[style*="background-color:#00a86b"]:hover {
 """, unsafe_allow_html=True)
 
 
-# ==============================
-# BAGIAN: TEKNOLOGI AI YANG MENAKJUBKAN (PERBAIKAN)
-# ==============================
+# =======================
+# TEKNOLOGI AI YANG MENAKJUBKAN
+# =======================
+st.markdown('<div id="ai-tech"></div>', unsafe_allow_html=True)
 
-st.markdown("""
-<div id="ai-tech" style="padding-top:100px; text-align:center; background:linear-gradient(180deg,#f0fdfa 0%,#ecfeff 100%); padding-bottom:100px;">
-    <h1 style="color:#0f5132; font-weight:800;">Teknologi AI yang Menakjubkan</h1>
-    <p style="color:#4b5563; font-size:17px; margin-bottom:40px;">
-        Pelajari bagaimana kecerdasan buatan dapat mengenali bentuk, warna, dan pola pada bunga
-    </p>
+st.markdown(
+    """
+    <div style='text-align:center; padding:70px 0 40px;'>
+        <h1 style='color:#0f172a; font-size:42px; font-weight:800; margin-bottom:10px;'>
+            Teknologi AI yang Menakjubkan
+        </h1>
+        <p style='color:#334155; font-size:17px; max-width:700px; margin:0 auto; line-height:1.6;'>
+            Pelajari bagaimana kecerdasan buatan dapat mengenali bentuk, warna, dan pola pada bunga.
+        </p>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
-    <div class="card-container">
-        <div class="card">
-            <div class="card-icon">📷</div>
-            <div class="card-title">Computer Vision</div>
-            <div class="card-desc">
+# ===== 3 KOLOM (Computer Vision, Neural Networks, Machine Learning) =====
+col1, col2, col3 = st.columns(3)
+
+# ===== Kolom 1 =====
+with col1:
+    st.markdown(
+        """
+        <div style='background-color:white; border-radius:20px; padding:35px; 
+                    text-align:center; box-shadow:0 8px 25px rgba(0,0,0,0.05); 
+                    transition:0.3s; min-height:300px; display:flex; flex-direction:column; 
+                    justify-content:center;'>
+            <div style='font-size:45px; background:linear-gradient(135deg,#9333ea,#ec4899);
+                        -webkit-background-clip:text; -webkit-text-fill-color:transparent;'>📷</div>
+            <h4 style='color:#0f172a; margin-bottom:10px;'>Computer Vision</h4>
+            <p style='color:#334155; font-size:15px; line-height:1.5; margin-bottom:12px;'>
                 AI menganalisis setiap pixel gambar untuk mengenali bentuk, tekstur, dan warna kelopak bunga.
-            </div>
-            <ul>
-                <li>Deteksi tepi dan kontur</li>
-                <li>Analisis warna RGB</li>
-                <li>Pengenalan pola tekstur</li>
+            </p>
+            <ul style='list-style:none; padding:0; text-align:left; color:#475569; font-size:14px;'>
+                <li>• Deteksi tepi dan kontur</li>
+                <li>• Analisis warna RGB</li>
+                <li>• Pengenalan pola tekstur</li>
             </ul>
         </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
-        <div class="card">
-            <div class="card-icon">🧠</div>
-            <div class="card-title">Neural Networks</div>
-            <div class="card-desc">
+# ===== Kolom 2 =====
+with col2:
+    st.markdown(
+        """
+        <div style='background-color:white; border-radius:20px; padding:35px; 
+                    text-align:center; box-shadow:0 8px 25px rgba(0,0,0,0.05); 
+                    transition:0.3s; min-height:300px; display:flex; flex-direction:column; 
+                    justify-content:center;'>
+            <div style='font-size:45px; background:linear-gradient(135deg,#9333ea,#ec4899);
+                        -webkit-background-clip:text; -webkit-text-fill-color:transparent;'>🧠</div>
+            <h4 style='color:#0f172a; margin-bottom:10px;'>Neural Networks</h4>
+            <p style='color:#334155; font-size:15px; line-height:1.5; margin-bottom:12px;'>
                 Jaringan saraf tiruan yang meniru cara kerja otak manusia dalam memproses informasi visual.
-            </div>
-            <ul>
-                <li>Deep learning layers</li>
-                <li>Pattern recognition</li>
-                <li>Feature extraction</li>
+            </p>
+            <ul style='list-style:none; padding:0; text-align:left; color:#475569; font-size:14px;'>
+                <li>• Deep learning layers</li>
+                <li>• Pattern recognition</li>
+                <li>• Feature extraction</li>
             </ul>
         </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
-        <div class="card">
-            <div class="card-icon">🤖</div>
-            <div class="card-title">Machine Learning</div>
-            <div class="card-desc">
+# ===== Kolom 3 =====
+with col3:
+    st.markdown(
+        """
+        <div style='background-color:white; border-radius:20px; padding:35px; 
+                    text-align:center; box-shadow:0 8px 25px rgba(0,0,0,0.05); 
+                    transition:0.3s; min-height:300px; display:flex; flex-direction:column; 
+                    justify-content:center;'>
+            <div style='font-size:45px; background:linear-gradient(135deg,#9333ea,#ec4899);
+                        -webkit-background-clip:text; -webkit-text-fill-color:transparent;'>🤖</div>
+            <h4 style='color:#0f172a; margin-bottom:10px;'>Machine Learning</h4>
+            <p style='color:#334155; font-size:15px; line-height:1.5; margin-bottom:12px;'>
                 Algoritma yang belajar dari ribuan gambar bunga untuk meningkatkan akurasi klasifikasi.
-            </div>
-            <ul>
-                <li>Training dataset 100k+</li>
-                <li>Continuous learning</li>
-                <li>Accuracy optimization</li>
+            </p>
+            <ul style='list-style:none; padding:0; text-align:left; color:#475569; font-size:14px;'>
+                <li>• Training dataset 100k+</li>
+                <li>• Continuous learning</li>
+                <li>• Accuracy optimization</li>
             </ul>
         </div>
-    </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
-    <div style='text-align:center; margin-top:45px;'>
-        <a href='#pengaturan' class='cta-button'>➡️ Lanjut ke Pengaturan</a>
-    </div>
+# ===== Tombol di bawah =====
+st.markdown("""
+<div style='text-align:center; margin-top:40px;'>
+    <a href='#pengaturan' style='background:linear-gradient(135deg,#9333ea,#ec4899); 
+    color:white; padding:12px 35px; border-radius:30px; font-weight:600; text-decoration:none; 
+    box-shadow:0 6px 18px rgba(147,51,234,0.3); transition:0.3s;'>➡️ Lanjut ke Pengaturan</a>
 </div>
 
 <style>
 html { scroll-behavior: smooth; }
-
-.card-container {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.card {
-    background: white;
-    border-radius: 20px;
-    width: 280px;
-    padding: 25px 22px;
-    text-align: center;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
-    transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-}
-
-.card-icon {
-    background: linear-gradient(135deg, #9333ea, #ec4899);
-    border-radius: 18px;
-    display: inline-block;
-    padding: 15px;
-    color: white;
-    font-size: 24px;
-    margin-bottom: 15px;
-}
-
-.card-title {
-    font-weight: 700;
-    color: #111827;
-    font-size: 18px;
-    margin-bottom: 8px;
-}
-
-.card-desc {
-    color: #4b5563;
-    font-size: 14px;
-    margin-bottom: 15px;
-    min-height: 60px;
-}
-
-.card ul {
-    list-style: none;
-    padding: 0;
-    color: #6b7280;
-    font-size: 14px;
-    text-align: left;
-}
-
-.card ul li::before {
-    content: "• ";
-    color: #9333ea;
-    font-weight: bold;
-}
-
-.cta-button {
-    display: inline-block;
-    margin-top: 40px;
-    background: linear-gradient(135deg, #9333ea, #ec4899);
-    color: white !important;
-    font-weight: 600;
-    padding: 12px 35px;
-    border-radius: 30px;
-    text-decoration: none;
-    box-shadow: 0 6px 18px rgba(147,51,234,0.25);
-    transition: transform .2s ease, box-shadow .2s ease;
-}
-
-.cta-button:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 28px rgba(147,51,234,0.35);
-}
 </style>
 """, unsafe_allow_html=True)
