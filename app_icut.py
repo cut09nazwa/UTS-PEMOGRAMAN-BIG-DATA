@@ -647,7 +647,7 @@ a.cta-button:hover, a[style*="background-color:#00a86b"]:hover {
 
 
 # =======================
-# TEKNOLOGI AI YANG MENAKJUBKAN (versi clean, ikon modern)
+# TEKNOLOGI AI YANG MENAKJUBKAN
 # =======================
 st.markdown('<div id="ai-tech"></div>', unsafe_allow_html=True)
 
@@ -674,14 +674,19 @@ with col1:
         """
         <div style='background-color:white; border-radius:20px; padding:35px; 
                     text-align:center; box-shadow:0 8px 25px rgba(0,0,0,0.05); 
-                    transition:0.3s; min-height:240px; display:flex; flex-direction:column; 
-                    justify-content:center; align-items:center;'>
-            <div style='width:55px; height:55px; 
-                        background:linear-gradient(135deg,#9333ea,#ec4899);
-                        mask:url("https://cdn-icons-png.flaticon.com/512/1046/1046784.png") no-repeat center / contain;
-                        -webkit-mask:url("https://cdn-icons-png.flaticon.com/512/1046/1046784.png") no-repeat center / contain;
-                        margin-bottom:20px;'></div>
-            <h4 style='color:#0f172a; margin:0;'>Computer Vision</h4>
+                    transition:0.3s; min-height:300px; display:flex; flex-direction:column; 
+                    justify-content:center;'>
+            <div style='font-size:45px; background:linear-gradient(135deg,#9333ea,#ec4899);
+                        -webkit-background-clip:text; -webkit-text-fill-color:transparent;'>📷</div>
+            <h4 style='color:#0f172a; margin-bottom:10px;'>Computer Vision</h4>
+            <p style='color:#334155; font-size:15px; line-height:1.5; margin-bottom:12px;'>
+                AI menganalisis setiap pixel gambar untuk mengenali bentuk, tekstur, dan warna kelopak bunga.
+            </p>
+            <ul style='list-style:none; padding:0; text-align:left; color:#475569; font-size:14px;'>
+                <li>• Deteksi tepi dan kontur</li>
+                <li>• Analisis warna RGB</li>
+                <li>• Pengenalan pola tekstur</li>
+            </ul>
         </div>
         """,
         unsafe_allow_html=True,
@@ -693,14 +698,19 @@ with col2:
         """
         <div style='background-color:white; border-radius:20px; padding:35px; 
                     text-align:center; box-shadow:0 8px 25px rgba(0,0,0,0.05); 
-                    transition:0.3s; min-height:240px; display:flex; flex-direction:column; 
-                    justify-content:center; align-items:center;'>
-            <div style='width:55px; height:55px; 
-                        background:linear-gradient(135deg,#9333ea,#ec4899);
-                        mask:url("https://cdn-icons-png.flaticon.com/512/4149/4149670.png") no-repeat center / contain;
-                        -webkit-mask:url("https://cdn-icons-png.flaticon.com/512/4149/4149670.png") no-repeat center / contain;
-                        margin-bottom:20px;'></div>
-            <h4 style='color:#0f172a; margin:0;'>Neural Networks</h4>
+                    transition:0.3s; min-height:300px; display:flex; flex-direction:column; 
+                    justify-content:center;'>
+            <div style='font-size:45px; background:linear-gradient(135deg,#9333ea,#ec4899);
+                        -webkit-background-clip:text; -webkit-text-fill-color:transparent;'>🧠</div>
+            <h4 style='color:#0f172a; margin-bottom:10px;'>Neural Networks</h4>
+            <p style='color:#334155; font-size:15px; line-height:1.5; margin-bottom:12px;'>
+                Jaringan saraf tiruan yang meniru cara kerja otak manusia dalam memproses informasi visual.
+            </p>
+            <ul style='list-style:none; padding:0; text-align:left; color:#475569; font-size:14px;'>
+                <li>• Deep learning layers</li>
+                <li>• Pattern recognition</li>
+                <li>• Feature extraction</li>
+            </ul>
         </div>
         """,
         unsafe_allow_html=True,
@@ -712,23 +722,18 @@ with col3:
         """
         <div style='background-color:white; border-radius:20px; padding:35px; 
                     text-align:center; box-shadow:0 8px 25px rgba(0,0,0,0.05); 
-                    transition:0.3s; min-height:240px; display:flex; flex-direction:column; 
-                    justify-content:center; align-items:center;'>
-            <div style='width:55px; height:55px; 
-                        background:linear-gradient(135deg,#9333ea,#ec4899);
-                        mask:url("https://cdn-icons-png.flaticon.com/512/4712/4712036.png") no-repeat center / contain;
-                        -webkit-mask:url("https://cdn-icons-png.flaticon.com/512/4712/4712036.png") no-repeat center / contain;
-                        margin-bottom:20px;'></div>
-            <h4 style='color:#0f172a; margin:0;'>Machine Learning</h4>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )yang belajar dari ribuan gambar bunga untuk meningkatkan akurasi klasifikasi.
+                    transition:0.3s; min-height:300px; display:flex; flex-direction:column; 
+                    justify-content:center;'>
+            <div style='font-size:45px; background:linear-gradient(135deg,#9333ea,#ec4899);
+                        -webkit-background-clip:text; -webkit-text-fill-color:transparent;'>🤖</div>
+            <h4 style='color:#0f172a; margin-bottom:10px;'>Machine Learning</h4>
+            <p style='color:#334155; font-size:15px; line-height:1.5; margin-bottom:12px;'>
+                Algoritma yang belajar dari ribuan gambar bunga untuk meningkatkan akurasi klasifikasi.
             </p>
             <ul style='list-style:none; padding:0; text-align:left; color:#475569; font-size:14px;'>
-                <li>1 Training dataset 100k+</li>
-                <li>2 Continuous learning</li>
-                <li>3 Accuracy optimization</li>
+                <li>• Training dataset 100k+</li>
+                <li>• Continuous learning</li>
+                <li>• Accuracy optimization</li>
             </ul>
         </div>
         """,
