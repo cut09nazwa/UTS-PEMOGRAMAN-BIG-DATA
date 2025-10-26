@@ -827,9 +827,19 @@ st.markdown("""
 # =======================
 # JUDUL HALAMAN
 # =======================
-st.markdown("<h2 style='text-align:center; font-weight:950;'>Personalisasi Pengalaman Anda</h2>", unsafe_allow_html=True)
-st.markdown("<p style='text-align:center;'>Masukkan nama Anda dan pilih tujuan menggunakan AI Flower Vision sesuai preferensi Anda.</p>", unsafe_allow_html=True)
-st.markdown("<br>", unsafe_allow_html=True)
+st.markdown(
+    """
+    <div style='text-align:center; padding:70px 0 40px;'>
+        <h1 style='color:#0f172a; font-size:42px; font-weight:800; margin-bottom:10px;'>
+            Personalisasi Pengalaman Anda
+        </h1>
+        <p style='color:#334155; font-size:17px; max-width:700px; margin:0 auto; line-height:1.6;'>
+            Masukkan nama Anda dan Pilih tujuan menggunakan AI Flower Vsion sesuai preferensi anda.
+        </p>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
 # =======================
 # INPUT FORM
