@@ -824,9 +824,6 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Tambahkan anchor & jarak di sini
-st.markdown("<div id='pengaturan' style='margin-top:120px;'></div>", unsafe_allow_html=True)
-
 # =======================
 # JUDUL HALAMAN
 # =======================
