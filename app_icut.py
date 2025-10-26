@@ -829,7 +829,7 @@ st.markdown("""
 # =======================
 st.markdown(
     """
-    <div style='text-align:center; padding:70px 0 40px;'>
+    <div style='text-align:center; padding:40px 0 10px;'>
         <h1 style='color:#0f172a; font-size:42px; font-weight:800; margin-bottom:10px;'>
             Personalisasi Pengalaman Anda
         </h1>
