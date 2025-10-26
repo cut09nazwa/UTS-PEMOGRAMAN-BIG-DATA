@@ -752,3 +752,64 @@ st.markdown("""
 html { scroll-behavior: smooth; }
 </style>
 """, unsafe_allow_html=True)
+
+# ==========================
+# PERSONALISASI USER
+# ==========================
+st.set_page_config(page_title="AI Flower Vision", layout="centered")
+
+# ==========================
+# CSS STYLING SEDERHANA
+# ==========================
+st.markdown("""
+    <style>
+        .main {
+            background-color: #EAFBF4;
+        }
+        .form-container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            margin: 50px auto;
+        }
+        .stTextInput, .stRadio, .stButton {
+            margin-top: 15px;
+        }
+        .title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: #0B5345;
+        }
+        .subtitle {
+            text-align: center;
+            color: #5D6D7E;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# ==========================
+# FORM UTAMA
+# ==========================
+with st.container():
+    st.markdown('<div class="form-container">', unsafe_allow_html=True)
+
+    st.markdown('<div class="title">Personalisasi Pengalaman Anda</div>', unsafe_allow_html=True)
+    st.markdown('<div class="subtitle">Masukkan nama dan pilih tema tampilan sesuai preferensi Anda</div>', unsafe_allow_html=True)
+
+    nama = st.text_input("Nama Anda", placeholder="Masukkan nama Anda di sini")
+
+    tema = st.radio("Tema Tampilan", ["🌞 Tema Terang", "🌙 Tema Gelap"])
+
+    if nama:
+        st.success(f"Halo, {nama}! Selamat datang di AI Flower Vision 🌸")
+
+    st.markdown("")
+    st.button("🌼 Mulai Analisis Gambar")
+
+    st.markdown('</div>', unsafe_allow_html=True)
