@@ -754,115 +754,132 @@ html { scroll-behavior: smooth; }
 """, unsafe_allow_html=True)
 
 # =======================
-# PERSONNALISASI PENGALAMAN ANDA
+# PERSONALISASI PENGALAMAN ANDA
 # =======================
 
-import streamlit as st
-
-# --- Scroll target ---
-st.markdown('<div id="pengaturan"></div>', unsafe_allow_html=True)
-
-# --- CSS Tema Dinamis ---
+# --- Inisialisasi tema ---
 if "tema" not in st.session_state:
     st.session_state.tema = "terang"
 
+# --- Warna dinamis sesuai tema ---
 bg_color = "#ecfdf5" if st.session_state.tema == "terang" else "#0f172a"
 text_color = "#0f172a" if st.session_state.tema == "terang" else "#f1f5f9"
 card_color = "white" if st.session_state.tema == "terang" else "#1e293b"
 border_color = "#00a86b" if st.session_state.tema == "terang" else "#334155"
+shadow_color = "rgba(0,168,107,0.2)" if st.session_state.tema == "terang" else "rgba(0,0,0,0.4)"
 
-# --- Styling Umum ---
+# --- CSS Styling Umum ---
 st.markdown(f"""
 <style>
-html, body, [class*="css"] {{
+body {{
     background-color: {bg_color};
     color: {text_color};
     font-family: "Poppins", sans-serif;
 }}
+
+h1 {{
+    text-align: center;
+    font-weight: 800;
+    font-size: 42px;
+    margin-bottom: 5px;
+}}
+
+p.subtitle {{
+    text-align: center;
+    font-size: 17px;
+    color: #64748b;
+    margin-bottom: 40px;
+}}
+
 .card {{
     background-color: {card_color};
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    max-width: 800px;
-    margin: 60px auto;
+    border-radius: 24px;
+    padding: 50px 60px;
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px {shadow_color};
 }}
+
 .theme-option {{
     border: 2px solid #e2e8f0;
     border-radius: 12px;
-    padding: 18px 20px;
+    padding: 16px 18px;
+    text-align: center;
+    font-weight: 600;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }}
+
 .theme-option:hover {{
     border-color: {border_color};
     box-shadow: 0 4px 12px rgba(0,168,107,0.15);
 }}
+
 .selected {{
     border-color: {border_color};
     background-color: rgba(0,168,107,0.08);
 }}
+
 .button {{
+    display: inline-block;
     background-color: #00a86b;
     color: white;
-    padding: 12px 35px;
+    padding: 14px 40px;
     border-radius: 30px;
     font-weight: 600;
-    text-decoration: none;
     border: none;
-    box-shadow: 0 6px 16px rgba(0,168,107,0.25);
+    text-decoration: none;
+    margin-top: 25px;
     transition: 0.3s;
+    box-shadow: 0 6px 16px rgba(0,168,107,0.25);
 }}
 .button:hover {{
-    transform: translateY(-2px);
+    transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0,168,107,0.3);
 }}
 </style>
 """, unsafe_allow_html=True)
 
-
-# --- Judul Utama ---
-st.markdown(f"""
-<div style='text-align:center; margin-bottom:20px;'>
-    <h1 style='font-weight:800; font-size:42px;'>Personalisasi Pengalaman Anda</h1>
-    <p style='font-size:17px; color:#64748b;'>Masukkan nama dan pilih tema tampilan sesuai preferensi Anda</p>
-</div>
-""", unsafe_allow_html=True)
-
+# --- Judul dan Subjudul ---
+st.markdown("<h1>Personalisasi Pengalaman Anda</h1>", unsafe_allow_html=True)
+st.markdown("<p class='subtitle'>Masukkan nama dan pilih tema tampilan sesuai preferensi Anda</p>", unsafe_allow_html=True)
 
 # --- Kartu utama ---
 st.markdown("<div class='card'>", unsafe_allow_html=True)
-col1, col2 = st.columns(2)
 
-# --- Kolom kiri: Nama pengguna ---
+col1, col2 = st.columns([1, 1])
+
+# === Kolom kiri: Input Nama ===
 with col1:
     st.markdown("**👤 Nama Anda**")
     nama = st.text_input("", placeholder="Masukkan nama Anda...", key="nama_input")
 
     if nama:
-        st.success(f"🌸 Halo, {nama}! Selamat datang di AI Flower Vision")
+        st.markdown(f"<div style='margin-top:10px; background-color:rgba(0,168,107,0.08); padding:12px 18px; border-radius:10px; color:{text_color}; font-weight:500;'>🌸 Halo, {nama}! Selamat datang di <b>AI Flower Vision</b></div>", unsafe_allow_html=True)
 
-# --- Kolom kanan: Pilihan Tema ---
+# === Kolom kanan: Pilihan Tema ===
 with col2:
     st.markdown("**🎨 Tema Tampilan**")
-
     c1, c2 = st.columns(2)
     with c1:
-        terang_clicked = st.button("☀️ Tema Terang\nTampilan cerah dan segar", key="terang", use_container_width=True)
-        if terang_clicked:
+        btn_style = "selected" if st.session_state.tema == "terang" else "theme-option"
+        if st.button("☀️ Tema Terang\nTampilan cerah dan segar", key="tema_terang"):
             st.session_state.tema = "terang"
             st.rerun()
+        st.markdown(f"<div class='{btn_style}'></div>", unsafe_allow_html=True)
 
     with c2:
-        gelap_clicked = st.button("🌙 Tema Gelap\nTampilan elegan dan nyaman", key="gelap", use_container_width=True)
-        if gelap_clicked:
+        btn_style = "selected" if st.session_state.tema == "gelap" else "theme-option"
+        if st.button("🌙 Tema Gelap\nTampilan elegan dan nyaman", key="tema_gelap"):
             st.session_state.tema = "gelap"
             st.rerun()
+        st.markdown(f"<div class='{btn_style}'></div>", unsafe_allow_html=True)
 
-# --- Tombol Lanjut ---
-st.markdown("<div style='text-align:center; margin-top:35px;'>", unsafe_allow_html=True)
-if st.button("⬇️ Mulai Analisis Gambar", key="lanjut", use_container_width=False):
-    st.markdown("<script>window.location.href='#analisis';</script>", unsafe_allow_html=True)
 st.markdown("</div>", unsafe_allow_html=True)
 
+# === Tombol Mulai ===
+st.markdown("<div style='text-align:center;'>", unsafe_allow_html=True)
+if st.button("⬇️ Mulai Analisis Gambar", key="lanjut"):
+    st.markdown("<script>window.location.href='#analisis';</script>", unsafe_allow_html=True)
+st.markdown("<a class='button'>Mulai Analisis Gambar</a>", unsafe_allow_html=True)
 st.markdown("</div>", unsafe_allow_html=True)
