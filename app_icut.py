@@ -745,10 +745,82 @@ st.markdown("""
 <div style='text-align:center; margin-top:40px;'>
     <a href='#pengaturan' style='background:linear-gradient(135deg,#9333ea,#ec4899); 
     color:white; padding:12px 35px; border-radius:30px; font-weight:600; text-decoration:none; 
-    box-shadow:0 6px 18px rgba(147,51,234,0.3); transition:0.3s;'>➡️ Lanjut ke Pengaturan</a>
+    box-shadow:0 6px 18px rgba(147,51,234,0.3); transition:0.3s;'>↓ Lanjut ke Pengaturan</a>
 </div>
 
 <style>
 html { scroll-behavior: smooth; }
 </style>
 """, unsafe_allow_html=True)
+
+# =======================
+# PERSONALISASI PENGALAMAN ANDA
+# =======================
+st.markdown('<div id="pengaturan"></div>', unsafe_allow_html=True)
+
+st.markdown("""
+<div style='text-align:center; padding:70px 0 40px;'>
+    <h1 style='color:#0f172a; font-size:42px; font-weight:800; margin-bottom:10px;'>
+        Personalisasi Pengalaman Anda
+    </h1>
+    <p style='color:#334155; font-size:17px; max-width:700px; margin:0 auto; line-height:1.6;'>
+        Masukkan nama dan pilih tema tampilan sesuai preferensi Anda
+    </p>
+</div>
+""", unsafe_allow_html=True)
+
+# ===== Container utama =====
+with st.container():
+    st.markdown("""
+    <div style='background-color:white; border-radius:20px; max-width:750px; margin:0 auto;
+                padding:40px 50px; box-shadow:0 10px 30px rgba(0,0,0,0.05); text-align:left;'>
+    """, unsafe_allow_html=True)
+
+    # ===== Input nama =====
+    nama = st.text_input("Nama Anda", placeholder="Masukkan nama Anda di sini")
+
+    if nama:
+        st.markdown(
+            f"<div style='background-color:#d1fae5; color:#065f46; padding:10px 15px; border-radius:10px; margin-top:10px;'>"
+            f"<b>Halo, {nama}!</b> Selamat datang di AI Flower Vision 🌸</div>",
+            unsafe_allow_html=True
+        )
+
+    st.markdown("---")
+
+    # ===== Pilihan Tema =====
+    st.markdown("""
+    <div style='display:flex; justify-content:space-between; align-items:center; margin-top:20px;'>
+        <h4 style='margin:0; color:#0f172a;'>🎨 Tema Tampilan</h4>
+    </div>
+    """, unsafe_allow_html=True)
+
+    col1, col2 = st.columns(2)
+    with col1:
+        tema_terang = st.button("🌞 Tema Terang\nTampilan cerah dan segar")
+    with col2:
+        tema_gelap = st.button("🌙 Tema Gelap\nTampilan elegan dan nyaman")
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    # ===== Tombol Mulai =====
+    st.markdown("""
+    <div style='text-align:center;'>
+        <a href='#mulai' 
+           style='display:inline-block; background-color:#00a86b; color:#ffffff; padding:14px 38px;
+                  border-radius:12px; font-weight:600; font-size:16px; text-decoration:none;
+                  box-shadow:0 6px 16px rgba(0,168,107,0.25); transition:all .2s ease;'>
+           ⬇️ Mulai Analisis Gambar
+        </a>
+    </div>
+
+    <style>
+    a[style*="background-color:#00a86b"]:hover {
+        background-color:#059669 !important;
+        transform:translateY(-3px);
+        box-shadow:0 8px 20px rgba(0,168,107,0.3);
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+    st.markdown("</div>", unsafe_allow_html=True)
