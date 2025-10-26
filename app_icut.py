@@ -243,7 +243,7 @@ with col1:
         </div>
     """, unsafe_allow_html=True)
     
-    st.markdown("<button class='cta-button'>🌺 Mulai Petualangan AI</button>", unsafe_allow_html=True)
+    st.markdown("<a href='#mulai' class='cta-button'>🌺 Mulai Petualangan AI</a>", unsafe_allow_html=True)
 
 with col2:
     image = Image.open("sample_images/1cc501a2ea_jpg.rf.dc455624ba691a864edbf790e48543dd.jpg")
@@ -619,4 +619,11 @@ st.markdown("""
     border-radius:30px; font-weight:600; text-decoration:none; 
     box-shadow:0 4px 10px rgba(0,168,107,0.3); transition:0.3s;'>👇🌼 Mulai Eksplorasi</a>
 </div>
+
+<style>
+html {
+    scroll-behavior: smooth;
+}
+</style>
 """, unsafe_allow_html=True)
+
