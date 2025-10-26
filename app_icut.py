@@ -242,8 +242,16 @@ with col1:
             </div>
         </div>
     """, unsafe_allow_html=True)
-    
-    st.markdown("<a href='#mulai' class='cta-button'>🌺 Mulai Petualangan AI</a>", unsafe_allow_html=True)
+
+st.markdown("""
+<a href='#mulai' class='cta-button'
+   style='display:inline-block; background-color:#00a86b; color:#ffffff !important;
+          padding:12px 28px; border-radius:30px; font-weight:600; text-decoration:none;
+          box-shadow:0 6px 16px rgba(0,168,107,0.28); transition:transform .18s ease, box-shadow .18s ease;
+          font-size:16px;'>
+   🌺 Mulai Petualangan AI
+</a>
+""", unsafe_allow_html=True)
 
 with col2:
     image = Image.open("sample_images/1cc501a2ea_jpg.rf.dc455624ba691a864edbf790e48543dd.jpg")
@@ -615,15 +623,24 @@ st.markdown(f"""
 # ======= TOMBOL =======
 st.markdown("""
 <div style='text-align:center; margin-top:30px;'>
-    <a href='#' style='background-color:#00a86b; color:white; padding:12px 35px; 
-    border-radius:30px; font-weight:600; text-decoration:none; 
-    box-shadow:0 4px 10px rgba(0,168,107,0.3); transition:0.3s;'>👇🌼 Mulai Eksplorasi</a>
+    <a href='#mulai' style='display:inline-block; background-color:#00a86b; color:#ffffff !important;
+       padding:12px 35px; border-radius:30px; font-weight:600; text-decoration:none;
+       box-shadow:0 4px 10px rgba(0,168,107,0.3); transition:transform .18s ease, box-shadow .18s ease;
+       font-size:16px;'>
+       👇🌼 Mulai Eksplorasi
+    </a>
 </div>
 
 <style>
-html {
-    scroll-behavior: smooth;
+html { scroll-behavior: smooth; }
+
+a.cta-button, a[style*="background-color:#00a86b"] {
+    text-decoration: none !important;
+    color: #ffffff !important;
+}
+a.cta-button:hover, a[style*="background-color:#00a86b"]:hover {
+    transform: translateY(-3px);
+    box-shadow:0 8px 18px rgba(0,168,107,0.28);
 }
 </style>
 """, unsafe_allow_html=True)
-
