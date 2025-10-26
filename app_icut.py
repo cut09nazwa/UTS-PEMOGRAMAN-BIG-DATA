@@ -32,14 +32,6 @@ st.set_page_config(
 # CSS STYLING TAMPILAN PROFESIONAL + BACKGROUND WARNA
 # ==========================
 
-if "page" not in st.session_state:
-    st.session_state.page = "home"
-
-def go_to_intro():
-    st.session_state.page = "intro"
-
-def go_to_home():
-    st.session_state.page = "home"    
 # ==========================
 # HALAMAN 1: HOME / HALAMAN AWAL
 # ==========================
@@ -253,10 +245,6 @@ with col1:
         </div>
     """, unsafe_allow_html=True)
 
-# Tombol navigasi ke halaman INTRO
-if st.button("🌺 Mulai Petualangan AI"):
-    go_to_intro()
-
 with col2:
     image = Image.open("sample_images/1cc501a2ea_jpg.rf.dc455624ba691a864edbf790e48543dd.jpg")
     st.image(image, use_container_width=True, caption="AI mendeteksi bunga di gambar ini 🌷")
@@ -427,8 +415,6 @@ with col2:
 # ==========================
 # BAGIAN PROSES DALAM 4 LANGKAH
 # ==========================
-
-import streamlit as st
 
 # ===== CSS STYLING =====
 st.markdown("""
@@ -638,7 +624,6 @@ st.markdown("""
 # ==========================
 # HALAMAN SELAMAT DATANG / INTRO
 # ==========================
-if st.session_state.page == "intro":
     # ===== CSS STYLING =====
     st.markdown("""
         <style>
