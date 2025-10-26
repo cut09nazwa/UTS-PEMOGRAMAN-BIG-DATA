@@ -759,22 +759,24 @@ html { scroll-behavior: smooth; }
 
 st.set_page_config(page_title="Personalisasi Tampilan", layout="wide")
 
-# CSS Styling
+# =========================
+# INJEKSI CSS
+# =========================
 st.markdown("""
 <style>
 body {
     background: linear-gradient(to right, #e8f9fd, #eefbfd);
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
-/* ===== KOTAK PUTIH ===== */
-.box-container {
+/* ===== KOTAK UTAMA ===== */
+.container-box {
     background-color: white;
     border-radius: 25px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    padding: 50px 80px;
     width: 80%;
-    margin: 70px auto;
-    padding: 60px 80px;
+    margin: 60px auto;
     text-align: center;
 }
 
@@ -786,14 +788,14 @@ body {
     margin-bottom: 10px;
 }
 
-/* ===== SUBJUDUL ===== */
+/* ===== SUBTITLE ===== */
 .section-subtitle {
     font-size: 18px;
     color: #555;
     margin-bottom: 40px;
 }
 
-/* ===== LABEL ===== */
+/* ===== LABEL INPUT ===== */
 .label {
     text-align: left;
     font-weight: 600;
@@ -802,35 +804,34 @@ body {
 }
 
 /* ===== INPUT FIELD ===== */
-.stTextInput > div > div > input {
-    width: 100% !important;
-    padding: 14px 18px !important;
-    border: 2px solid #ccc !important;
-    border-radius: 15px !important;
-    background: #f9fafc !important;
-    font-size: 16px !important;
+input[type="text"] {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    background: #f9fafc;
+    font-size: 16px;
 }
 
-/* ===== RADIO TEMA ===== */
-.stRadio > label {
-    display: none !important;
+/* ===== PILIHAN TEMA ===== */
+.theme-options {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 30px 0;
 }
-.stRadio > div {
-    display: flex !important;
-    justify-content: center !important;
-    gap: 30px !important;
-}
-.stRadio div[role="radiogroup"] > div {
-    background-color: #fafbff;
+
+.theme-card {
     border: 2px solid #ddd;
     border-radius: 15px;
     padding: 20px 30px;
     width: 250px;
-    text-align: center;
-    cursor: pointer;
     transition: all 0.3s ease;
+    cursor: pointer;
+    background: #fafbff;
 }
-.stRadio div[role="radiogroup"] > div:hover {
+
+.theme-card:hover {
     border-color: #7b5cff;
     transform: translateY(-4px);
 }
@@ -852,22 +853,31 @@ body {
 </style>
 """, unsafe_allow_html=True)
 
-
-# === KOTAK UTAMA ===
-st.markdown("<div class='box-container'>", unsafe_allow_html=True)
-
+# =========================
+# ISI HALAMAN
+# =========================
 st.markdown("""
-<h1 class="section-title">Personalisasi Pengalaman Anda</h1>
-<p class="section-subtitle">Masukkan nama dan pilih tema tampilan sesuai preferensi Anda</p>
+<div class="container-box">
+    <h1 class="section-title">Personalisasi Pengalaman Anda</h1>
+    <p class="section-subtitle">Masukkan nama dan pilih tema tampilan sesuai preferensi Anda</p>
 """, unsafe_allow_html=True)
 
+# Input nama
 st.markdown("<div class='label'>👤 Nama Anda</div>", unsafe_allow_html=True)
 nama = st.text_input("Masukkan nama Anda...", label_visibility="collapsed")
 
+# Pilihan tema
 st.markdown("<div class='label'>🎨 Tema Tampilan</div>", unsafe_allow_html=True)
-tema = st.radio("", ["🌞 Tema Terang - Cerah & Segar", "🌙 Tema Gelap - Elegan & Nyaman"], horizontal=True)
+tema = st.radio(
+    "Pilih tema tampilan:",
+    ["🌞 Tema Terang - Cerah & Segar", "🌙 Tema Gelap - Elegan & Nyaman"],
+    label_visibility="collapsed",
+    horizontal=True
+)
 
-# Terapkan tema
+# =========================
+# APLIKASI PERUBAHAN TEMA
+# =========================
 if tema.startswith("🌙"):
     st.markdown("""
     <style>
@@ -875,23 +885,27 @@ if tema.startswith("🌙"):
         background: linear-gradient(to right, #2b2b2b, #3a3a3a);
         color: #f2f2f2;
     }
-    .box-container {
+    .container-box {
         background-color: #2f2f2f;
         color: #f2f2f2;
     }
-    .stTextInput > div > div > input {
-        background-color: #3b3b3b !important;
-        border-color: #555 !important;
-        color: white !important;
+    input[type="text"] {
+        background-color: #3b3b3b;
+        border-color: #555;
+        color: white;
     }
-    .stRadio div[role="radiogroup"] > div {
-        background: #3a3a3a !important;
-        border-color: #555 !important;
-        color: #f2f2f2 !important;
+    .theme-card {
+        background: #3a3a3a;
+        border-color: #555;
+        color: #f2f2f2;
+    }
+    .stButton > button {
+        background-color: #a38cff !important;
     }
     </style>
     """, unsafe_allow_html=True)
 
+# Tombol
 st.markdown("<br>", unsafe_allow_html=True)
 st.button("🔍 Mulai Analisis Gambar")
 
