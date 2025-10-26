@@ -756,119 +756,139 @@ html { scroll-behavior: smooth; }
 # ==========================
 # PERSONALISASI USER
 # ==========================
-import streamlit as st
 
-# =======================
-# KONFIGURASI HALAMAN
-# =======================
 st.set_page_config(page_title="AI Flower Vision", page_icon="🌸", layout="wide")
 
 # =======================
-# CSS UNTUK STYLING
+# CSS STYLING
 # =======================
 st.markdown("""
-    <style>
-    body {
-        background: linear-gradient(180deg, #f5fffa 0%, #e6f7ff 100%);
-        font-family: "Poppins", sans-serif;
-    }
-    .card {
-        background-color: white;
-        padding: 40px 50px;
-        border-radius: 20px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-        width: 600px;
-        margin: 40px auto;
-    }
-    .stTextInput > div > div > input {
-        border-radius: 10px;
-        border: 1px solid #d0d7de;
-        padding: 10px 12px;
-        font-size: 16px;
-    }
-    .title {
-        text-align: center;
-        font-weight: 700;
-        font-size: 32px;
-        color: #222;
-    }
-    .subtitle {
-        text-align: center;
-        color: #666;
-        font-size: 16px;
-        margin-bottom: 20px;
-    }
-    .option-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
-        justify-content: center;
-        margin-top: 10px;
-    }
-    .option-btn {
-        flex: 1 1 45%;
-        padding: 15px;
-        background-color: #f7fafc;
-        border-radius: 12px;
-        border: 1.5px solid #cbd5e1;
-        text-align: center;
-        font-weight: 500;
-        color: #333;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-    .option-btn:hover {
-        background-color: #e0f7f1;
-        border-color: #2ecc71;
-        color: #007f5f;
-    }
-    .btn-lanjut {
-        display: block;
-        text-align: center;
-        background-color: #00c26e;
-        color: white;
-        padding: 12px 0;
-        border-radius: 10px;
-        font-weight: 600;
-        margin-top: 25px;
-        text-decoration: none;
-        transition: all 0.3s ease;
-    }
-    .btn-lanjut:hover {
-        background-color: #00a85c;
-    }
-    </style>
+<style>
+body {
+    background: linear-gradient(180deg, #f5fffa 0%, #e6f7ff 100%);
+    font-family: 'Poppins', sans-serif;
+}
+
+.card {
+    background-color: white;
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    width: 620px;
+    margin: 50px auto;
+}
+
+.title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 32px;
+    color: #222;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.stTextInput > div > div > input {
+    border-radius: 10px;
+    border: 1px solid #d0d7de;
+    padding: 10px 12px;
+    font-size: 16px;
+}
+
+.option-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.option-btn {
+    padding: 16px;
+    background-color: #f8fafc;
+    border: 1.5px solid #d1d5db;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.option-btn:hover {
+    background-color: #e0f7f1;
+    border-color: #00c26e;
+    color: #007f5f;
+    transform: translateY(-2px);
+}
+
+.option-btn.selected {
+    background-color: #00c26e;
+    border-color: #00c26e;
+    color: white;
+}
+
+.btn-lanjut {
+    display: block;
+    text-align: center;
+    background-color: #00c26e;
+    color: white;
+    padding: 12px 0;
+    border-radius: 10px;
+    font-weight: 600;
+    margin-top: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.btn-lanjut:hover {
+    background-color: #009f5b;
+}
+</style>
 """, unsafe_allow_html=True)
 
 # =======================
 # KONTEN UTAMA
 # =======================
-st.markdown("<h1 class='title'>Personalisa​si Pengalaman Anda</h1>", unsafe_allow_html=True)
-st.markdown("<p class='subtitle'>Masukkan nama Anda dan pilih tujuan Anda menggunakan AI Flower Vision</p>", unsafe_allow_html=True)
+st.markdown("<h1 class='title'>Personalisasi Pengalaman Anda</h1>", unsafe_allow_html=True)
+st.markdown("<p class='subtitle'>Masukkan nama dan pilih tujuan Anda menggunakan AI Flower Vision 🌸</p>", unsafe_allow_html=True)
 
-with st.container():
-    st.markdown("<div class='card'>", unsafe_allow_html=True)
+st.markdown("<div class='card'>", unsafe_allow_html=True)
 
-    nama = st.text_input("Siapa nama Anda?", placeholder="Masukkan nama Anda...")
+# Input nama
+nama = st.text_input("Siapa nama Anda?", placeholder="Masukkan nama Anda...")
 
-    st.markdown("<h4 style='margin-top:25px;'>Apa tujuan Anda menggunakan AI Flower Vision?</h4>", unsafe_allow_html=True)
-    tujuan_options = ["Belajar tentang bunga", "Hobi berkebun", "Penelitian", "Sekadar penasaran"]
+# Pilihan tujuan (gunakan tombol interaktif)
+st.markdown("<h4 style='margin-top:25px;'>Apa tujuan Anda menggunakan AI Flower Vision?</h4>", unsafe_allow_html=True)
+tujuan_list = ["Belajar tentang bunga", "Hobi berkebun", "Penelitian", "Sekadar penasaran"]
 
-    tujuan = st.radio("", tujuan_options, index=None, label_visibility="collapsed")
+# State untuk pilihan
+if "tujuan" not in st.session_state:
+    st.session_state.tujuan = None
 
-    if st.button("Lanjutkan"):
-        if nama and tujuan:
-            st.success(f"Halo {nama}! Anda memilih tujuan: *{tujuan}* 🌷")
-        else:
-            st.warning("Harap isi nama dan pilih tujuan terlebih dahulu.")
+cols = st.columns(2)
+for i, tujuan in enumerate(tujuan_list):
+    col = cols[i % 2]
+    with col:
+        clicked = st.button(tujuan, key=tujuan)
+        if clicked:
+            st.session_state.tujuan = tujuan
 
-    st.markdown("</div>", unsafe_allow_html=True)
+# Tampilkan visual pilihan
+selected = st.session_state.tujuan
+if selected:
+    st.markdown(f"<p style='text-align:center; color:#00a85c; margin-top:10px;'>Anda memilih: <b>{selected}</b></p>", unsafe_allow_html=True)
 
-# --- Tombol Lanjut ---
-st.markdown("<div style='text-align:center;'>", unsafe_allow_html=True)
-if st.button("⬇️ Mulai Analisis Gambar", key="lanjut"):
-    st.markdown("<script>window.location.href='#analisis';</script>", unsafe_allow_html=True)
-st.markdown(f"<button class='button'>Mulai Analisis Gambar</button>", unsafe_allow_html=True)
+# Tombol lanjutkan
+if st.button("Lanjutkan 🚀"):
+    if not nama or not selected:
+        st.warning("Harap isi nama dan pilih tujuan terlebih dahulu.")
+    else:
+        st.success(f"Halo {nama}! Anda memilih tujuan: *{selected}* 🌷")
+
 st.markdown("</div>", unsafe_allow_html=True)
+
 
 
