@@ -35,9 +35,7 @@ st.set_page_config(
 # ==========================
 # HALAMAN 1: HOME / HALAMAN AWAL
 # ==========================
-if st.session_state.page == "home":
-
-    st.markdown("""
+st.markdown("""
         <style>
             /* ===== BODY & BACKGROUND ===== */
             body {
