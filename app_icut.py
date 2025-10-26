@@ -644,3 +644,130 @@ a.cta-button:hover, a[style*="background-color:#00a86b"]:hover {
 }
 </style>
 """, unsafe_allow_html=True)
+
+# ==============================
+# BAGIAN: TEKNOLOGI AI YANG MENAKJUBKAN
+# ==============================
+
+st.markdown("""
+<div id="ai-tech" style="padding-top:80px; text-align:center;">
+    <h1 style="color:#0f5132; font-weight:800;">Teknologi AI yang Menakjubkan</h1>
+    <p style="color:#4b5563; font-size:17px; margin-bottom:40px;">
+        Pelajari bagaimana kecerdasan buatan dapat mengenali bentuk, warna, dan pola pada bunga
+    </p>
+</div>
+
+<style>
+html { scroll-behavior: smooth; }
+.card-container {
+    display: flex; 
+    justify-content: center; 
+    gap: 40px; 
+    flex-wrap: wrap;
+}
+.card {
+    background: white;
+    border-radius: 25px;
+    width: 270px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+}
+.card-icon {
+    background: linear-gradient(135deg, #ff00cc, #3333ff);
+    border-radius: 18px;
+    display: inline-block;
+    padding: 15px;
+    color: white;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+.card-title {
+    font-weight: 700;
+    color: #111827;
+    font-size: 18px;
+}
+.card-desc {
+    color: #4b5563;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+.card ul {
+    list-style: none;
+    padding: 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+.card ul li::before {
+    content: "• ";
+    color: #9333ea;
+    font-weight: bold;
+}
+.cta-button {
+    display: inline-block;
+    margin-top: 40px;
+    background: linear-gradient(135deg, #9333ea, #ec4899);
+    color: white !important;
+    font-weight: 600;
+    padding: 12px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(147,51,234,0.25);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+.cta-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(147,51,234,0.35);
+}
+</style>
+
+<div class="card-container">
+    <div class="card">
+        <div class="card-icon">📷</div>
+        <div class="card-title">Computer Vision</div>
+        <div class="card-desc">
+            AI menganalisis setiap pixel gambar untuk mengenali bentuk, tekstur, dan warna kelopak bunga.
+        </div>
+        <ul>
+            <li>Deteksi tepi dan kontur</li>
+            <li>Analisis warna RGB</li>
+            <li>Pengenalan pola tekstur</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <div class="card-icon">🧠</div>
+        <div class="card-title">Neural Networks</div>
+        <div class="card-desc">
+            Jaringan saraf tiruan yang meniru cara kerja otak manusia dalam memproses informasi visual.
+        </div>
+        <ul>
+            <li>Deep learning layers</li>
+            <li>Pattern recognition</li>
+            <li>Feature extraction</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <div class="card-icon">🤖</div>
+        <div class="card-title">Machine Learning</div>
+        <div class="card-desc">
+            Algoritma yang belajar dari ribuan gambar bunga untuk meningkatkan akurasi klasifikasi.
+        </div>
+        <ul>
+            <li>Training dataset 100k+</li>
+            <li>Continuous learning</li>
+            <li>Accuracy optimization</li>
+        </ul>
+    </div>
+</div>
+
+<div style='text-align:center; margin-top:45px;'>
+    <a href='#pengaturan' class='cta-button'>➡️ Lanjut ke Pengaturan</a>
+</div>
+""", unsafe_allow_html=True)
