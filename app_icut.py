@@ -870,7 +870,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 # ======= TOMBOL =======
 st.markdown("""
 <div style='text-align:center; margin-top:10px; margin-bottom:-15;'>
-    <a href='#ai-tech' 
+    <a href='#analisis-bunga' 
        style='display:inline-block; background-color:#00a86b; color:#ffffff !important;
               padding:12px 35px; border-radius:30px; font-weight:600; text-decoration:none;
               box-shadow:0 4px 10px rgba(0,168,107,0.3); transition:transform .18s ease, box-shadow .18s ease;
@@ -1008,7 +1008,7 @@ flower_info = {
 # ======================
 # TAMPILAN SECTION
 # ======================
-st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
+st.markdown('<div id="analisis-bunga" class="analysis-section">', unsafe_allow_html=True)
 st.markdown(
     """
     <div style='text-align:center; padding:5px 0 0px; margin-top:-30px;'>
