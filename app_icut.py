@@ -222,7 +222,7 @@ with col1:
     st.markdown("""
         <p>
         🌸 Temukan Keajaiban Setiap Bunga Dengan Sentuhan Kecerdasan Buatan, 
-        AI Kami Membantu Anda Mengenali, Memahami, dan Mengagumi Setiap Spesies Bunga Hanya Dengan <b>Sekali Sentuhan</b> 🌿..
+        AI Kami Membantu Anda Mengenali, Memahami, dan Mengagumi Setiap Spesies Bunga Hanya Dengan <b>Sekali Sentuhan</b> 🌿.
         </p>
     """, unsafe_allow_html=True)
 
