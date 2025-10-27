@@ -1048,7 +1048,7 @@ import numpy as np
 with col2:
     if uploaded_file is not None:
         if menu == "🌸 Klasifikasi Bunga":
-            # --- Prediksi
+            # --- Prediksi ---
             input_shape = classifier.input_shape
             target_size = (input_shape[1], input_shape[2])
             channels = input_shape[3] if len(input_shape) == 4 else 3
@@ -1074,54 +1074,88 @@ with col2:
 
                 # ==== FONT POPPINS ====
                 st.markdown("""
-                <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-                <style>
-                    * {
-                        font-family: 'Poppins', sans-serif !important;
-                    }
-                </style>
+                    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+                    <style>
+                        html, body, [class*="css"] {
+                            font-family: 'Poppins', sans-serif !important;
+                        }
+                        h3 {
+                            font-size: 22px !important;
+                            font-weight: 700 !important;
+                            color: #1e293b !important;
+                        }
+                        h4 {
+                            font-size: 20px !important;
+                            font-weight: 700 !important;
+                            color: #047857 !important;
+                        }
+                        p, li, b, span {
+                            font-size: 15px !important;
+                        }
+                    </style>
                 """, unsafe_allow_html=True)
 
                 # ==== TAMPILAN HASIL ====
                 html_result = f"""
-                <div class="result-box" style="background-color:#ffffff; padding:25px 28px; 
-                    border-radius:16px; box-shadow:0 4px 10px rgba(0,0,0,0.05); margin-top:10px;">
-                    
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                        <h3 style="margin:0; color:#1e293b;">Hasil Klasifikasi</h3>
-                        <span style="
-                            background-color:#16a34a;
-                            color:white;
-                            font-weight:600;
-                            font-size:15px;
-                            padding:6px 12px;
-                            border-radius:10px;
-                            box-shadow:0 2px 6px rgba(22,163,74,0.3);
+                    <div class="result-box" style="
+                        background-color:#ffffff; 
+                        padding:25px 28px; 
+                        border-radius:16px; 
+                        box-shadow:0 4px 10px rgba(0,0,0,0.05); 
+                        margin-top:10px;
+                    ">
+                        <div style="
+                            display:flex; 
+                            justify-content:space-between; 
+                            align-items:center; 
+                            margin-bottom:10px;
                         ">
-                            {accuracy:.1f}% Akurasi
-                        </span>
-                    </div>
+                            <h3 style="margin:0; color:#1e293b;">Hasil Klasifikasi</h3>
+                            <span style="
+                                background-color:#16a34a;
+                                color:white;
+                                font-weight:600;
+                                font-size:15px;
+                                padding:6px 12px;
+                                border-radius:10px;
+                                box-shadow:0 2px 6px rgba(22,163,74,0.3);
+                            ">
+                                {accuracy:.1f}% Akurasi
+                            </span>
+                        </div>
 
-                    <div style="background-color:#f0fdf4; padding:14px 20px; 
-                        border-radius:12px; margin-top:10px;">
-                        <h4 style="color:#065f46; margin:0;">{class_name}</h4>
-                        <p style="margin:3px 0 0;"><b>Famili:</b> {info['famili']}</p>
-                        <p style="margin-top:8px; color:#374151;">{info['deskripsi']}</p>
-                    </div>
+                        <div style="
+                            background-color:#f0fdf4; 
+                            padding:14px 20px; 
+                            border-radius:12px; 
+                            margin-top:10px;
+                        ">
+                            <h4 style="
+                                color:#047857; 
+                                font-size:22px; 
+                                font-weight:700; 
+                                margin:0 0 5px 0;
+                            ">
+                                {class_name}
+                            </h4>
+                            <p style="margin:3px 0 0;"><b>Famili:</b> {info['famili']}</p>
+                            <p style="margin-top:8px; color:#374151;">{info['deskripsi']}</p>
+                        </div>
 
-                    <div style="margin-top:18px;">
-                        <b>Karakteristik:</b>
-                        <ul style="margin-top:5px; line-height:1.6; color:#374151;">
-                            {''.join(f"<li>{c}</li>" for c in info['karakteristik'])}
-                        </ul>
+                        <div style="margin-top:18px;">
+                            <b>Karakteristik:</b>
+                            <ul style="margin-top:5px; line-height:1.6; color:#374151;">
+                                {''.join(f"<li>{c}</li>" for c in info['karakteristik'])}
+                            </ul>
+                        </div>
                     </div>
-                </div>
                 """
+
                 components.html(html_result, height=400, scrolling=True)
 
             except Exception as e:
-                st.error("Terjadi kesalahan saat melakukan prediksi.")
-                pass  # <- biar gak error walau blok try selesai
+                st.error("⚠️ Terjadi kesalahan saat melakukan prediksi.")
+                pass  # biar tidak error walau blok try selesai
 
         # ==== MENU DETEKSI OBJEK ====
         elif menu == "🔍 Deteksi Objek":
