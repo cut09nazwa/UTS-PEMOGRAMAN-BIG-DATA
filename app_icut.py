@@ -891,3 +891,195 @@ a.cta-button:hover, a[style*="background-color:#00a86b"]:hover {
 }
 </style>
 """, unsafe_allow_html=True)
+
+# ==========================
+# SECTION: ANALISIS GAMBAR BUNGA
+# ==========================
+import numpy as np
+import tensorflow as tf
+from ultralytics import YOLO
+from PIL import Image
+
+st.markdown(
+    """
+    <style>
+    .analysis-section {
+        width: 100%;
+        background-color: #f6fffa;
+        padding: 80px 60px;
+        border-radius: 16px;
+        margin-top: 80px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+    .analysis-title {
+        text-align: center;
+        font-size: 36px;
+        font-weight: 700;
+        color: #044a42;
+        margin-bottom: 10px;
+    }
+    .analysis-subtitle {
+        text-align: center;
+        color: #555;
+        margin-bottom: 50px;
+    }
+    .result-box {
+        background-color: #ffffff;
+        border-radius: 16px;
+        padding: 25px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .button-main {
+        background-color: #1e8e5f;
+        color: white;
+        border-radius: 12px;
+        text-align: center;
+        padding: 12px;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+    .button-main:hover {
+        background-color: #167a50;
+        color: white;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# ======================
+# LOAD MODEL
+# ======================
+@st.cache_resource
+def load_models():
+    classifier = tf.keras.models.load_model("classifier_model.h5")
+    yolo_model = YOLO("best.pt")
+    return classifier, yolo_model
+
+classifier, yolo_model = load_models()
+
+# Label dan info bunga
+flower_classes = ["Lily", "Lotus", "Orchid", "Sunflower", "Tulip"]
+flower_info = {
+    "Lily": {
+        "famili": "Liliaceae",
+        "deskripsi": "Lily dikenal dengan kelopak besar dan aroma yang kuat. Melambangkan kemurnian dan keanggunan.",
+        "karakteristik": [
+            "Kelopak besar dan halus",
+            "Aroma lembut dan khas",
+            "Biasanya berwarna putih, kuning, atau merah muda"
+        ]
+    },
+    "Lotus": {
+        "famili": "Nelumbonaceae",
+        "deskripsi": "Lotus melambangkan kesucian dan kebangkitan. Umumnya tumbuh di air dan memiliki daun bundar yang besar.",
+        "karakteristik": [
+            "Tumbuh di air dengan daun lebar",
+            "Kelopak besar berlapis-lapis",
+            "Warna bunga merah muda atau putih"
+        ]
+    },
+    "Orchid": {
+        "famili": "Orchidaceae",
+        "deskripsi": "Anggrek adalah bunga tropis elegan dengan bentuk unik. Melambangkan keindahan dan cinta.",
+        "karakteristik": [
+            "Memiliki pola kelopak yang simetris",
+            "Banyak variasi warna dan bentuk",
+            "Biasanya tumbuh di daerah lembab"
+        ]
+    },
+    "Sunflower": {
+        "famili": "Asteraceae",
+        "deskripsi": "Bunga matahari melambangkan kebahagiaan dan energi positif. Bunganya besar dan mengikuti arah matahari.",
+        "karakteristik": [
+            "Memiliki kelopak kuning cerah",
+            "Tangkai panjang dan kokoh",
+            "Menghadap ke arah cahaya matahari"
+        ]
+    },
+    "Tulip": {
+        "famili": "Liliaceae",
+        "deskripsi": "Tulip identik dengan musim semi dan cinta sejati. Bunga ini memiliki bentuk kelopak sederhana tapi elegan.",
+        "karakteristik": [
+            "Tangkai lurus dengan satu bunga per tangkai",
+            "Warna kelopak beragam dan cerah",
+            "Tidak memiliki aroma kuat"
+        ]
+    },
+}
+
+# ======================
+# TAMPILAN SECTION
+# ======================
+st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
+st.markdown('<div class="analysis-title">Analisis Gambar Bunga</div>', unsafe_allow_html=True)
+st.markdown('<div class="analysis-subtitle">Upload gambar bunga dan pilih mode analisis yang diinginkan</div>', unsafe_allow_html=True)
+
+col1, col2 = st.columns([1, 1])
+
+# ===== KIRI: MODE ANALISIS & UPLOAD =====
+with col1:
+    st.markdown("### Pilih Mode Analisis")
+    menu = st.radio(
+        "Pilih Mode:",
+        ["🌸 Klasifikasi Spesies", "🔍 Deteksi Objek"],
+        label_visibility="collapsed"
+    )
+
+    uploaded_file = st.file_uploader("Upload Gambar Bunga", type=["jpg", "jpeg", "png"])
+
+    if uploaded_file:
+        img = Image.open(uploaded_file)
+        st.image(img, caption="Gambar yang Diupload", use_container_width=True)
+
+        col_del, col_change = st.columns(2)
+        with col_del:
+            if st.button("🗑️ Hapus Gambar"):
+                st.session_state.clear()
+                st.experimental_rerun()
+        with col_change:
+            st.button("🔄 Ganti Gambar")
+
+# ===== KANAN: HASIL ANALISIS =====
+with col2:
+    if uploaded_file is not None:
+        if menu == "🌸 Klasifikasi Spesies":
+            st.markdown("### Hasil Klasifikasi")
+
+            img_resized = img.resize((224, 224))
+            img_array = np.expand_dims(np.array(img_resized) / 255.0, axis=0)
+
+            preds = classifier.predict(img_array)
+            class_index = np.argmax(preds)
+            class_name = flower_classes[class_index]
+            accuracy = float(np.max(preds) * 100)
+
+            info = flower_info[class_name]
+
+            st.markdown(f"""
+                <div class="result-box">
+                    <h4>{class_name}</h4>
+                    <p><b>Famili:</b> {info['famili']}</p>
+                    <p>{info['deskripsi']}</p>
+                    <b>Karakteristik:</b>
+                    <ul>
+                        {''.join(f"<li>{c}</li>" for c in info['karakteristik'])}
+                    </ul>
+                    <p><b>Akurasi Model:</b> {accuracy:.2f}%</p>
+                </div>
+            """, unsafe_allow_html=True)
+
+        elif menu == "🔍 Deteksi Objek":
+            st.markdown("### Hasil Deteksi Objek")
+            results = yolo_model(img)
+            result_img = results[0].plot()
+
+            col_img1, col_img2 = st.columns(2)
+            with col_img1:
+                st.image(img, caption="Gambar Asli", use_container_width=True)
+            with col_img2:
+                st.image(result_img, caption="Hasil Deteksi Objek", use_container_width=True)
+    else:
+        st.info("Silakan upload gambar terlebih dahulu untuk memulai analisis.")
+
+st.markdown("</div>", unsafe_allow_html=True)
