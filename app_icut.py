@@ -1072,29 +1072,6 @@ with col2:
                 accuracy = float(np.max(preds) * 100)
                 info = flower_info[class_name]
 
-                # ==== FONT POPPINS ====
-                st.markdown("""
-                    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-                    <style>
-                        html, body, [class*="css"] {
-                            font-family: 'Poppins', sans-serif !important;
-                        }
-                        h3 {
-                            font-size: 22px !important;
-                            font-weight: 700 !important;
-                            color: #1e293b !important;
-                        }
-                        h4 {
-                            font-size: 20px !important;
-                            font-weight: 700 !important;
-                            color: #047857 !important;
-                        }
-                        p, li, b, span {
-                            font-size: 15px !important;
-                        }
-                    </style>
-                """, unsafe_allow_html=True)
-
                 # ==== TAMPILAN HASIL ====
                 html_result = f"""
                     <div class="result-box" style="
