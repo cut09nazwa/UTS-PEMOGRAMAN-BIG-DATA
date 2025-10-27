@@ -869,7 +869,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 
 # ======= TOMBOL =======
 st.markdown("""
-<div style='text-align:center; margin-top:30px;'>
+<div style='text-align:center; margin-top:10px;'>
     <a href='#ai-tech' 
        style='display:inline-block; background-color:#00a86b; color:#ffffff !important;
               padding:12px 35px; border-radius:30px; font-weight:600; text-decoration:none;
