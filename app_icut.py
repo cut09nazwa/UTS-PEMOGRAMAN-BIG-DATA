@@ -1117,8 +1117,11 @@ with col2:
                     </div>
                 </div>
                 """
-
                 components.html(html_result, height=400, scrolling=True)
+
+            except Exception as e:
+                st.error("Terjadi kesalahan saat melakukan prediksi.")
+                pass  # <- biar gak error walau blok try selesai
 
         # ==== MENU DETEKSI OBJEK ====
         elif menu == "🔍 Deteksi Objek":
