@@ -902,18 +902,18 @@ from PIL import Image
 import streamlit as st
 
 # ======================
-# CSS STYLING (REVISI TANPA KOTAK HIJAU & KOSONGAN LEBAR)
+# CSS STYLING
 # ======================
 st.markdown(
     """
     <style>
     .analysis-section {
         width: 100%;
-        background-color: transparent; /* hilangkan kotak hijau */
-        padding: 20px 60px 60px 60px; /* kecilkan padding atas */
-        border-radius: 0; /* hapus lengkungan karena gak perlu */
-        margin-top: 20px; /* jarak atas biar gak nempel */
-        box-shadow: none; /* hilangkan shadow kotak */
+        background-color: transparent;
+        padding: 20px 60px 60px 60px;
+        border-radius: 0;
+        margin-top: 20px;
+        box-shadow: none;
     }
     .analysis-title {
         text-align: center;
@@ -921,7 +921,7 @@ st.markdown(
         font-weight: 700;
         color: #044a42;
         margin-bottom: 10px;
-        margin-top: 10px; /* naikkan posisi judul */
+        margin-top: 10px;
     }
     .analysis-subtitle {
         text-align: center;
@@ -1006,7 +1006,7 @@ flower_info = {
 }
 
 # ======================
-# TAMPILAN SECTION (RAPI TANPA KOTAK BESAR)
+# TAMPILAN SECTION
 # ======================
 st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
 st.markdown(
@@ -1036,19 +1036,18 @@ with col1:
 
     uploaded_file = st.file_uploader("Upload Gambar Bunga", type=["jpg", "jpeg", "png"])
 
-if uploaded_file:
-    img = Image.open(uploaded_file)
-    st.image(img, caption="Gambar yang Diupload", use_container_width=True)
+    if uploaded_file:
+        img = Image.open(uploaded_file)
+        st.image(img, caption="Gambar yang Diupload", use_container_width=True)
 
-    col_del, col_change = st.columns(2)
-    with col_del:
-        if st.button("🗑️ Hapus Gambar"):
-            st.session_state.clear()
-            st.experimental_rerun()
-        
-    with col_change:
-        if st.button("🔄 Ganti Gambar"):
-    
+        col_del, col_change = st.columns(2)
+        with col_del:
+            if st.button("🗑️ Hapus Gambar"):
+                st.session_state.clear()
+                st.experimental_rerun()
+        with col_change:
+            st.button("🔄 Ganti Gambar")
+
 # ===== KANAN: HASIL ANALISIS =====
 with col2:
     if uploaded_file is not None:
