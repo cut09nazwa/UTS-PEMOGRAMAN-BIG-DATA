@@ -1027,7 +1027,24 @@ col1, col2 = st.columns([1, 1])
 
 # ===== KIRI: MODE ANALISIS & UPLOAD =====
 with col1:
-    st.markdown("### Pilih Mode Analisis")
+    # Judul kiri ditebalkan
+    st.markdown("### **Pilih Mode Analisis**")
+
+    # Pilihan mode dengan font diperbesar
+    st.markdown(
+        """
+        <style>
+        /* Membesarkan teks pilihan radio */
+        div[data-baseweb="radio"] label p {
+            font-size: 18px !important;
+            font-weight: 500 !important;
+            color: #0f172a !important;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
     menu = st.radio(
         "Pilih Mode:",
         ["🌸 Klasifikasi Bunga", "🔍 Deteksi Objek"],
