@@ -222,7 +222,7 @@ with col1:
     st.markdown("""
         <p>
         🌸 Temukan Keajaiban Setiap Bunga Dengan Sentuhan Kecerdasan Buatan, 
-        AI Kami Membantu Anda Mengenali, Memahami, dan Mengagumi Setiap Spesies Bunga Hanya Dengan <b>Sekali Sentuhan</b> 🌿.
+        AI Kami Membantu Anda Mengenali, Memahami, dan Mengagumi Setiap Spesies Bunga Hanya Dengan <b>Sekali Sentuhan</b> 🌿
         </p>
     """, unsafe_allow_html=True)
 
@@ -680,12 +680,13 @@ with col1:
                         -webkit-background-clip:text; -webkit-text-fill-color:transparent;'>📷</div>
             <h4 style='color:#0f172a; margin-bottom:10px;'>Computer Vision</h4>
             <p style='color:#334155; font-size:15px; line-height:1.5; margin-bottom:12px;'>
-                AI menganalisis setiap pixel gambar untuk mengenali bentuk, tekstur, dan warna kelopak bunga.
+                AI menganalisis setiap detail gambar bunga untuk mengenali bentuk, warna, dan teksturnya.
+                Dengan kemampuan ini, sistem dapat membedakan spesies bunga hanya dari tampilan visualnya.
             </p>
             <ul style='list-style:none; padding:0; text-align:left; color:#475569; font-size:14px;'>
-                <li>• Deteksi tepi dan kontur</li>
+                <li>• Deteksi bentuk dan kontur kelopak</li>
                 <li>• Analisis warna RGB</li>
-                <li>• Pengenalan pola tekstur</li>
+                <li>• Pengenalan pola dan tekstur unik</li>
             </ul>
         </div>
         """,
