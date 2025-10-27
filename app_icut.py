@@ -1101,7 +1101,7 @@ with col2:
                         st.session_state.clear()
                         st.rerun()
                 with col_next2:
-                    if st.button("🏁 Mulai dari Awal", use_container_width=True):
+                    if st.button("🔁 Mulai dari Awal", use_container_width=True):
                         st.session_state.clear()
                         st.rerun()
 
