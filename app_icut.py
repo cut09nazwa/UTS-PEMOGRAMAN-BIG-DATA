@@ -1068,83 +1068,83 @@ with col2:
                 accuracy = float(np.max(preds) * 100)
                 info = flower_info[class_name]
 
-# ==== TAMPILAN HASIL ====
-st.markdown(f"""
-    <div class="result-box" style="background-color:#ffffff; padding:25px 28px; border-radius:16px; box-shadow:0 4px 10px rgba(0,0,0,0.05); margin-top:10px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-            <h3 style="margin:0; color:#1e293b;">Hasil Klasifikasi</h3>
-            <span style="
-                background-color:#16a34a;
-                color:white;
-                font-weight:600;
-                font-size:15px;
-                padding:6px 12px;
-                border-radius:10px;
-                box-shadow:0 2px 6px rgba(22,163,74,0.3);
-            ">
-                {accuracy:.1f}% Akurasi
-            </span>
-        </div>
+                # ==== TAMPILAN HASIL ====
+                st.markdown(f"""
+                    <div class="result-box" style="background-color:#ffffff; padding:25px 28px; border-radius:16px; box-shadow:0 4px 10px rgba(0,0,0,0.05); margin-top:10px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                            <h3 style="margin:0; color:#1e293b;">Hasil Klasifikasi</h3>
+                            <span style="
+                                background-color:#16a34a;
+                                color:white;
+                                font-weight:600;
+                                font-size:15px;
+                                padding:6px 12px;
+                                border-radius:10px;
+                                box-shadow:0 2px 6px rgba(22,163,74,0.3);
+                            ">
+                                {accuracy:.1f}% Akurasi
+                            </span>
+                        </div>
 
-        <div style="background-color:#f0fdf4; padding:14px 20px; border-radius:12px;">
-            <h4 style="color:#065f46; margin:0;">{class_name}</h4>
-            <p style="margin:3px 0 0;"><b>Famili:</b> {info['famili']}</p>
-            <p style="margin-top:8px; color:#374151;">{info['deskripsi']}</p>
-        </div>
+                        <div style="background-color:#f0fdf4; padding:14px 20px; border-radius:12px;">
+                            <h4 style="color:#065f46; margin:0;">{class_name}</h4>
+                            <p style="margin:3px 0 0;"><b>Famili:</b> {info['famili']}</p>
+                            <p style="margin-top:8px; color:#374151;">{info['deskripsi']}</p>
+                        </div>
 
-        <div style="margin-top:18px;">
-            <b>Karakteristik:</b>
-            <ul style="margin-top:5px; line-height:1.6; color:#374151;">
-                {''.join(f"<li>{c}</li>" for c in info['karakteristik'])}
-            </ul>
-        </div>
-    </div>
-""", unsafe_allow_html=True)
+                        <div style="margin-top:18px;">
+                            <b>Karakteristik:</b>
+                            <ul style="margin-top:5px; line-height:1.6; color:#374151;">
+                                {''.join(f"<li>{c}</li>" for c in info['karakteristik'])}
+                            </ul>
+                        </div>
+                    </div>
+                """, unsafe_allow_html=True)
 
-# ==== LANGKAH SELANJUTNYA ====
-st.markdown(
-    """
-    <div style="
-        margin-top:25px; 
-        padding:20px; 
-        background-color:#f8fafc; 
-        border-radius:16px; 
-        box-shadow:0 1px 4px rgba(0,0,0,0.05);
-    ">
-        <h4 style="margin-bottom:15px;">Langkah Selanjutnya</h4>
-    </div>
-    """, 
-    unsafe_allow_html=True
-)
+                # ==== LANGKAH SELANJUTNYA ====
+                st.markdown(
+                    """
+                    <div style="
+                        margin-top:25px; 
+                        padding:20px; 
+                        background-color:#f8fafc; 
+                        border-radius:16px; 
+                        box-shadow:0 1px 4px rgba(0,0,0,0.05);
+                    ">
+                        <h4 style="margin-bottom:15px;">Langkah Selanjutnya</h4>
+                    </div>
+                    """, 
+                    unsafe_allow_html=True
+                )
 
-col_next1, col_next2 = st.columns(2)
-with col_next1:
-    if st.button("🔎 Analisis Gambar Lain", use_container_width=True):
-        st.session_state.clear()
-        st.rerun()
+                col_next1, col_next2 = st.columns(2)
+                with col_next1:
+                    if st.button("🔎 Analisis Gambar Lain", use_container_width=True):
+                        st.session_state.clear()
+                        st.rerun()
 
-with col_next2:
-    if st.button("🔁 Mulai dari Awal", use_container_width=True):
-        st.session_state.clear()
-        st.rerun()
-        
-except Exception as e:
-    st.error("⚠️ Terjadi kesalahan saat klasifikasi gambar.")
-    st.write(str(e))
+                with col_next2:
+                    if st.button("🔁 Mulai dari Awal", use_container_width=True):
+                        st.session_state.clear()
+                        st.rerun()
 
-# ==== MENU DETEKSI OBJEK ====
-elif menu == "🔍 Deteksi Objek":
-    st.markdown("### Hasil Deteksi Objek")
-    results = yolo_model(img)
-    result_img = results[0].plot()
+            except Exception as e:
+                st.error("⚠️ Terjadi kesalahan saat klasifikasi gambar.")
+                st.write(str(e))
 
-    col_img1, col_img2 = st.columns(2)
-    with col_img1:
-        st.image(img, caption="Gambar Asli", use_container_width=True)
-    with col_img2:
-        st.image(result_img, caption="Hasil Deteksi Objek", use_container_width=True)
-        
-else:
-    st.info("Silakan upload gambar terlebih dahulu untuk memulai analisis.")
+        # ==== MENU DETEKSI OBJEK ====
+        elif menu == "🔍 Deteksi Objek":
+            st.markdown("### Hasil Deteksi Objek")
+            results = yolo_model(img)
+            result_img = results[0].plot()
+
+            col_img1, col_img2 = st.columns(2)
+            with col_img1:
+                st.image(img, caption="Gambar Asli", use_container_width=True)
+            with col_img2:
+                st.image(result_img, caption="Hasil Deteksi Objek", use_container_width=True)
+
+    else:
+        st.info("Silakan upload gambar terlebih dahulu untuk memulai analisis.")
 
 st.markdown("</div>", unsafe_allow_html=True)
