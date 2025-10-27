@@ -1043,7 +1043,7 @@ with col1:
 # ===== KANAN: HASIL ANALISIS =====
 with col2:
     if uploaded_file is not None:
-        if menu == "🌸 Klasifikasi Spesies":
+        if menu == "🌸 Klasifikasi Bunga":
             # --- Prediksi
             input_shape = classifier.input_shape
             target_size = (input_shape[1], input_shape[2])
