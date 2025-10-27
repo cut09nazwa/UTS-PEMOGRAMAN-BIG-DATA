@@ -363,7 +363,7 @@ st.markdown(
 # =======================
 # KONTEN FITUR UNGGULAN
 # =======================
-st.markdown('<div id="mulai"></div>', unsafe_allow_html=True)
+st.markdown('<div id="fitur"></div>', unsafe_allow_html=True)
 
 st.markdown(
     """
@@ -424,7 +424,7 @@ with col2:
 # ==========================
 # BAGIAN PROSES DALAM 4 LANGKAH
 # ==========================
-
+st.markdown('<div id="carakerja"></div>', unsafe_allow_html=True)
 # ===== CSS STYLING =====
 st.markdown("""
     <style>
