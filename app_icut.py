@@ -1054,28 +1054,47 @@ with col2:
         if menu == "🌸 Klasifikasi Spesies":
             st.markdown("### Hasil Klasifikasi")
 
-            img_resized = img.resize((224, 224))
-            img_array = np.expand_dims(np.array(img_resized) / 255.0, axis=0)
+            # 🔧 Perbaikan otomatis agar input gambar sesuai model
+            input_shape = classifier.input_shape  # contoh: (None, 128, 128, 3)
+            target_size = (input_shape[1], input_shape[2])
+            channels = input_shape[3] if len(input_shape) == 4 else 3
 
-            preds = classifier.predict(img_array)
-            class_index = np.argmax(preds)
-            class_name = flower_classes[class_index]
-            accuracy = float(np.max(preds) * 100)
+            img_resized = img.resize(target_size)
+            img_array = np.array(img_resized) / 255.0
 
-            info = flower_info[class_name]
+            # pastikan channel sesuai
+            if channels == 1:
+                img_array = np.mean(img_array, axis=-1, keepdims=True)
+            elif img_array.ndim == 2:
+                img_array = np.stack((img_array,)*3, axis=-1)
+            elif img_array.shape[-1] == 4:
+                img_array = img_array[..., :3]
 
-            st.markdown(f"""
-                <div class="result-box">
-                    <h4>{class_name}</h4>
-                    <p><b>Famili:</b> {info['famili']}</p>
-                    <p>{info['deskripsi']}</p>
-                    <b>Karakteristik:</b>
-                    <ul>
-                        {''.join(f"<li>{c}</li>" for c in info['karakteristik'])}
-                    </ul>
-                    <p><b>Akurasi Model:</b> {accuracy:.2f}%</p>
-                </div>
-            """, unsafe_allow_html=True)
+            img_array = np.expand_dims(img_array, axis=0)
+
+            try:
+                preds = classifier.predict(img_array)
+                class_index = np.argmax(preds)
+                class_name = flower_classes[class_index]
+                accuracy = float(np.max(preds) * 100)
+
+                info = flower_info[class_name]
+
+                st.markdown(f"""
+                    <div class="result-box">
+                        <h4>{class_name}</h4>
+                        <p><b>Famili:</b> {info['famili']}</p>
+                        <p>{info['deskripsi']}</p>
+                        <b>Karakteristik:</b>
+                        <ul>
+                            {''.join(f"<li>{c}</li>" for c in info['karakteristik'])}
+                        </ul>
+                        <p><b>Akurasi Model:</b> {accuracy:.2f}%</p>
+                    </div>
+                """, unsafe_allow_html=True)
+            except Exception as e:
+                st.error("⚠️ Terjadi kesalahan saat klasifikasi gambar.")
+                st.write(str(e))
 
         elif menu == "🔍 Deteksi Objek":
             st.markdown("### Hasil Deteksi Objek")
