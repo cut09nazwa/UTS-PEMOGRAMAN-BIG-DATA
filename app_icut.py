@@ -952,34 +952,6 @@ st.markdown(
 )
 
 # ======================
-# LOAD MODELS
-# ======================
-@st.cache_resource
-def load_models():
-    """
-    Fungsi untuk memuat model YOLO (deteksi objek) dan model klasifikasi (.h5).
-    Model hanya akan dimuat sekali dan disimpan di cache untuk efisiensi.
-    """
-    try:
-        with st.spinner("🔄 Sedang memuat model deteksi dan klasifikasi bunga..."):
-            yolo_model = YOLO("model/best.pt")  # Model deteksi objek
-            classifier = tf.keras.models.load_model("model/Cut Nazwa Humaira_Laporan 2.h5")  # Model klasifikasi
-        st.success("✅ Model berhasil dimuat!")
-        return yolo_model, classifier
-
-    except FileNotFoundError:
-        st.error("❌ File model tidak ditemukan. Pastikan file berikut ada di folder 'model/':")
-        st.code("best.pt\nCut Nazwa Humaira_Laporan 2.h5")
-        st.stop()
-
-    except Exception as e:
-        st.error(f"⚠️ Terjadi kesalahan saat memuat model:\n\n{e}")
-        st.stop()
-
-
-yolo_model, classifier = load_models()
-
-# ======================
 # DATA KELAS DAN INFORMASI
 # ======================
 flower_classes = ["Lily", "Lotus", "Orchid", "Sunflower", "Tulip"]
