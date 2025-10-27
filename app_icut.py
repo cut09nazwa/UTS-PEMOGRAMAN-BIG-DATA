@@ -1099,7 +1099,7 @@ with col2:
                             </ul>
                         </div>
                     </div>
-                """, unsafe_allow_html=True)
+                """, unsafe_allow_html=True)  # ✅ DITAMBAHKAN
 
                 # ==== LANGKAH SELANJUTNYA ====
                 st.markdown(
@@ -1114,7 +1114,7 @@ with col2:
                         <h4 style="margin-bottom:15px;">Langkah Selanjutnya</h4>
                     </div>
                     """, 
-                    unsafe_allow_html=True
+                    unsafe_allow_html=True  # ✅ DITAMBAHKAN
                 )
 
                 col_next1, col_next2 = st.columns(2)
@@ -1147,4 +1147,4 @@ with col2:
     else:
         st.info("Silakan upload gambar terlebih dahulu untuk memulai analisis.")
 
-st.markdown("</div>", unsafe_allow_html=True)
+st.markdown("</div>", unsafe_allow_html=True)  # ✅ DITAMBAHKAN & DIPERBAIKI (dulu 'unsaf')
