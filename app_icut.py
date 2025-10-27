@@ -969,38 +969,38 @@ flower_info = {
     },
     "Lotus": {
         "famili": "Nelumbonaceae",
-        "deskripsi": "Lotus melambangkan kesucian dan kebangkitan. Umumnya tumbuh di air dan memiliki daun bundar yang besar.",
+        "deskripsi": "Lotus atau teratai adalah bunga air yang melambangkan kesucian, ketenangan, dan kebangkitan spiritual. Meski tumbuh di air keruh, bunganya tetap bersih dan indah — menjadi simbol keanggunan yang abadi.",
         "karakteristik": [
-            "Tumbuh di air dengan daun lebar",
-            "Kelopak besar berlapis-lapis",
-            "Warna bunga merah muda atau putih"
+            "Tumbuh di air dengan daun besar berbentuk bundar",
+            "Kelopak tebal berlapis-lapis dan mekar di atas permukaan air",
+            "Warna populer: merah muda, putih, dan ungu lembut"
         ]
     },
     "Orchid": {
         "famili": "Orchidaceae",
-        "deskripsi": "Anggrek adalah bunga tropis elegan dengan bentuk unik. Melambangkan keindahan dan cinta.",
+        "deskripsi": "Anggrek adalah bunga tropis yang mewah dan eksotis. Setiap jenisnya punya bentuk unik dan warna menawan. Dianggap simbol keindahan, kekuatan cinta, dan keanggunan yang langka.",
         "karakteristik": [
-            "Memiliki pola kelopak yang simetris",
-            "Banyak variasi warna dan bentuk",
-            "Biasanya tumbuh di daerah lembab"
+            "Kelopak simetris dengan pola warna khas",
+            "Ragam bentuk dan warna: dari ungu, putih, hingga kuning keemasan",
+            "Menyukai lingkungan lembab dengan pencahayaan tidak langsung"
         ]
     },
     "Sunflower": {
         "famili": "Asteraceae",
-        "deskripsi": "Bunga matahari melambangkan kebahagiaan dan energi positif. Bunganya besar dan mengikuti arah matahari.",
+        "deskripsi": "Bunga matahari dikenal karena kelopak kuning cerahnya yang melambangkan kebahagiaan dan energi positif. Bunganya mengikuti arah matahari, mencerminkan optimisme dan semangat hidup.",
         "karakteristik": [
-            "Memiliki kelopak kuning cerah",
-            "Tangkai panjang dan kokoh",
-            "Menghadap ke arah cahaya matahari"
+            "Kelopak kuning cerah mengelilingi pusat bunga berwarna cokelat tua",
+            "Batang tinggi dan kokoh yang menghadap ke arah cahaya",
+            "Tumbuh baik di area terbuka dengan sinar matahari penuh"
         ]
     },
     "Tulip": {
         "famili": "Liliaceae",
-        "deskripsi": "Tulip identik dengan musim semi dan cinta sejati. Bunga ini memiliki bentuk kelopak sederhana tapi elegan.",
+        "deskripsi": "Tulip adalah ikon musim semi dan simbol cinta sejati. Bunganya sederhana namun elegan, dengan warna yang mencolok dan variasi bentuk yang memesona.",
         "karakteristik": [
-            "Tangkai lurus dengan satu bunga per tangkai",
-            "Warna kelopak beragam dan cerah",
-            "Tidak memiliki aroma kuat"
+            "Satu bunga per tangkai dengan bentuk kelopak menyerupai cangkir",
+            "Palet warna luas: merah, kuning, ungu, putih, hingga gradasi dua warna",
+            "Tumbuh optimal di daerah beriklim sejuk dengan sinar matahari sedang"
         ]
     },
 }
