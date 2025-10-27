@@ -1069,25 +1069,27 @@ with col2:
                 info = flower_info[class_name]
 
                 # ==== TAMPILAN HASIL ====
-                html_result = f"""
-                <div style="background-color:#ffffff; padding:25px 28px; border-radius:16px; 
-                            box-shadow:0 4px 10px rgba(0,0,0,0.05); margin-top:10px;">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                st.markdown(f"""
+                <div class="result-box" style="background-color:#ffffff; padding:25px 28px; 
+                            border-radius:16px; box-shadow:0 4px 10px rgba(0,0,0,0.05); 
+                            margin-top:10px;">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
                         <h3 style="margin:0; color:#1e293b;">Hasil Klasifikasi</h3>
                         <span style="
                             background-color:#16a34a;
                             color:white;
                             font-weight:600;
-                            font-size:15px;
                             padding:6px 12px;
                             border-radius:10px;
+                            font-size:15px;
                             box-shadow:0 2px 6px rgba(22,163,74,0.3);
                         ">
                             {accuracy:.1f}% Akurasi
                         </span>
                     </div>
 
-                    <div style="background-color:#f0fdf4; padding:14px 20px; border-radius:12px;">
+                    <div style="background-color:#f0fdf4; padding:14px 20px; 
+                                border-radius:12px; margin-top:10px;">
                         <h4 style="color:#065f46; margin:0;">{class_name}</h4>
                         <p style="margin:3px 0 0;"><b>Famili:</b> {info['famili']}</p>
                         <p style="margin-top:8px; color:#374151;">{info['deskripsi']}</p>
@@ -1100,9 +1102,7 @@ with col2:
                         </ul>
                     </div>
                 </div>
-                """
-
-                st.markdown(html_result, unsafe_allow_html=True)
+                """, unsafe_allow_html=True)
 
                 # ==== LANGKAH SELANJUTNYA ====
                 st.markdown(
@@ -1150,4 +1150,5 @@ with col2:
     else:
         st.info("Silakan upload gambar terlebih dahulu untuk memulai analisis.")
 
-st.markdown("</div>", unsafe_allow_html=True)  # ✅ Sudah diperbaiki dan ditutup dengan benar
+# ✅ Penutup section
+st.markdown("</div>", unsafe_allow_html=True)
