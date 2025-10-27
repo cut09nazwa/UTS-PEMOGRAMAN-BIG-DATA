@@ -1133,7 +1133,7 @@ with col2:
                                 {class_name}
                             </h4>
                             <p style="margin:3px 0 0;"><b>Famili:</b> {info['famili']}</p>
-                            <p style="margin-top:8px; color:#374151;">{info['deskripsi']}</p>
+                            <p style="margin-top:8px; color:#374151; line-height:1.8;">{info['deskripsi']}</p>
                         </div>
 
                         <div style="margin-top:18px;">
