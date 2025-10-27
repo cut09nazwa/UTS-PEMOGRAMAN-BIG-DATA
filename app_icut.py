@@ -1009,8 +1009,19 @@ flower_info = {
 # TAMPILAN SECTION (RAPI TANPA KOTAK BESAR)
 # ======================
 st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
-st.markdown('<div class="analysis-title">Analisis Gambar Bunga</div>', unsafe_allow_html=True)
-st.markdown('<div class="analysis-subtitle">Upload gambar bunga dan pilih mode analisis yang diinginkan</div>', unsafe_allow_html=True)
+st.markdown(
+    """
+    <div style='text-align:center; padding:40px 0 10px;'>
+        <h1 style='color:#0f172a; font-size:42px; font-weight:800; margin-bottom:10px;'>
+            Analisis Gambar Bunga
+        </h1>
+        <p style='color:#334155; font-size:17px; max-width:700px; margin:0 auto; line-height:1.6;'>
+            Upload Gambar Bunga dan Pilih Mode Analisis yang Diinginkan
+        </p>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
 col1, col2 = st.columns([1, 1])
 
