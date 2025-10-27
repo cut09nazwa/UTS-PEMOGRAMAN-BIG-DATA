@@ -1043,18 +1043,12 @@ if uploaded_file:
     col_del, col_change = st.columns(2)
     with col_del:
         if st.button("🗑️ Hapus Gambar"):
-            for key in list(st.session_state.keys()):
-                del st.session_state[key]
-            st.rerun()
-
+            st.session_state.clear()
+            st.experimental_rerun()
+        
     with col_change:
         if st.button("🔄 Ganti Gambar"):
-            # Menghapus hanya gambar yang diupload, bukan semua session state
-            if "file_uploader" in st.session_state:
-                del st.session_state["file_uploader"]
-            st.rerun()
-
-        
+    
 # ===== KANAN: HASIL ANALISIS =====
 with col2:
     if uploaded_file is not None:
