@@ -221,8 +221,8 @@ with col1:
     st.markdown("<div class='hero-text'><h1>Kenali <span>Setiap Bunga</span><br>dengan AI</h1></div>", unsafe_allow_html=True)
     st.markdown("""
         <p>
-        Temukan Keajaiban Setiap Bunga Dengan Sentuhan Kecerdasan Buatan, 
-        AI Kami Membantu Anda Mengenali, Memahami, dan Mengagumi Setiap Spesies Bunga Hanya Dengan Sekali Sentuhan.
+        🌸 Temukan Keajaiban Setiap Bunga Dengan Sentuhan Kecerdasan Buatan, 
+        🤖 AI Kami Membantu Anda Mengenali, Memahami, dan Mengagumi Setiap Spesies Bunga Hanya Dengan **Sekali Sentuhan** 🌿.
         </p>
     """, unsafe_allow_html=True)
 
