@@ -1030,7 +1030,7 @@ with col1:
     st.markdown("### Pilih Mode Analisis")
     menu = st.radio(
         "Pilih Mode:",
-        ["🌸 Klasifikasi Spesies", "🔍 Deteksi Objek"],
+        ["🌸 Klasifikasi Bunga", "🔍 Deteksi Objek"],
         label_visibility="collapsed"
     )
 
@@ -1040,18 +1040,10 @@ with col1:
         img = Image.open(uploaded_file)
         st.image(img, caption="Gambar yang Diupload", use_container_width=True)
 
-        col_del, col_change = st.columns(2)
-        with col_del:
-            if st.button("🗑️ Hapus Gambar"):
-                st.session_state.clear()
-                st.experimental_rerun()
-        with col_change:
-            st.button("🔄 Ganti Gambar")
-
 # ===== KANAN: HASIL ANALISIS =====
 with col2:
     if uploaded_file is not None:
-        if menu == "🌸 Klasifikasi Spesies":
+        if menu == "🌸 Klasifikasi Bunga":
             st.markdown("### Hasil Klasifikasi")
 
             # 🔧 Perbaikan otomatis agar input gambar sesuai model
@@ -1080,18 +1072,43 @@ with col2:
 
                 info = flower_info[class_name]
 
+                # ==== TAMPILAN HASIL ====
                 st.markdown(f"""
                     <div class="result-box">
-                        <h4>{class_name}</h4>
-                        <p><b>Famili:</b> {info['famili']}</p>
-                        <p>{info['deskripsi']}</p>
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <h3 style="margin:0;">Hasil Klasifikasi</h3>
+                            <span class="accuracy-badge">{accuracy:.1f}% akurasi</span>
+                        </div>
+                        <div style="background-color:#f0fdf4; padding:12px 18px; border-radius:10px; margin-top:10px;">
+                            <h4 style="color:#065f46; margin:0;">{class_name}</h4>
+                            <p style="margin:3px 0 0;"><b>Famili:</b> {info['famili']}</p>
+                            <p style="margin-top:8px;">{info['deskripsi']}</p>
+                        </div>
+                        <br>
                         <b>Karakteristik:</b>
                         <ul>
                             {''.join(f"<li>{c}</li>" for c in info['karakteristik'])}
                         </ul>
-                        <p><b>Akurasi Model:</b> {accuracy:.2f}%</p>
                     </div>
                 """, unsafe_allow_html=True)
+
+                # ==== LANGKAH SELANJUTNYA ====
+                st.markdown("""
+                    <div style="margin-top:25px; padding:20px; background-color:#f8fafc; border-radius:16px; box-shadow:0 1px 4px rgba(0,0,0,0.05);">
+                        <h4 style="margin-bottom:15px;">Langkah Selanjutnya</h4>
+                    </div>
+                """, unsafe_allow_html=True)
+
+                col_next1, col_next2 = st.columns(2)
+                with col_next1:
+                    if st.button("🔎 Analisis Gambar Lain", use_container_width=True):
+                        st.session_state.clear()
+                        st.rerun()
+                with col_next2:
+                    if st.button("🏁 Mulai dari Awal", use_container_width=True):
+                        st.session_state.clear()
+                        st.rerun()
+
             except Exception as e:
                 st.error("⚠️ Terjadi kesalahan saat klasifikasi gambar.")
                 st.write(str(e))
