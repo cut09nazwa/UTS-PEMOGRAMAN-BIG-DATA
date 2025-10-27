@@ -1011,7 +1011,7 @@ flower_info = {
 st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
 st.markdown(
     """
-    <div style='text-align:center; padding:40px 0 10px;'>
+    <div style='text-align:center; padding:15px 0 5px;'>
         <h1 style='color:#0f172a; font-size:42px; font-weight:800; margin-bottom:10px;'>
             Analisis Gambar Bunga
         </h1>
