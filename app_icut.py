@@ -1072,6 +1072,16 @@ with col2:
                 accuracy = float(np.max(preds) * 100)
                 info = flower_info[class_name]
 
+                # ==== FONT POPPINS ====
+                st.markdown("""
+                <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+                <style>
+                    * {
+                        font-family: 'Poppins', sans-serif !important;
+                    }
+                </style>
+                """, unsafe_allow_html=True)
+
                 # ==== TAMPILAN HASIL ====
                 html_result = f"""
                 <div class="result-box" style="background-color:#ffffff; padding:25px 28px; 
@@ -1156,4 +1166,5 @@ with col2:
     else:
         st.info("Silakan upload gambar terlebih dahulu untuk memulai analisis.")
 
+# ✅ Penutup section
 st.markdown("</div>", unsafe_allow_html=True)
