@@ -681,7 +681,6 @@ with col1:
             <h4 style='color:#0f172a; margin-bottom:10px;'>Computer Vision</h4>
             <p style='color:#334155; font-size:15px; line-height:1.5; margin-bottom:12px;'>
                 AI menganalisis setiap detail gambar bunga untuk mengenali bentuk, warna, dan teksturnya.
-                Dengan kemampuan ini, sistem dapat membedakan spesies bunga hanya dari tampilan visualnya.
             </p>
             <ul style='list-style:none; padding:0; text-align:left; color:#475569; font-size:14px;'>
                 <li>• Deteksi bentuk dan kontur kelopak</li>
