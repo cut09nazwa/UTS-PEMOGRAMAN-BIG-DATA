@@ -1011,11 +1011,11 @@ flower_info = {
 st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
 st.markdown(
     """
-    <div style='text-align:center; padding:15px 0 5px;'>
-        <h1 style='color:#0f172a; font-size:42px; font-weight:800; margin-bottom:10px;'>
+    <div style='text-align:center; padding:5px 0 0px; margin-top:-30px;'>
+        <h1 style='color:#0f172a; font-size:40px; font-weight:800; margin-bottom:6px;'>
             Analisis Gambar Bunga
         </h1>
-        <p style='color:#334155; font-size:17px; max-width:700px; margin:0 auto; line-height:1.6;'>
+        <p style='color:#334155; font-size:16px; max-width:680px; margin:0 auto; line-height:1.5;'>
             Upload Gambar Bunga dan Pilih Mode Analisis yang Diinginkan
         </p>
     </div>
