@@ -1041,6 +1041,10 @@ with col1:
         st.image(img, caption="Gambar yang Diupload", use_container_width=True)
 
 # ===== KANAN: HASIL ANALISIS =====
+import streamlit as st
+import streamlit.components.v1 as components
+import numpy as np
+
 with col2:
     if uploaded_file is not None:
         if menu == "🌸 Klasifikasi Bunga":
@@ -1071,17 +1075,17 @@ with col2:
                 # ==== TAMPILAN HASIL ====
                 html_result = f"""
                 <div class="result-box" style="background-color:#ffffff; padding:25px 28px; 
-                            border-radius:16px; box-shadow:0 4px 10px rgba(0,0,0,0.05); 
-                            margin-top:10px;">
-                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                    border-radius:16px; box-shadow:0 4px 10px rgba(0,0,0,0.05); margin-top:10px;">
+                    
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
                         <h3 style="margin:0; color:#1e293b;">Hasil Klasifikasi</h3>
                         <span style="
-                            background:linear-gradient(135deg,#16a34a,#4ade80);
+                            background-color:#16a34a;
                             color:white;
                             font-weight:600;
+                            font-size:15px;
                             padding:6px 12px;
                             border-radius:10px;
-                            font-size:15px;
                             box-shadow:0 2px 6px rgba(22,163,74,0.3);
                         ">
                             {accuracy:.1f}% Akurasi
@@ -1089,7 +1093,7 @@ with col2:
                     </div>
 
                     <div style="background-color:#f0fdf4; padding:14px 20px; 
-                                border-radius:12px; margin-top:10px;">
+                        border-radius:12px; margin-top:10px;">
                         <h4 style="color:#065f46; margin:0;">{class_name}</h4>
                         <p style="margin:3px 0 0;"><b>Famili:</b> {info['famili']}</p>
                         <p style="margin-top:8px; color:#374151;">{info['deskripsi']}</p>
@@ -1104,7 +1108,7 @@ with col2:
                 </div>
                 """
 
-                st.markdown(html_result, unsafe_allow_html=True)
+                components.html(html_result, height=400, scrolling=True)
 
                 # ==== LANGKAH SELANJUTNYA ====
                 st.markdown(
@@ -1118,7 +1122,7 @@ with col2:
                     ">
                         <h4 style="margin-bottom:15px;">Langkah Selanjutnya</h4>
                     </div>
-                    """,
+                    """, 
                     unsafe_allow_html=True
                 )
 
@@ -1152,5 +1156,4 @@ with col2:
     else:
         st.info("Silakan upload gambar terlebih dahulu untuk memulai analisis.")
 
-# ✅ Penutup section
 st.markdown("</div>", unsafe_allow_html=True)
