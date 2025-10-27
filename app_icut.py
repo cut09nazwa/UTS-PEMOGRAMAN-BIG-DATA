@@ -1036,23 +1036,24 @@ with col1:
 
     uploaded_file = st.file_uploader("Upload Gambar Bunga", type=["jpg", "jpeg", "png"])
 
-    if uploaded_file:
-        img = Image.open(uploaded_file)
-        st.image(img, caption="Gambar yang Diupload", use_container_width=True)
+if uploaded_file:
+    img = Image.open(uploaded_file)
+    st.image(img, caption="Gambar yang Diupload", use_container_width=True)
 
-        col_del, col_change = st.columns(2)
-        with col_del:
-    if st.button("🗑️ Hapus Gambar"):
-        for key in list(st.session_state.keys()):
-        del st.session_state[key]
-    st.rerun()
-    
+    col_del, col_change = st.columns(2)
+    with col_del:
+        if st.button("🗑️ Hapus Gambar"):
+            for key in list(st.session_state.keys()):
+                del st.session_state[key]
+            st.rerun()
+
     with col_change:
         if st.button("🔄 Ganti Gambar"):
-        # Menghapus hanya gambar yang diupload, bukan semua session state
-        if "file_uploader" in st.session_state:
-            del st.session_state["file_uploader"]
-        st.rerun()
+            # Menghapus hanya gambar yang diupload, bukan semua session state
+            if "file_uploader" in st.session_state:
+                del st.session_state["file_uploader"]
+            st.rerun()
+
         
 # ===== KANAN: HASIL ANALISIS =====
 with col2:
