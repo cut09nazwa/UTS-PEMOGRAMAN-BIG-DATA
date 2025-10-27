@@ -1068,43 +1068,43 @@ with col2:
                 accuracy = float(np.max(preds) * 100)
                 info = flower_info[class_name]
 
-# ==== TAMPILAN HASIL ====
-html_result = f"""
-<div class="result-box" style="background-color:#ffffff; padding:25px 28px; 
-            border-radius:16px; box-shadow:0 4px 10px rgba(0,0,0,0.05); 
-            margin-top:10px;">
-    <div style="display:flex; justify-content:space-between; align-items:center;">
-        <h3 style="margin:0; color:#1e293b;">Hasil Klasifikasi</h3>
-        <span style="
-            background-color:#16a34a;
-            color:white;
-            font-weight:600;
-            padding:6px 12px;
-            border-radius:10px;
-            font-size:15px;
-            box-shadow:0 2px 6px rgba(22,163,74,0.3);
-        ">
-            {accuracy:.1f}% Akurasi
-        </span>
-    </div>
+                # ==== TAMPILAN HASIL ====
+                html_result = f"""
+                <div class="result-box" style="background-color:#ffffff; padding:25px 28px; 
+                            border-radius:16px; box-shadow:0 4px 10px rgba(0,0,0,0.05); 
+                            margin-top:10px;">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <h3 style="margin:0; color:#1e293b;">Hasil Klasifikasi</h3>
+                        <span style="
+                            background:linear-gradient(135deg,#16a34a,#4ade80);
+                            color:white;
+                            font-weight:600;
+                            padding:6px 12px;
+                            border-radius:10px;
+                            font-size:15px;
+                            box-shadow:0 2px 6px rgba(22,163,74,0.3);
+                        ">
+                            {accuracy:.1f}% Akurasi
+                        </span>
+                    </div>
 
-    <div style="background-color:#f0fdf4; padding:14px 20px; 
-                border-radius:12px; margin-top:10px;">
-        <h4 style="color:#065f46; margin:0;">{class_name}</h4>
-        <p style="margin:3px 0 0;"><b>Famili:</b> {info['famili']}</p>
-        <p style="margin-top:8px; color:#374151;">{info['deskripsi']}</p>
-    </div>
+                    <div style="background-color:#f0fdf4; padding:14px 20px; 
+                                border-radius:12px; margin-top:10px;">
+                        <h4 style="color:#065f46; margin:0;">{class_name}</h4>
+                        <p style="margin:3px 0 0;"><b>Famili:</b> {info['famili']}</p>
+                        <p style="margin-top:8px; color:#374151;">{info['deskripsi']}</p>
+                    </div>
 
-    <div style="margin-top:18px;">
-        <b>Karakteristik:</b>
-        <ul style="margin-top:5px; line-height:1.6; color:#374151;">
-            {''.join(f"<li>{c}</li>" for c in info['karakteristik'])}
-        </ul>
-    </div>
-</div>
-"""
+                    <div style="margin-top:18px;">
+                        <b>Karakteristik:</b>
+                        <ul style="margin-top:5px; line-height:1.6; color:#374151;">
+                            {''.join(f"<li>{c}</li>" for c in info['karakteristik'])}
+                        </ul>
+                    </div>
+                </div>
+                """
 
-st.markdown(html_result, unsafe_allow_html=True)
+                st.markdown(html_result, unsafe_allow_html=True)
 
                 # ==== LANGKAH SELANJUTNYA ====
                 st.markdown(
@@ -1118,7 +1118,7 @@ st.markdown(html_result, unsafe_allow_html=True)
                     ">
                         <h4 style="margin-bottom:15px;">Langkah Selanjutnya</h4>
                     </div>
-                    """, 
+                    """,
                     unsafe_allow_html=True
                 )
 
