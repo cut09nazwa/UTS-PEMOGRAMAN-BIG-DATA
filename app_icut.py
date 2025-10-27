@@ -902,18 +902,18 @@ from PIL import Image
 import streamlit as st
 
 # ======================
-# CSS STYLING
+# CSS STYLING (REVISI TANPA KOTAK HIJAU & KOSONGAN LEBAR)
 # ======================
 st.markdown(
     """
     <style>
     .analysis-section {
         width: 100%;
-        background-color: #f6fffa;
-        padding: 80px 60px;
-        border-radius: 16px;
-        margin-top: 80px;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        background-color: transparent; /* hilangkan kotak hijau */
+        padding: 20px 60px 60px 60px; /* kecilkan padding atas */
+        border-radius: 0; /* hapus lengkungan karena gak perlu */
+        margin-top: 20px; /* jarak atas biar gak nempel */
+        box-shadow: none; /* hilangkan shadow kotak */
     }
     .analysis-title {
         text-align: center;
@@ -921,11 +921,13 @@ st.markdown(
         font-weight: 700;
         color: #044a42;
         margin-bottom: 10px;
+        margin-top: 10px; /* naikkan posisi judul */
     }
     .analysis-subtitle {
         text-align: center;
         color: #555;
-        margin-bottom: 50px;
+        margin-bottom: 40px;
+        margin-top: 0px;
     }
     .result-box {
         background-color: #ffffff;
@@ -1004,7 +1006,7 @@ flower_info = {
 }
 
 # ======================
-# TAMPILAN SECTION
+# TAMPILAN SECTION (RAPI TANPA KOTAK BESAR)
 # ======================
 st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
 st.markdown('<div class="analysis-title">Analisis Gambar Bunga</div>', unsafe_allow_html=True)
