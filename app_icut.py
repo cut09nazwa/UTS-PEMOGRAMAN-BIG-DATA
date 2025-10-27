@@ -1043,124 +1043,162 @@ with col1:
 # ===== KANAN: HASIL ANALISIS =====
 with col2:
     if uploaded_file is not None:
-        if menu == "🌸 Klasifikasi Bunga":
+        if menu == "🌸 Klasifikasi Spesies":
             st.markdown("### Hasil Klasifikasi")
 
-            # 🔧 Perbaikan otomatis agar input gambar sesuai model
-            input_shape = classifier.input_shape  # contoh: (None, 128, 128, 3)
-            target_size = (input_shape[1], input_shape[2])
-            channels = input_shape[3] if len(input_shape) == 4 else 3
+            # 🔧 Sesuaikan input otomatis sesuai model
+            input_shape = classifier.input_shape  # contoh: (None, H, W, C)
+            # fallback jika input_shape tidak seperti yang diharapkan
+            try:
+                target_size = (int(input_shape[2]), int(input_shape[1])) if len(input_shape) == 4 else (224, 224)
+            except Exception:
+                target_size = (224, 224)
+            # note: PIL resize expects (width, height) -> we use (W,H) above
+            # get channels (last dim) safely
+            try:
+                channels = int(input_shape[-1])
+            except Exception:
+                channels = 3
 
+            # Resize & preprocess
             img_resized = img.resize(target_size)
-            img_array = np.array(img_resized) / 255.0
+            img_array = np.array(img_resized).astype("float32") / 255.0
 
-            # pastikan channel sesuai
+            # Pastikan channel sesuai model
             if channels == 1:
-                img_array = np.mean(img_array, axis=-1, keepdims=True)
-            elif img_array.ndim == 2:
-                img_array = np.stack((img_array,)*3, axis=-1)
-            elif img_array.shape[-1] == 4:
-                img_array = img_array[..., :3]
+                # convert to grayscale single channel
+                if img_array.ndim == 3:
+                    img_array = np.mean(img_array, axis=-1, keepdims=True)
+                elif img_array.ndim == 2:
+                    img_array = np.expand_dims(img_array, axis=-1)
+            else:
+                # ensure 3 channels
+                if img_array.ndim == 2:
+                    img_array = np.stack((img_array,) * 3, axis=-1)
+                if img_array.shape[-1] == 4:
+                    img_array = img_array[..., :3]
 
             img_array = np.expand_dims(img_array, axis=0)
 
+            # ===== Prediksi dengan try/except =====
             try:
                 preds = classifier.predict(img_array)
-                class_index = np.argmax(preds)
+                class_index = int(np.argmax(preds))
                 class_name = flower_classes[class_index]
                 accuracy = float(np.max(preds) * 100)
+                info = flower_info.get(class_name, {"famili":"-","deskripsi":"-","karakteristik":[]})
 
-                info = flower_info[class_name]
-
-                # ==== TAMPILAN HASIL ====
+                # ==== TAMPILAN HASIL KLASIFIKASI ====
                 st.markdown(f"""
-                    <div class="result-box">
+                    <div style="
+                        background-color:#ffffff;
+                        padding:24px;
+                        border-radius:16px;
+                        box-shadow:0 4px 12px rgba(0,0,0,0.06);
+                        margin-top:12px;">
+                        
                         <div style="display:flex; justify-content:space-between; align-items:center;">
-                            <h3 style="margin:0;">Hasil Klasifikasi</h3>
-                            <span class="accuracy-badge">{accuracy:.1f}% akurasi</span>
+                            <h3 style="margin:0; color:#0f172a;">Hasil Klasifikasi</h3>
+                            <span style="background-color:#dcfce7; color:#166534; padding:6px 12px; border-radius:20px; font-weight:600;">
+                                {accuracy:.1f}% akurasi
+                            </span>
                         </div>
-                        <div style="background-color:#f0fdf4; padding:12px 18px; border-radius:10px; margin-top:10px;">
-                            <h4 style="color:#065f46; margin:0;">{class_name}</h4>
-                            <p style="margin:3px 0 0;"><b>Famili:</b> {info['famili']}</p>
-                            <p style="margin-top:8px;">{info['deskripsi']}</p>
+
+                        <div style="background-color:#f0fdf4; padding:14px 16px; border-radius:10px; margin-top:12px;">
+                            <h4 style="color:#065f46; margin:0 0 6px 0;">{class_name}</h4>
+                            <p style="margin:0;"><b>Famili:</b> {info['famili']}</p>
+                            <p style="margin-top:8px; color:#374151;">{info['deskripsi']}</p>
                         </div>
+
                         <br>
                         <b>Karakteristik:</b>
-                        <ul>
+                        <ul style="color:#374151; margin-top:6px;">
                             {''.join(f"<li>{c}</li>" for c in info['karakteristik'])}
                         </ul>
                     </div>
                 """, unsafe_allow_html=True)
 
-# ==== LANGKAH SELANJUTNYA (TAMPILAN BARU ELEGAN) ====
-st.markdown("""
-    <div style="
-        margin-top:35px; 
-        padding:30px 25px; 
-        background-color:#f9fafb; 
-        border-radius:20px; 
-        box-shadow:0 4px 12px rgba(0,0,0,0.05);
-    ">
-        <h4 style="
-            margin-bottom:25px; 
-            font-size:20px; 
-            font-weight:700; 
-            color:#1e293b;
-            letter-spacing:0.3px;
-        ">
-            Langkah Selanjutnya
-        </h4>
-    </div>
-""", unsafe_allow_html=True)
+                # ==== LANGKAH SELANJUTNYA (INTERAKTIF & STYLING) ====
+                st.markdown("""
+                    <style>
+                    .next-card {
+                        background-color: #f9fafb;
+                        padding: 22px;
+                        border-radius: 14px;
+                        box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+                        margin-top: 18px;
+                    }
+                    .btn-green {
+                        background: linear-gradient(135deg,#22c55e,#16a34a);
+                        color: white;
+                        font-weight: 700;
+                        border-radius: 999px;
+                        padding: 12px 22px;
+                        border: none;
+                        width: 100%;
+                        box-shadow: 0 6px 16px rgba(34,197,94,0.18);
+                        cursor:pointer;
+                    }
+                    .btn-green:hover { transform: translateY(-2px); }
+                    .btn-outline {
+                        background: white;
+                        color: #16a34a;
+                        font-weight: 700;
+                        border-radius: 999px;
+                        padding: 12px 22px;
+                        border: 2px solid #16a34a;
+                        width: 100%;
+                        cursor:pointer;
+                    }
+                    .btn-outline:hover { background:#eef9f0; transform: translateY(-2px); }
+                    </style>
+                    <div class="next-card">
+                        <h4 style="margin:0 0 12px 0; color:#0f172a;">Langkah Selanjutnya</h4>
+                        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:12px;">
+                    """, unsafe_allow_html=True)
 
-# ==== GAYA TOMBOL ====
-st.markdown("""
-    <style>
-    .custom-btn {
-        background: linear-gradient(135deg, #22c55e, #16a34a);
-        color: white;
-        font-family: 'Poppins', sans-serif;
-        font-size: 16px;
-        font-weight: 600;
-        border: none;
-        border-radius: 50px;
-        padding: 12px 28px;
-        text-align: center;
-        cursor: pointer;
-        transition: all 0.25s ease;
-        box-shadow: 0 3px 10px rgba(34,197,94,0.3);
-        width: 100%;
-    }
-    .custom-btn:hover {
-        background: linear-gradient(135deg, #16a34a, #15803d);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(34,197,94,0.4);
-    }
-    .secondary-btn {
-        background: linear-gradient(135deg, #3b82f6, #2563eb);
-        color: white;
-        font-family: 'Poppins', sans-serif;
-        font-size: 16px;
-        font-weight: 600;
-        border: none;
-        border-radius: 50px;
-        padding: 12px 28px;
-        text-align: center;
-        cursor: pointer;
-        transition: all 0.25s ease;
-        box-shadow: 0 3px 10px rgba(59,130,246,0.3);
-        width: 100%;
-    }
-    .secondary-btn:hover {
-        background: linear-gradient(135deg, #2563eb, #1d4ed8);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(59,130,246,0.4);
-    }
-    </style>
-""", unsafe_allow_html=True)
+                # Interaktif: gunakan st.button (tidak bisa style langsung, tapi kita keep layout + actions)
+                c1, c2 = st.columns(2)
+                with c1:
+                    if st.button("🔍 Analisis Gambar Lain"):
+                        # reset uploader state so user can upload new file
+                        # remove only uploader key(s) if present; else clear minimal keys
+                        keys_to_remove = [k for k in list(st.session_state.keys()) if k.startswith("file_uploader")]
+                        for k in keys_to_remove:
+                            del st.session_state[k]
+                        # fallback: clear all (safe)
+                        # st.session_state.clear()
+                        st.rerun()
+                with c2:
+                    if st.button("🏁 Mulai dari Awal"):
+                        st.session_state.clear()
+                        st.rerun()
 
-col_next1, col_next2 = st.columns(2)
-with col_next1:
-    st.markdown('<button class="custom-btn">🔍 Analisis Gambar Lain</button>', unsafe_allow_html=True)
-with col_next2:
-    st.markdown('<button class="secondary-btn">🔁 Mulai dari Awal</button>', unsafe_allow_html=True)
+                # close grid & card
+                st.markdown("</div></div>", unsafe_allow_html=True)
+
+            except Exception as e:
+                st.error("⚠️ Terjadi kesalahan saat klasifikasi gambar.")
+                st.write(str(e))
+
+        elif menu == "🔍 Deteksi Objek":
+            st.markdown("### Hasil Deteksi Objek")
+            results = yolo_model(img)
+            result_img = results[0].plot()
+
+            col_img1, col_img2 = st.columns(2)
+            with col_img1:
+                st.image(img, caption="Gambar Asli", use_container_width=False, clamp=False)
+            with col_img2:
+                # tampilkan hasil deteksi dengan max width agar tidak terlalu besar
+                buf = io.BytesIO()
+                Image.fromarray(result_img).save(buf, format="PNG")
+                data = buf.getvalue()
+                import base64
+                b64 = base64.b64encode(data).decode()
+                st.markdown(
+                    f"<div style='text-align:center'><img src='data:image/png;base64,{b64}' style='max-width:420px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.06);'/><p style='color:#6b7280;margin-top:6px;'>Hasil Deteksi Objek</p></div>",
+                    unsafe_allow_html=True,
+                )
+    else:
+        st.info("Silakan upload gambar terlebih dahulu untuk memulai analisis.")
