@@ -960,11 +960,11 @@ flower_classes = ["Lily", "Lotus", "Orchid", "Sunflower", "Tulip"]
 flower_info = {
     "Lily": {
         "famili": "Liliaceae",
-        "deskripsi": "Lily dikenal dengan kelopak besar dan aroma yang kuat. Melambangkan kemurnian dan keanggunan.",
+        "deskripsi": "Lily dikenal sebagai simbol kemurnian dan keanggunan. Bunganya besar, harum, dan sering digunakan dalam acara formal maupun keagamaan. Varietasnya beragam, dari warna putih polos hingga merah muda lembut.",
         "karakteristik": [
-            "Kelopak besar dan halus",
-            "Aroma lembut dan khas",
-            "Biasanya berwarna putih, kuning, atau merah muda"
+            "Kelopak besar dan mekar penuh dengan tekstur halus",
+            "Aroma manis yang kuat, terutama pada malam hari",
+            "Warna dominan: putih, kuning, jingga, dan merah muda"
         ]
     },
     "Lotus": {
