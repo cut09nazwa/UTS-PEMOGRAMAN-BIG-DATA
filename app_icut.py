@@ -1092,38 +1092,75 @@ with col2:
                     </div>
                 """, unsafe_allow_html=True)
 
-                # ==== LANGKAH SELANJUTNYA ====
-                st.markdown("""
-                    <div style="margin-top:25px; padding:20px; background-color:#f8fafc; border-radius:16px; box-shadow:0 1px 4px rgba(0,0,0,0.05);">
-                        <h4 style="margin-bottom:15px;">Langkah Selanjutnya</h4>
-                    </div>
-                """, unsafe_allow_html=True)
+# ==== LANGKAH SELANJUTNYA (TAMPILAN BARU ELEGAN) ====
+st.markdown("""
+    <div style="
+        margin-top:35px; 
+        padding:30px 25px; 
+        background-color:#f9fafb; 
+        border-radius:20px; 
+        box-shadow:0 4px 12px rgba(0,0,0,0.05);
+    ">
+        <h4 style="
+            margin-bottom:25px; 
+            font-size:20px; 
+            font-weight:700; 
+            color:#1e293b;
+            letter-spacing:0.3px;
+        ">
+            Langkah Selanjutnya
+        </h4>
+    </div>
+""", unsafe_allow_html=True)
 
-                col_next1, col_next2 = st.columns(2)
-                with col_next1:
-                    if st.button("🔎 Analisis Gambar Lain", use_container_width=True):
-                        st.session_state.clear()
-                        st.rerun()
-                with col_next2:
-                    if st.button("🔁 Mulai dari Awal", use_container_width=True):
-                        st.session_state.clear()
-                        st.rerun()
+# ==== GAYA TOMBOL ====
+st.markdown("""
+    <style>
+    .custom-btn {
+        background: linear-gradient(135deg, #22c55e, #16a34a);
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        border: none;
+        border-radius: 50px;
+        padding: 12px 28px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        box-shadow: 0 3px 10px rgba(34,197,94,0.3);
+        width: 100%;
+    }
+    .custom-btn:hover {
+        background: linear-gradient(135deg, #16a34a, #15803d);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(34,197,94,0.4);
+    }
+    .secondary-btn {
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        border: none;
+        border-radius: 50px;
+        padding: 12px 28px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        box-shadow: 0 3px 10px rgba(59,130,246,0.3);
+        width: 100%;
+    }
+    .secondary-btn:hover {
+        background: linear-gradient(135deg, #2563eb, #1d4ed8);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(59,130,246,0.4);
+    }
+    </style>
+""", unsafe_allow_html=True)
 
-            except Exception as e:
-                st.error("⚠️ Terjadi kesalahan saat klasifikasi gambar.")
-                st.write(str(e))
-
-        elif menu == "🔍 Deteksi Objek":
-            st.markdown("### Hasil Deteksi Objek")
-            results = yolo_model(img)
-            result_img = results[0].plot()
-
-            col_img1, col_img2 = st.columns(2)
-            with col_img1:
-                st.image(img, caption="Gambar Asli", use_container_width=True)
-            with col_img2:
-                st.image(result_img, caption="Hasil Deteksi Objek", use_container_width=True)
-    else:
-        st.info("Silakan upload gambar terlebih dahulu untuk memulai analisis.")
-
-st.markdown("</div>", unsafe_allow_html=True)
+col_next1, col_next2 = st.columns(2)
+with col_next1:
+    st.markdown('<button class="custom-btn">🔍 Analisis Gambar Lain</button>', unsafe_allow_html=True)
+with col_next2:
+    st.markdown('<button class="secondary-btn">🔁 Mulai dari Awal</button>', unsafe_allow_html=True)
