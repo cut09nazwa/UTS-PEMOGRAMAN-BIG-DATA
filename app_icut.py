@@ -1120,37 +1120,6 @@ with col2:
 
                 components.html(html_result, height=400, scrolling=True)
 
-                # ==== LANGKAH SELANJUTNYA ====
-                st.markdown(
-                    """
-                    <div style="
-                        margin-top:25px; 
-                        padding:20px; 
-                        background-color:#f8fafc; 
-                        border-radius:16px; 
-                        box-shadow:0 1px 4px rgba(0,0,0,0.05);
-                    ">
-                        <h4 style="margin-bottom:15px;">Langkah Selanjutnya</h4>
-                    </div>
-                    """, 
-                    unsafe_allow_html=True
-                )
-
-                col_next1, col_next2 = st.columns(2)
-                with col_next1:
-                    if st.button("🔎 Analisis Gambar Lain", use_container_width=True):
-                        st.session_state.clear()
-                        st.rerun()
-
-                with col_next2:
-                    if st.button("🔁 Mulai dari Awal", use_container_width=True):
-                        st.session_state.clear()
-                        st.rerun()
-
-            except Exception as e:
-                st.error("⚠️ Terjadi kesalahan saat klasifikasi gambar.")
-                st.write(str(e))
-
         # ==== MENU DETEKSI OBJEK ====
         elif menu == "🔍 Deteksi Objek":
             st.markdown("### Hasil Deteksi Objek")
