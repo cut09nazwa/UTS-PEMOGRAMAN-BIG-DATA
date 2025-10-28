@@ -368,7 +368,7 @@ st.markdown('<div id="mulai"></div><div id="fitur"></div>', unsafe_allow_html=Tr
 st.markdown(
     """
     <div class="fitur-wrapper">
-        <h1 class="section-title">Fitur Unggulan</h1>
+        <h1 class="section-title">💡Fitur Unggulan💡</h1>
         <p class="section-subtitle">
             Teknologi AI terdepan yang memungkinkan Anda mengeksplorasi dunia bunga 
             dengan cara yang belum pernah ada sebelumnya.
