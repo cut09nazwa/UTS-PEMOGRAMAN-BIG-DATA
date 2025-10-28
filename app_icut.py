@@ -969,7 +969,7 @@ flower_info = {
     },
     "Lotus": {
         "famili": "Nelumbonaceae",
-        "deskripsi": "Lotus atau teratai adalah bunga air yang melambangkan kesucian, ketenangan, dan kebangkitan spiritual. Meski tumbuh di air keruh, bunganya tetap bersih dan indah — menjadi simbol keanggunan yang abadi.",
+        "deskripsi": "Lotus atau teratai adalah bunga air yang melambangkan kesucian, ketenangan, dan kebangkitan spiritual. Meski tumbuh di air keruh, bunganya tetap bersih dan indah menjadi simbol keanggunan yang abadi.",
         "karakteristik": [
             "Tumbuh di air dengan daun besar berbentuk bundar",
             "Kelopak tebal berlapis-lapis dan mekar di atas permukaan air",
