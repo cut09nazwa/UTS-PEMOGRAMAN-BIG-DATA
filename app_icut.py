@@ -1061,110 +1061,125 @@ with col1:
 import streamlit as st
 import streamlit.components.v1 as components
 import numpy as np
+import time  # untuk simulasi progress bar
 
 with col2:
     if uploaded_file is not None:
         if menu == "🌸 Klasifikasi Bunga":
-            # --- Prediksi ---
-            input_shape = classifier.input_shape
-            target_size = (input_shape[1], input_shape[2])
-            channels = input_shape[3] if len(input_shape) == 4 else 3
+            # --- Spinner saat analisis berjalan ---
+            with st.spinner("🔄 Sedang menganalisis gambar..."):
+                input_shape = classifier.input_shape
+                target_size = (input_shape[1], input_shape[2])
+                channels = input_shape[3] if len(input_shape) == 4 else 3
 
-            img_resized = img.resize(target_size)
-            img_array = np.array(img_resized) / 255.0
+                img_resized = img.resize(target_size)
+                img_array = np.array(img_resized) / 255.0
 
-            if channels == 1:
-                img_array = np.mean(img_array, axis=-1, keepdims=True)
-            elif img_array.ndim == 2:
-                img_array = np.stack((img_array,) * 3, axis=-1)
-            elif img_array.shape[-1] == 4:
-                img_array = img_array[..., :3]
+                if channels == 1:
+                    img_array = np.mean(img_array, axis=-1, keepdims=True)
+                elif img_array.ndim == 2:
+                    img_array = np.stack((img_array,) * 3, axis=-1)
+                elif img_array.shape[-1] == 4:
+                    img_array = img_array[..., :3]
 
-            img_array = np.expand_dims(img_array, axis=0)
+                img_array = np.expand_dims(img_array, axis=0)
 
-            try:
-                preds = classifier.predict(img_array)
-                class_index = np.argmax(preds)
-                class_name = flower_classes[class_index]
-                accuracy = float(np.max(preds) * 100)
-                info = flower_info[class_name]
+                # --- Progress bar selama proses berjalan ---
+                progress_text = "🔍 Memproses gambar..."
+                progress_bar = st.progress(0, text=progress_text)
+                for percent_complete in range(100):
+                    time.sleep(0.01)  # simulasi progress bar
+                    progress_bar.progress(percent_complete + 1, text=progress_text)
 
-                # ==== TAMPILAN HASIL ====
-                html_result = f"""
-                    <div class="result-box" style="
-                        background-color:#ffffff; 
-                        padding:25px 28px; 
-                        border-radius:16px; 
-                        box-shadow:0 4px 10px rgba(0,0,0,0.05); 
-                        margin-top:10px;
-                    ">
-                        <div style="
-                            display:flex; 
-                            justify-content:space-between; 
-                            align-items:center; 
-                            margin-bottom:10px;
-                        ">
-                            <h3 style="margin:0; color:#1e293b;">Hasil Klasifikasi</h3>
-                            <span style="
-                                background-color:#16a34a;
-                                color:white;
-                                font-weight:600;
-                                font-size:15px;
-                                padding:6px 12px;
-                                border-radius:10px;
-                                box-shadow:0 2px 6px rgba(22,163,74,0.3);
-                            ">
-                                {accuracy:.1f}% Akurasi
-                            </span>
-                        </div>
+                try:
+                    preds = classifier.predict(img_array)
+                    progress_bar.empty()  # hapus progress bar setelah selesai
 
-                        <div style="
-                            background-color:#f0fdf4; 
-                            padding:14px 20px; 
-                            border-radius:12px; 
+                    class_index = np.argmax(preds)
+                    class_name = flower_classes[class_index]
+                    accuracy = float(np.max(preds) * 100)
+                    info = flower_info[class_name]
+
+                    # ==== TAMPILAN HASIL ====
+                    html_result = f"""
+                        <div class="result-box" style="
+                            background-color:#ffffff; 
+                            padding:25px 28px; 
+                            border-radius:16px; 
+                            box-shadow:0 4px 10px rgba(0,0,0,0.05); 
                             margin-top:10px;
                         ">
-                            <h4 style="
-                                color:#047857; 
-                                font-size:22px; 
-                                font-weight:700; 
-                                margin:0 0 5px 0;
+                            <div style="
+                                display:flex; 
+                                justify-content:space-between; 
+                                align-items:center; 
+                                margin-bottom:10px;
                             ">
-                                {class_name}
-                            </h4>
-                            <p style="margin:3px 0 0;"><b>Famili:</b> {info['famili']}</p>
-                            <p style="margin-top:8px; color:#374151; line-height:1.8;">{info['deskripsi']}</p>
+                                <h3 style="margin:0; color:#1e293b;">Hasil Klasifikasi</h3>
+                                <span style="
+                                    background-color:#16a34a;
+                                    color:white;
+                                    font-weight:600;
+                                    font-size:15px;
+                                    padding:6px 12px;
+                                    border-radius:10px;
+                                    box-shadow:0 2px 6px rgba(22,163,74,0.3);
+                                ">
+                                    {accuracy:.1f}% Akurasi
+                                </span>
+                            </div>
+
+                            <div style="
+                                background-color:#f0fdf4; 
+                                padding:14px 20px; 
+                                border-radius:12px; 
+                                margin-top:10px;
+                            ">
+                                <h4 style="
+                                    color:#047857; 
+                                    font-size:22px; 
+                                    font-weight:700; 
+                                    margin:0 0 5px 0;
+                                ">
+                                    {class_name}
+                                </h4>
+                                <p style="margin:3px 0 0;"><b>Famili:</b> {info['famili']}</p>
+                                <p style="margin-top:8px; color:#374151; line-height:1.8;">{info['deskripsi']}</p>
+                            </div>
+
+                            <div style="margin-top:18px;">
+                                <b>Karakteristik:</b>
+                                <ul style="margin-top:5px; line-height:1.6; color:#374151;">
+                                    {''.join(f"<li>{c}</li>" for c in info['karakteristik'])}
+                                </ul>
+                            </div>
                         </div>
+                    """
 
-                        <div style="margin-top:18px;">
-                            <b>Karakteristik:</b>
-                            <ul style="margin-top:5px; line-height:1.6; color:#374151;">
-                                {''.join(f"<li>{c}</li>" for c in info['karakteristik'])}
-                            </ul>
-                        </div>
-                    </div>
-                """
+                    components.html(html_result, height=400, scrolling=True)
 
-                components.html(html_result, height=400, scrolling=True)
+                    # Pesan sukses setelah hasil keluar
+                    st.success(f"✅ Klasifikasi berhasil! Gambar terdeteksi sebagai **{class_name}** dengan akurasi {accuracy:.1f}%.")
 
-            except Exception as e:
-                st.error("⚠️ Terjadi kesalahan saat melakukan prediksi.")
-                pass  # biar tidak error walau blok try selesai
+                except Exception as e:
+                    progress_bar.empty()
+                    st.error("⚠️ Terjadi kesalahan saat melakukan prediksi.")
+                    pass
 
         # ==== MENU DETEKSI OBJEK ====
         elif menu == "🔍 Deteksi Objek":
-            st.markdown("### Hasil Deteksi Objek")
-            results = yolo_model(img)
-            result_img = results[0].plot()
+            with st.spinner("🧠 Model YOLO sedang mendeteksi objek..."):
+                st.markdown("### Hasil Deteksi Objek")
+                results = yolo_model(img)
+                result_img = results[0].plot()
 
-            col_img1, col_img2 = st.columns(2)
-            with col_img1:
-                st.image(img, caption="Gambar Asli", use_container_width=True)
-            with col_img2:
-                st.image(result_img, caption="Hasil Deteksi Objek", use_container_width=True)
+                col_img1, col_img2 = st.columns(2)
+                with col_img1:
+                    st.image(img, caption="Gambar Asli", use_container_width=True)
+                with col_img2:
+                    st.image(result_img, caption="Hasil Deteksi Objek", use_container_width=True)
+
+                st.success("✅ Deteksi selesai! Objek berhasil dikenali oleh model.")
 
     else:
-        st.info("Silakan upload gambar terlebih dahulu untuk memulai analisis.")
-
-# ✅ Penutup section
-st.markdown("</div>", unsafe_allow_html=True)
+        st.info("📸 Silakan upload gambar terlebih dahulu untuk memulai analisis.")
