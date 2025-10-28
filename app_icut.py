@@ -540,7 +540,7 @@ st.markdown("""
 # ===== HTML STRUCTURE =====
 st.markdown("""
 <div class="proses-wrapper">
-    <h1 class="proses-title">Proses Mudah dalam 4 Langkah</h1>
+    <h1 class="proses-title">⚡Proses Mudah dalam 4 Langkah📝</h1>
     <p class="proses-subtitle">
         Perjalanan interaktif yang akan membawa Anda memahami teknologi AI 
         dan menganalisis bunga favorit Anda
@@ -655,7 +655,7 @@ st.markdown(
     """
     <div style='text-align:center; padding:70px 0 40px;'>
         <h1 style='color:#0f172a; font-size:42px; font-weight:800; margin-bottom:10px;'>
-            Teknologi AI yang Menakjubkan
+            🧠Teknologi AI yang Menakjubkan
         </h1>
         <p style='color:#334155; font-size:17px; max-width:700px; margin:0 auto; line-height:1.6;'>
             Pelajari bagaimana kecerdasan buatan dapat mengenali bentuk, warna, dan pola pada bunga.
@@ -745,7 +745,7 @@ st.markdown("""
 <div style='text-align:center; margin-top:40px;'>
     <a href='#pengaturan' style='background:linear-gradient(135deg,#9333ea,#ec4899); 
     color:white; padding:12px 35px; border-radius:30px; font-weight:600; text-decoration:none; 
-    box-shadow:0 6px 18px rgba(147,51,234,0.3); transition:0.3s;'>↓ Lanjut ke Pengaturan</a>
+    box-shadow:0 6px 18px rgba(147,51,234,0.3); transition:0.3s;'>⬇️ Lanjut ke Pengaturan</a>
 </div>
 
 <style>
@@ -831,7 +831,7 @@ st.markdown(
     """
     <div style='text-align:center; padding:40px 0 10px;'>
         <h1 style='color:#0f172a; font-size:42px; font-weight:800; margin-bottom:10px;'>
-            Personalisasi Pengalaman Anda
+            🙋‍♀️Personalisasi Pengalaman Anda
         </h1>
         <p style='color:#334155; font-size:17px; max-width:700px; margin:0 auto; line-height:1.6;'>
             Masukkan nama Anda dan Pilih tujuan menggunakan AI Flower Vsion sesuai preferensi anda.
@@ -1013,7 +1013,7 @@ st.markdown(
     """
     <div style='text-align:center; padding:5px 0 0px; margin-top:-30px;'>
         <h1 style='color:#0f172a; font-size:40px; font-weight:800; margin-bottom:6px;'>
-            Analisis Gambar Bunga
+            🌺Analisis Gambar Bunga🔎
         </h1>
         <p style='color:#334155; font-size:16px; max-width:680px; margin:0 auto; line-height:1.5;'>
             Upload Gambar Bunga dan Pilih Mode Analisis yang Diinginkan
